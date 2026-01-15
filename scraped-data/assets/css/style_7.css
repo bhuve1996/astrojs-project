@@ -1,0 +1,863 @@
+.upgrade_heading {
+    width: 500px;
+}
+
+.upgrade_heading h1 {
+    font-weight: 200;
+    color: #4A75C1;
+    margin: 0px 10px;
+    font-size: 48px;
+}
+
+.upgrade_heading h1 i {
+    background: url(/v2/img/star@2x.png) 0 0 no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    margin: 0px 0px 26px 0px;
+}
+
+.upgrade_heading p {
+    font-weight: 200;
+    color: #333;
+    padding: 0px 90px 0px 10px;
+}
+
+.upgrade_heading ul {
+    list-style: none;
+    padding: 0px 10px;
+    font-weight: 400;
+    color: #4A75C1;
+}
+.upgrade_heading ul li i {
+    background: url(/v2/img/star@2x.png) 0 0 no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    vertical-align: middle;
+    margin: 6px 8px 8px 0px;
+}
+/* Premium upgrade link styling */
+.premium-upgrade {
+    display: inline-block;
+    color: #3968bc;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    background: #3968bc;
+    color: #ffffff;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.premium-upgrade:hover {
+    background: #2d5299;
+    box-shadow: 0 2px 8px rgba(57, 104, 188, 0.3);
+}
+
+[data-theme="dark"] .premium-upgrade {
+    background: #3968bc;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .premium-upgrade:hover {
+    background: #5080d6;
+}
+
+/* Remove p tag padding around premium-upgrade buttons */
+p:has(.premium-upgrade) {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.term_options {
+    width: 410px;
+    background-color: #E6E6E6;
+    padding: 10px 2px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    position: relative;
+    text-align: center;
+}
+.term_options.small{
+    font-size: 15px;
+}
+.term_options.single_term{
+    width: 380px;
+}
+
+.term_opt {
+    display: inline-block;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+.term_opt i, .payment_opt i, .sub_opt i{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    background-color: #E6E6E6;
+    border: 3px solid gray;
+    vertical-align: middle;
+    margin: 0px 10px 3px 10px;
+}
+
+.term_opt.selected i, .payment_opt.selected i, .sub_opt.selected i {
+    border-color: #4A75C1;
+    width: 7px;
+    height: 7px;
+    border-width: 7px;
+}
+
+.term_options a.btn.btn-primary {
+    margin-left: 20px;
+    width: 124px;
+    text-align: center;
+}
+
+.upgrade_header_img {
+    width: 343px;
+    height: 301px;
+    position: absolute;
+    background: url(/v2/img/pro_illustration@2x.png) 0 0 no-repeat;
+    background-size: 343px 301px;
+    top: 35px;
+    right: 65px;
+}
+
+
+#have_promo {
+    position: absolute;
+    width: 200px;
+    font-size: 14px;
+    left: 50%;
+    bottom: -30px;
+    margin-left: -100px;
+    text-align: center;
+    color: #4A75C1;
+    cursor: pointer;
+}
+#promo_form{}
+#promo_form input {
+    font-size: 16px;
+    padding: 8px 10px;
+    margin-left: 30px;
+    width: 256px;
+}
+#promo_form a{}
+
+.payment_options {
+    padding: 10px 0px;
+}
+.payment_options h1 {
+    text-align: center;
+    font-weight: 200;
+    color: #4A75C1;
+}
+.payment_methods {
+    width: 785px;
+    margin: 10px auto;
+}
+.payment_opt {
+    display: inline-block;
+    margin: 0px 20px;
+    cursor: pointer;
+}
+.payment_methods #bitpay{}
+.payment_methods #bitpay span {
+    width: 103px;
+    height: 22px;
+    background: url(/v2/img/bitcoin_logo@2x.png) 0 0 no-repeat;
+    background-size: 103px 22px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.payment_methods #paypal{}
+.payment_methods #paypal span{
+    width: 89px;
+    height: 25px;
+    background: url(/v2/img/paypal_logo@2x.png) 0 0 no-repeat;
+    background-size: 89px 25px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.payment_methods #credit{}
+.payment_methods #credit span{
+    width: 116px;
+    height: 21px;
+    background: url(/v2/img/cc_logos@2x.png) 0 0 no-repeat;
+    background-size: 116px 21px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.payment_methods #paywall{}
+.payment_methods #paywall span{
+    width: 116px;
+    height: 21px;
+    background: url(/v2/img/paymentwall_logo.png) center center no-repeat;
+    background-size: 116px 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.paywallframe{
+    max-width: 750px;
+    margin: 0px auto;
+}
+
+
+.plan_compare{}
+.plan_compare h1 {
+    text-align: center;
+    font-weight: 200;
+    color: #4A75C1;
+}
+.plan_compare a {
+    display: block;
+    margin: 0px auto 50px;
+    width: 100px;
+}
+.plan_compare table {
+    border: 3px solid #4A75C1;
+    margin: 10px auto 10px;
+    box-shadow: 0px 2px 6px #B4C9EF;
+}
+.plan_compare tr{}
+.plan_compare td {
+    border: 1px solid #E4EAF6;
+    padding: 25px;
+    color: #4A75C1;
+    text-align: center;
+    font-size: 17px;
+}
+.plan_compare td:first-child {
+    width: 200px;
+    text-align: left;
+}
+.plan_compare span {
+    color: gray;
+}
+.plan_compare strong {
+    font-size: 18px;
+}
+.plan_compare em {
+    font-style: normal;
+    font-weight: 600;
+}
+.plan_compare i {
+    background: url(/v2/img/star@2x.png) 0 0 no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    vertical-align: middle;
+    margin: 0px 6px 3px 0px;
+}
+
+.sub_options {
+    width: 300px;
+    background-color: #E6E6E6;
+    margin: 60px auto 30px;
+    padding: 20px;
+    border-radius: 5px;
+}
+.sub_options h3{
+    margin: 0px 0px 15px 0px;
+}
+#subscription_btn{
+    margin-bottom: 10px;
+}
+.sub_opt {
+    cursor: pointer;
+}
+.sub_opt.selected{
+    color: #4A75C1;
+}
+
+#pay_btn {
+    width: 78px;
+    display: block;
+    margin: 60px auto 30px;
+    text-align: center;
+}
+
+.payment_options h3 {
+    font-weight: 200;
+    text-align: center;
+    color: #4A75C1;
+}
+
+.upgrade_static_button {
+    max-width: 500px;
+    border-radius: 6px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    margin: 40px auto 0px auto;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.upgrade_static_button strong {
+    color: #3968bc;
+    font-size: 23px;
+    padding: 10px 0px;
+    margin: 0;
+    width:280px;
+    display: block;
+    float: left;
+}
+
+.upgrade_static_button p {
+    width:150px;
+    float: right;
+}
+
+@media (max-width: 768px) {
+    .upgrade_static_button {
+        text-align: center !important;
+    }
+    
+    .upgrade_static_button strong {
+        float: none !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .upgrade_static_button p {
+        float: none !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+.fine_print {
+    font-size: 12px;
+    max-width: 500px;
+    margin: 10px auto;
+    color: #999;
+    padding: 0px 5px;
+}
+
+.small .term_opt > span{
+    font-size: 13px !important;
+}
+
+.term_opt > span{
+    position: relative;
+    font-size: 16px;
+}
+.promo_discount_cont{
+    position: absolute;
+    padding: 2px 10px 2px 4px;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    bottom: -42px;
+    left: 50%;
+    margin-left: -45px;
+}
+.promo_discount_cont strong{
+    font-size: 15px;
+}
+.promo_discount_cont span{
+    position: absolute;
+    background-color: orange;
+    color: white;
+    line-height: 16px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    top: 50%;
+    margin-top: -24px;
+    right: -42px;
+    width: 48px;
+    padding: 7px 0px;
+    text-align: center;
+    font-size: 15px;
+}
+
+#promo_discount_image {
+    background-color: orange;
+    color: white;
+    width: 40px;
+    display: block;
+    line-height: 19px;
+    padding: 10px;
+    border-radius: 45px;
+    -webkit-border-radius: 45px;
+    -moz-border-radius: 45px;
+    position: absolute;
+    top: -40px;
+    left: 110px;
+}
+
+.locations_table{}
+.locations_table h1{}
+.locations_table table{}
+.locations_table tr{}
+.locations_table th{}
+.locations_table td{
+    padding: 12px 25px;
+}
+.locations_table i{}
+.locations_table i.cflag {
+    background-size: 24px !important;
+    width: 22px;
+    height: 16px;
+    background-position: center !important;
+    box-shadow: 0px 0px 4px 0px #CCC;
+}
+.locations_table i.cross{
+    background: url(/v2/img/close_button_red@2x.png) center center no-repeat;
+    background-size: 26px;
+    width: 30px;
+    height: 30px;
+}
+
+.locations_table i.checkmark{
+    background: url(/v2/img/gopro/blue-checkmark.png);
+    width: 24px;
+    height: 24px;
+}
+
+i.cflag.US{
+    background: url(/img/flags/US.png) 0 0 no-repeat;
+}
+i.cflag.GB, i.cflag.ENG{
+    background: url(/img/flags/GB.png) 0 0 no-repeat;
+}
+i.cflag.IT, i.cflag.ITA{
+    background: url(/img/flags/IT.png) 0 0 no-repeat;
+}
+i.cflag.CA{
+    background: url(/img/flags/CA.png) 0 0 no-repeat;
+}
+i.cflag.MX{
+    background: url(/img/flags/MX.png) 0 0 no-repeat;
+}
+i.cflag.FR, i.cflag.FRA{
+    background: url(/img/flags/FR.png) 0 0 no-repeat;
+}
+i.cflag.DE, i.cflag.DEU{
+    background: url(/img/flags/DE.png) 0 0 no-repeat;
+}
+i.cflag.LU{
+    background: url(/img/flags/LU.png) 0 0 no-repeat;
+}
+i.cflag.NL, i.cflag.NLD{
+    background: url(/img/flags/NL.png) 0 0 no-repeat;
+}
+i.cflag.NO{
+    background: url(/img/flags/NO.png) 0 0 no-repeat;
+}
+i.cflag.RO{
+    background: url(/img/flags/RO.png) 0 0 no-repeat;
+}
+i.cflag.ES, i.cflag.ESP{
+    background: url(/img/flags/ES.png) 0 0 no-repeat;
+}
+i.cflag.SE, i.cflag.SWE{
+    background: url(/img/flags/SE.png) 0 0 no-repeat;
+}
+i.cflag.CH{
+    background: url(/img/flags/CH.png) 0 0 no-repeat;
+}
+i.cflag.UK{
+    background: url(/img/flags/UK.png) 0 0 no-repeat;
+}
+i.cflag.RU, i.cflag.RUS{
+    background: url(/img/flags/RU.png) 0 0 no-repeat;
+}
+i.cflag.AU{
+    background: url(/img/flags/AU.png) 0 0 no-repeat;
+}
+i.cflag.HK{
+    background: url(/img/flags/HK.png) 0 0 no-repeat;
+}
+i.cflag.JP, i.cflag.JPN{
+    background: url(/img/flags/JP.png) 0 0 no-repeat;
+}
+i.cflag.SG{
+    background: url(/img/flags/SG.png) 0 0 no-repeat;
+}
+i.cflag.IN, i.cflag.IND{
+    background: url(/img/flags/IN.png) 0 0 no-repeat;
+}
+i.cflag.KR, i.cflag.KOR{
+    background: url(/img/flags/KR.png) 0 0 no-repeat;
+}
+i.cflag.IE{
+    background: url(/img/flags/IE.png) 0 0 no-repeat;
+}
+i.cflag.TR, i.cflag.TUR{
+    background: url(/img/flags/TR.png) 0 0 no-repeat;
+}
+i.cflag.EG, i.cflag.EGY{
+    background: url(/img/flags/EG.png) 0 0 no-repeat;
+}
+i.cflag.DK{
+    background: url(/img/flags/DK.png) 0 0 no-repeat;
+}
+i.cflag.BR{
+    background: url(/img/flags/BR.png) 0 0 no-repeat;
+}
+i.cflag.PR{
+    background: url(/img/flags/PR.png) 0 0 no-repeat;
+}
+i.cflag.PT, i.cflag.PRT{
+    background: url(/img/flags/PT.png) 0 0 no-repeat;
+}
+i.cflag.ZA{
+    background: url(/img/flags/ZA.png) 0 0 no-repeat;
+}
+i.cflag.NZ{
+    background: url(/img/flags/NZ.png) 0 0 no-repeat;
+}
+i.cflag.PL{
+    background: url(/img/flags/PL.png) 0 0 no-repeat;
+}
+i.cflag.AT{
+    background: url(/img/flags/AT.png) 0 0 no-repeat;
+}
+i.cflag.CZ{
+    background: url(/img/flags/CZ.png) 0 0 no-repeat;
+}
+i.cflag.HU{
+    background: url(/img/flags/HU.png) 0 0 no-repeat;
+}
+i.cflag.TW{
+    background: url(/img/flags/TW.png) 0 0 no-repeat;
+}
+i.cflag.FI{
+    background: url(/img/flags/FI.png) 0 0 no-repeat;
+}
+i.cflag.BG{
+    background: url(/img/flags/BG.png) 0 0 no-repeat;
+}
+i.cflag.BE{
+    background: url(/img/flags/BE.png) 0 0 no-repeat;
+}
+i.cflag.LV{
+    background: url(/img/flags/LV.png) 0 0 no-repeat;
+}
+i.cflag.LT{
+    background: url(/img/flags/LT.png) 0 0 no-repeat;
+}
+i.cflag.UA{
+    background: url(/img/flags/UA.png) 0 0 no-repeat;
+}
+i.cflag.MY{
+    background: url(/img/flags/MY.png) 0 0 no-repeat;
+}
+i.cflag.IL{
+    background: url(/img/flags/IL.png) 0 0 no-repeat;
+}
+i.cflag.IS{
+    background: url(/img/flags/IS.png) 0 0 no-repeat;
+}
+i.cflag.VN, i.cflag.VNM{
+    background: url(/img/flags/VN.png) 0 0 no-repeat;
+}
+i.cflag.AZ{
+    background: url(/img/flags/AZ.png) 0 0 no-repeat;
+}
+i.cflag.MD{
+    background: url(/img/flags/MD.png) 0 0 no-repeat;
+}
+i.cflag.GR{
+    background: url(/img/flags/GR.png) 0 0 no-repeat;
+}
+i.cflag.CN, i.cflag.CHN{
+    background: url(/img/flags/CN.png) 0 0 no-repeat;
+}
+i.cflag.ID, i.cflag.IDN{
+    background: url(/img/flags/ID.png) 0 0 no-repeat;
+}
+i.cflag.TH, i.cflag.THA{
+    background: url(/img/flags/TH.png) 0 0 no-repeat;
+}
+i.cflag.AE {
+    background: url(/img/flags/AE.png) 0 0 no-repeat;
+}
+i.cflag.ID {
+    background: url(/img/flags/ID.png) 0 0 no-repeat;
+}
+i.cflag.LY {
+    background: url(/img/flags/LY.png) 0 0 no-repeat;
+}
+i.cflag.AR {
+    background: url(/img/flags/AR.png) 0 0 no-repeat;
+}
+i.cflag.PT{
+    background: url(/img/flags/PT.png) 0 0 no-repeat;
+}
+i.cflag.SK{
+    background: url(/img/flags/SK.png) 0 0 no-repeat;
+}
+i.cflag.CO{
+    background: url(/img/flags/CO.png) 0 0 no-repeat;
+}
+i.cflag.HR{
+    background: url(/img/flags/HR.png) 0 0 no-repeat;
+}
+i.cflag.PH{
+    background: url(/img/flags/PH.png) 0 0 no-repeat;
+}
+i.cflag.EE{
+    background: url(/img/flags/EE.png) 0 0 no-repeat;
+}
+i.cflag.TN{
+    background: url(/img/flags/TN.png) 0 0 no-repeat;
+}
+i.cflag.AL{
+    background: url(/img/flags/AL.png) 0 0 no-repeat;
+}
+i.cflag.SI{
+    background: url(/img/flags/SI.png) 0 0 no-repeat;
+}
+i.cflag.RS{
+    background: url(/img/flags/RS.png) 0 0 no-repeat;
+}
+i.cflag.BA{
+    background: url(/img/flags/BA.png) 0 0 no-repeat;
+}
+i.cflag.CY{
+    background: url(/img/flags/CY.png) 0 0 no-repeat;
+}
+i.cflag.MK{
+    background: url(/img/flags/MK.png) 0 0 no-repeat;
+}
+i.cflag.GE{
+    background: url(/img/flags/GE.png) 0 0 no-repeat;
+}
+i.cflag.AQ{
+    background: url(/img/flags/AQ.png) 0 0 no-repeat;
+}
+i.cflag.PA{
+    background: url(/img/flags/PA.png) 0 0 no-repeat;
+}
+i.cflag.PE{
+    background: url(/img/flags/PE.png) 0 0 no-repeat;
+}
+i.cflag.CL{
+    background: url(/img/flags/CL.png) 0 0 no-repeat;
+}
+i.cflag.KH{
+    background: url(/img/flags/KH.png) 0 0 no-repeat;
+}
+i.cflag.EC{
+    background: url(/img/flags/EC.png) 0 0 no-repeat;
+}
+i.cflag.KE{
+    background: url(/img/flags/KE.png) 0 0 no-repeat;
+}
+i.cflag.GH{
+    background: url(/img/flags/GH.png) 0 0 no-repeat;
+}
+
+
+@media (min-resolution: 1.5dppx), (min-resolution: 120dpi), (-webkit-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2){
+
+    .locations_table i.checkmark{
+        background: url(/v2/img/gopro/blue-checkmark@2x.png);
+        background-size: 24px;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .upgrade_header_img{
+        display: none;
+    }
+}
+@media screen and (max-width: 575px) {
+    .upgrade_heading {
+        width: 575px;
+        margin: 0px auto;
+    }
+    .term_opt {
+        display: block;
+        cursor: pointer;
+        margin: 20px auto;
+        width: 180px;
+    }
+    .term_opt.promo{
+        margin: 20px auto 80px;
+    }
+    .term_options.single_term{
+        
+    }
+    .term_options {
+        width:auto;
+        display: block;
+        background-color: #E6E6E6;
+        padding: 10px 2px;
+        border-radius: 50px;
+        margin: 0px auto;
+    }
+    .payment_methods {
+        width: auto;
+    }
+    .payment_opt {
+        display: block;
+        margin: 30px auto;
+        cursor: pointer;
+        width: 180px;
+        padding: 0;
+    }
+    .term_options a.btn.btn-primary {
+        margin: 0px auto 10px;
+        width: 124px;
+        text-align: center;
+        display: block;
+    }
+
+    .plan_compare table {
+        border-left: 0;
+        border-right: 0;
+        width: 100%;
+    }
+
+    #promo_form{}
+    #promo_form a{}
+    #promo_form input {
+        margin: 0px 0px 10px 0px;
+        width: 240px;
+    }
+
+    #have_promo{
+        margin-bottom: 10px;
+    }
+
+}
+@media screen and (max-width: 900px){
+    .upgrade_heading {
+        width: 500px;
+        margin: 0px auto;
+    }
+    .term_options {
+        width:auto;
+        display: block;
+        background: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        margin: 0px auto;
+    }
+}
+@media screen and (max-width: 414px){
+
+    .upgrade_heading {
+        width: 360px;
+        margin: 0px auto;
+    }
+    .upgrade_heading p {
+        padding: 0px 30px 0px 10px;
+    }
+
+    .plan_compare td:first-child {
+        width: 110px !important;
+        text-align: left;
+        font-size: 14px;
+    }
+    .plan_compare td {
+        border: 1px solid #E4EAF6;
+        padding: 20px 17px;
+        color: #4A75C1;
+        text-align: center;
+    }
+
+    #table_cont table a {
+        margin: 0px auto;
+        width: inherit;
+        font-size: 8px !important;
+        padding: 0px 13px;
+        height: 18px;
+        border-radius: 12px;
+        line-height: 18px;
+        display: block;
+    }
+
+    #loc_link{
+        padding: 0px !important;
+        line-height: inherit !important;
+    }
+
+    .locations_table td:first-child {
+        font-size: 11px;
+        width: 200px !important;
+    }
+
+}
+@media screen and (width: 360px){
+    .plan_compare td:first-child {
+        width: 106px !important;
+        font-size: 13px;
+    }
+    .plan_compare td {
+        padding: 22px 17px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .upgrade_heading {
+        width: 320px;
+        margin: 0px auto;
+    }
+    .payment_section{
+        max-width:320px;
+    }
+    .upgrade_heading h1 {
+        font-size: 38px;
+    }
+    .upgrade_heading p {
+        padding: 0px 40px 0px 10px;
+        font-size: 16px;
+    }
+    .plan_compare h1 {
+        font-size: 28px;
+    }
+    .plan_compare td:first-child {
+        width: 120px;
+    }
+
+    .locations_table td:first-child {
+        font-size: 9px;
+    }
+
+    .plan_compare td {
+        padding: 12px 12px;
+        font-size: 14px;
+    }
+    .payment_options h1 {
+        font-size: 28px;
+    }
+    .plan_compare strong{
+        font-size: 14px;
+    }
+
+    #table_cont table a {
+        margin: 0px auto;
+        width: inherit;
+        font-size: 6px !important;
+        padding: 0px 13px;
+        height: 18px;
+        border-radius: 12px;
+        line-height: 18px;
+        display: block;
+    }
+
+    #loc_link{
+        padding: 0px !important;
+        line-height: inherit !important;
+    }
+
+}
