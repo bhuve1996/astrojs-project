@@ -705,43 +705,127 @@
 
   /**
    * Sub-menu functionality (nested dropdowns in navigation)
+   * Supports both hover (desktop) and click (mobile) interactions
    */
   function initSubMenus() {
     const subMenus = safeQuerySelectorAll(selectors.subMenu || '.sub-menu');
     const navMenuBtns = safeQuerySelectorAll(selectors.navMenuBtn || '.nav-menu-btn');
 
-    // Handle nav menu buttons with sub-menus
-    navMenuBtns.forEach(btn => {
-      const subMenu = btn.parentElement?.querySelector(selectors.subMenu || '.sub-menu');
-      if (subMenu) {
-        btn.addEventListener('click', e => {
-          // Only toggle if it's not a link (or prevent default if it is)
-          if (btn.getAttribute('href') && btn.getAttribute('href') !== '#') {
-            // Allow navigation, but also toggle menu on mobile
-            if (window.innerWidth <= 768) {
-              e.preventDefault();
-            }
-          } else {
-            e.preventDefault();
+    // Also find menu items with sub-menus (li elements containing sub-menu)
+    const menuItemsWithSubMenus = safeQuerySelectorAll('li:has(.sub-menu), li:has(ul.sub-menu)');
+
+    // Combine nav-menu-btn and menu items with sub-menus
+    const allDropdownTriggers = [...navMenuBtns, ...menuItemsWithSubMenus];
+
+    // Handle dropdowns with hover (desktop) and click (mobile)
+    allDropdownTriggers.forEach(trigger => {
+      const parentLi = trigger.closest('li') || trigger.parentElement?.closest('li');
+      const subMenu =
+        parentLi?.querySelector(selectors.subMenu || '.sub-menu') ||
+        trigger.parentElement?.querySelector(selectors.subMenu || '.sub-menu');
+
+      if (!subMenu) return;
+
+      let hoverTimeout = null;
+
+      // Desktop: Hover to show/hide
+      const handleMouseEnter = () => {
+        if (hoverTimeout) {
+          clearTimeout(hoverTimeout);
+          hoverTimeout = null;
+        }
+        // Close all other sub-menus
+        subMenus.forEach(menu => {
+          if (menu !== subMenu) {
+            menu.classList.remove('is-open', 'is-visible');
+            menu.style.display = '';
           }
+        });
+        // Show current sub-menu
+        subMenu.classList.add('is-open', 'is-visible');
+        subMenu.style.display = 'block';
+      };
 
-          const isOpen = subMenu.classList.contains('is-open') || subMenu.style.display === 'block';
+      const handleMouseLeave = () => {
+        hoverTimeout = setTimeout(() => {
+          subMenu.classList.remove('is-open', 'is-visible');
+          subMenu.style.display = '';
+        }, 150); // Small delay to allow moving to sub-menu
+      };
 
-          // Close all other sub-menus
-          subMenus.forEach(menu => {
-            if (menu !== subMenu) {
-              menu.classList.remove('is-open');
-              menu.style.display = '';
-            }
-          });
+      // Mobile: Click to toggle
+      const handleClick = e => {
+        // Only handle click on mobile
+        if (window.innerWidth > 768) {
+          // On desktop, if it's a link, allow navigation
+          if (trigger.getAttribute('href') && trigger.getAttribute('href') !== '#') {
+            return; // Allow default link behavior
+          }
+          e.preventDefault();
+          return;
+        }
 
-          // Toggle current sub-menu
-          if (isOpen) {
-            subMenu.classList.remove('is-open');
-            subMenu.style.display = '';
-          } else {
-            subMenu.classList.add('is-open');
-            subMenu.style.display = 'block';
+        // Mobile: toggle on click
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isOpen = subMenu.classList.contains('is-open') || subMenu.style.display === 'block';
+
+        // Close all other sub-menus
+        subMenus.forEach(menu => {
+          if (menu !== subMenu) {
+            menu.classList.remove('is-open', 'is-visible');
+            menu.style.display = '';
+          }
+        });
+
+        // Toggle current sub-menu
+        if (isOpen) {
+          subMenu.classList.remove('is-open', 'is-visible');
+          subMenu.style.display = '';
+        } else {
+          subMenu.classList.add('is-open', 'is-visible');
+          subMenu.style.display = 'block';
+        }
+      };
+
+      // Attach events to parent li or trigger element
+      const targetElement = parentLi || trigger;
+
+      // Desktop hover events
+      targetElement.addEventListener('mouseenter', handleMouseEnter);
+      targetElement.addEventListener('mouseleave', handleMouseLeave);
+
+      // Also handle hover on sub-menu itself (to keep it open when moving to it)
+      subMenu.addEventListener('mouseenter', () => {
+        if (hoverTimeout) {
+          clearTimeout(hoverTimeout);
+          hoverTimeout = null;
+        }
+      });
+      subMenu.addEventListener('mouseleave', handleMouseLeave);
+
+      // Click event for mobile
+      if (trigger.tagName === 'A' || trigger.tagName === 'BUTTON') {
+        trigger.addEventListener('click', handleClick);
+      } else {
+        // If trigger is li, find the link inside
+        const link = trigger.querySelector('a');
+        if (link) {
+          link.addEventListener('click', handleClick);
+        }
+      }
+    });
+
+    // Close all sub-menus when clicking outside
+    document.addEventListener('click', e => {
+      if (window.innerWidth <= 768) {
+        // Only on mobile
+        subMenus.forEach(menu => {
+          const parent = menu.closest('li');
+          if (parent && !parent.contains(e.target)) {
+            menu.classList.remove('is-open', 'is-visible');
+            menu.style.display = '';
           }
         });
       }

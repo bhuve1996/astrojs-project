@@ -221,7 +221,8 @@ html {
   padding-left: 1rem;
 }
 
-.sub-menu.is-open {
+.sub-menu.is-open,
+.sub-menu.is-visible {
   display: block;
 }
 
@@ -229,7 +230,14 @@ html {
   position: relative;
 }
 
-.nav-menu-btn + .sub-menu {
+/* Desktop: Sub-menu positioning */
+li:has(.sub-menu) {
+  position: relative;
+}
+
+.nav-menu-btn + .sub-menu,
+li:has(.sub-menu) > .sub-menu,
+li > .sub-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -240,6 +248,25 @@ html {
   min-width: 150px;
   z-index: 1000;
   padding: 0.5rem 0;
+  margin-top: 0.25rem;
+}
+
+/* Mobile: Sub-menu as block (no absolute positioning) */
+@media (max-width: 768px) {
+  .sub-menu {
+    position: static;
+    display: none;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .sub-menu.is-open,
+  .sub-menu.is-visible {
+    display: block;
+  }
 }
 
 /* Hamburger Menu Toggle */
