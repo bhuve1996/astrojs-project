@@ -80,6 +80,6 @@ const allJsFiles = [...defaultJsFiles, ...jsFiles];
     {allJsFiles.map(js => <script src={js} />)}
 
     <!-- Initialize interactive features -->
-    <script src="/js/interactive.js"></script>
+    <script is:inline src="/js/interactive.js"></script>
   </body>
 </html>
