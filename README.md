@@ -69,11 +69,27 @@ npm run dev          # Start dev server
 npm run build        # Build for production
 npm run preview      # Preview production build
 npm run format       # Format code with Prettier
+npm run format:check # Check if files are formatted
 npm run lint         # Lint code with ESLint
 npm run lint:fix     # Fix linting errors
-npm run fix:css      # Fix CSS syntax errors
-npm run comment:css  # Add comments to CSS files
+npm run fix:css      # Fix CSS syntax errors (if needed)
 ```
+
+### Setup
+
+1. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+2. **Husky (Git hooks)** - Automatically set up via `prepare` script
+   - Pre-commit hooks run ESLint and Prettier automatically
+   - Manual setup: `npx husky install`
+
+3. **Troubleshooting:**
+   - npm permission errors: `sudo chown -R $(whoami) ~/.npm`
+   - Husky not working: `npx husky install && chmod +x .husky/pre-commit`
 
 ## 📁 Project Structure
 
@@ -100,10 +116,7 @@ astrojs-project/
 ├── pages/                       # Original scraped HTML files
 ├── website-data.json            # Complete scraped data
 ├── scripts/                     # Utility scripts
-│   ├── format-css.js
-│   ├── fix-css-syntax.js
-│   ├── add-css-comments.js
-│   └── clean-and-comment-css.js
+│   └── fix-css-syntax.js        # Fix CSS syntax errors
 └── public/                      # Public static assets (symlinked to assets/)
 ```
 
@@ -193,11 +206,8 @@ npm run preview  # Open in browser to test
 
 ## 📚 Documentation
 
-- `CONFIG_GUIDE.md` - Configuration system guide
-- `SETUP.md` - Setup instructions
-- `CHANGES_SUMMARY.md` - Summary of major changes
-- `ERRORS_EXPLANATION.md` - Common errors explained
-- `WARNINGS.md` - Expected warnings in development
+- `TESTING.md` - Testing results and checklist
+- `README.md` - This file (main documentation)
 
 ## 🤝 Contributing
 
@@ -209,6 +219,28 @@ npm run preview  # Open in browser to test
 ## 📄 License
 
 This project is for educational purposes, recreating the Windscribe VPN website.
+
+---
+
+## ⚠️ Common Warnings
+
+### Router Warnings (Development Only)
+
+You may see warnings like:
+
+```
+[WARN] [router] A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/_next/image`.
+```
+
+**These are harmless and expected:**
+
+- The catch-all route `[...slug]` matches all paths
+- Static assets are intentionally excluded from route generation
+- Middleware handles these paths correctly
+- Warnings only appear in development mode
+- Production builds don't show these warnings
+
+**Solution:** Ignore these warnings - they don't affect functionality.
 
 ---
 
