@@ -39,6 +39,23 @@ Visit `http://localhost:4321` to see the cloned website.
 npm run dev
 ```
 
+## Cleanup Scripts
+
+### Clear Scraped Data
+```bash
+npm run clear
+```
+
+### Remove Dependencies
+```bash
+npm run remove-deps
+```
+
+### Clean All
+```bash
+npm run clean-all
+```
+
 ## Next Steps
 
 See README.md for:
@@ -46,3 +63,4 @@ See README.md for:
 - Features that need to be added
 - JavaScript modules needed
 - Troubleshooting guide
+- All available scripts
