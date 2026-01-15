@@ -12,6 +12,8 @@
     "format:check": "prettier --check \"**/*.{js,ts,jsx,tsx,json,css,scss,md,astro}\"",
     "format:css": "node scripts/format-css.js",
     "fix:css": "node scripts/fix-css-syntax.js",
+    "comment:css": "node scripts/add-css-comments.js",
+    "clean:css": "node scripts/clean-and-comment-css.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.astro",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix",
     "prepare": "husky install",

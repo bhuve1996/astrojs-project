@@ -40,7 +40,7 @@ strong.best-value {
 }
 #gp_top h1 span {
   font-weight: bold;
-  color: #2Ed0FD;
+  color: #2ed0fd;
 }
 #gp_top p {
   padding: 10px;
@@ -63,7 +63,7 @@ i#top_logo {
 }
 #free-top {
   color: white;
-  /* FF3.6-15 */ /* Chrome10-25, Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   margin-top: 62px;
 }
 #free-top h1 {
@@ -121,34 +121,36 @@ i#top_logo {
 #gp-free a:hover {
   background-color: #f9f9f9;
 }
-#gp-pro, #pro-yearly-box {
+#gp-pro,
+#pro-yearly-box {
   width: 301px;
   display: inline-block;
   background: rgb(46, 208, 253);
-  /* Old browsers */ background: -moz-linear-gradient(top, rgba(46, 208, 253, 1) 0%, rgba(57, 104, 188, 1) 100%);
-  /* FF3.6-15 */ background: -webkit-linear-gradient(top, rgba(46, 208, 253, 1) 0%, rgba(57, 104, 188, 1) 100%);
-  /* Chrome10-25, Safari5.1-6 */ background: linear-gradient(to bottom, rgba(46, 208, 253, 1) 0%, rgba(57, 104, 188, 1) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#2ed0fd', endColorstr='#3968bc', GradientType=0);
-  /* IE6-9 */ vertical-align: top;
+  background: -moz-linear-gradient(top, rgba(46, 208, 253, 1) 0%, rgba(57, 104, 188, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(46, 208, 253, 1) 0%, rgba(57, 104, 188, 1) 100%);
+  background: linear-gradient(to bottom, rgba(46, 208, 253, 1) 0%, rgba(57, 104, 188, 1) 100%);
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#2ed0fd', endColorstr='#3968bc', GradientType=0);
+  vertical-align: top;
   margin: 0px -3px 0px -3px;
   color: white;
-  /*box-shadow: 0px 0px 32px -5px #30c0f3;
-  */ position: relative;
-  /*z-index: 9;
-  */;
+  position: relative;
 }
-#gp-pro span.heading, #gp-pro-month span.heading {
+#gp-pro span.heading,
+#gp-pro-month span.heading {
   margin: 0px 20px 0px;
   display: block;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   line-height: 60px;
 }
-#gp-pro span.pro-heading, #gp-pro-month span.pro-heading {
+#gp-pro span.pro-heading,
+#gp-pro-month span.pro-heading {
   text-align: left;
   display: block;
   margin: 20px 20px;
 }
-#gp-pro span.pro-heading strong, #gp-pro-month span.pro-heading strong {
+#gp-pro span.pro-heading strong,
+#gp-pro-month span.pro-heading strong {
   float: right;
   font-weight: lighter;
   font-size: 14px;
@@ -176,7 +178,8 @@ i#top_logo {
 #gp-pro > h1 {
   padding: 34px 0px 12px !important;
 }
-#gp-pro h1, #gp-pro-month h1 {
+#gp-pro h1,
+#gp-pro-month h1 {
   margin: 20px 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 10px 0px;
@@ -189,16 +192,19 @@ i#top_logo {
   border-top: 1px solid rgb(46, 206, 252);
   font-size: 20px;
 }
-#gp-pro ul, #gp-pro-month ul {
+#gp-pro ul,
+#gp-pro-month ul {
   padding: 0px;
   margin: 10px 0px;
   list-style: none;
 }
-#gp-pro ul li, #gp-pro-month ul li {
+#gp-pro ul li,
+#gp-pro-month ul li {
   line-height: 30px;
   font-size: 20px;
 }
-#gp-pro a, #gp-pro-month a {
+#gp-pro a,
+#gp-pro-month a {
   color: #ffffff;
   background-color: #88c53a;
   display: inline-block;
@@ -210,7 +216,8 @@ i#top_logo {
   margin: 15px auto 10px;
   text-decoration: none;
 }
-#gp-pro a:hover, #gp-pro-month a:hover {
+#gp-pro a:hover,
+#gp-pro-month a:hover {
   background-color: #2ecdfb;
 }
 #gp-pro small {
@@ -218,7 +225,8 @@ i#top_logo {
   margin: 40px auto 20px;
   font-weight: lighter;
 }
-#gp-pro .ws-icon-bg, .ws-icon-bg {
+#gp-pro .ws-icon-bg,
+.ws-icon-bg {
   width: 191px;
   height: 368px;
   background: url(/v2/img/gopro/Unlimited-BG-WS-Badge.png);
@@ -354,35 +362,38 @@ i#top_logo {
   padding: 15px 0px;
   color: gray;
 }
-/* entire container, keeps perspective */.flip-container {
+.flip-container {
   perspective: 1000px;
   position: relative;
   z-index: 2;
 }
-/* flip the pane when hovered */.flip-container.hover .flipper {
+.flip-container.hover .flipper {
   transform: rotateY(180deg);
 }
-.flip-container, .front, .back {
+.flip-container,
+.front,
+.back {
   width: 300px;
   height: 680px;
 }
-/* flip speed goes here */.flipper {
+.flipper {
   transition: 0.6s;
   transform-style: preserve-3d;
   position: relative;
 }
-/* hide back of pane during swap */.front, .back {
+.front,
+.back {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
 }
-/* front pane, placed above back */.front {
+.front {
   z-index: 2;
-  /* for firefox 31 */ transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
-/* back, initially hidden pane */.back {
+.back {
   transform: rotateY(180deg);
   padding: 25px 0px 0px 0px;
   color: #3968bc;
@@ -406,12 +417,16 @@ i#top_logo {
   z-index: 0;
   border-radius: 8px;
 }
-.flip-container.giftly, .giftly .front, .giftly .back {
+.flip-container.giftly,
+.giftly .front,
+.giftly .back {
   height: 480px;
   background-color: white;
   border-radius: 0px 8px 8px 0px;
 }
-.flip-container.yearly, .yearly .front, .yearly .back {
+.flip-container.yearly,
+.yearly .front,
+.yearly .back {
   height: 420px;
 }
 .shadow-bg-spacer {
@@ -436,14 +451,15 @@ i#top_logo {
   z-index: 0;
   border-radius: 8px;
 }
-.flip-container.monthly, .monthly .front, .monthly .back {
+.flip-container.monthly,
+.monthly .front,
+.monthly .back {
   height: 500px;
   background: white;
   border-radius: 8px;
 }
 .flip-container.monthly {
-  /* margin-top: 26px;
-  */ background: white;
+  background: white;
   border-radius: 8px 0px 0px 8px;
   position: relative;
   z-index: 2;
@@ -495,19 +511,16 @@ i#top_logo {
   right: 20px;
   top: -29px;
   font-size: 14px;
-  /* box-shadow: 0px 0px 20px 0px #666;
-  */;
 }
-.upgrade-pro-gift .promo_discount_star:before, .upgrade-pro-gift .promo_discount_star:after {
-  content: "";
+.upgrade-pro-gift .promo_discount_star:before,
+.upgrade-pro-gift .promo_discount_star:after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   height: 50px;
   width: 50px;
   background: white;
-  /* box-shadow: 0px 0px 20px 0px #666;
-  */;
 }
 .upgrade-pro-gift .promo_discount_star:before {
   -webkit-transform: rotate(30deg);
@@ -628,7 +641,7 @@ i#top_logo {
   text-align: center;
   padding: 5px 5px;
   border-radius: 5px;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
 }
 #promo-form a {
   padding: 10px 15px;
@@ -703,8 +716,6 @@ i#top_logo {
   display: inline-block;
   vertical-align: top;
   margin-top: 40px;
-  /* background-color: white;
-  */;
 }
 #pro-yearly-box {
   border-radius: 8px;
@@ -712,8 +723,6 @@ i#top_logo {
 #pro-gift-box {
   display: inline-block;
   margin-top: 40px;
-  /* border-radius: 5px;
-  */;
 }
 #pro-gift-icon {
   position: absolute;
@@ -757,7 +766,8 @@ i#top_logo {
   font-size: 18px;
   color: #bdd5ff;
 }
-.upgrade-pro-gift .buy-now, .back a {
+.upgrade-pro-gift .buy-now,
+.back a {
   color: #86c72c;
   text-decoration: none;
   border: 2px solid #86c72c;
@@ -769,11 +779,15 @@ i#top_logo {
 }
 #month-buynow {
 }
-#year-buynow, #pro-yearly-box .upgrade-pro-gift .buy-now, .back a {
+#year-buynow,
+#pro-yearly-box .upgrade-pro-gift .buy-now,
+.back a {
   color: white;
   background-color: #86c72c;
 }
-#year-buynow:hover, #pro-yearly-box .upgrade-pro-gift .buy-now:hover, .back a.pay_btn:hover {
+#year-buynow:hover,
+#pro-yearly-box .upgrade-pro-gift .buy-now:hover,
+.back a.pay_btn:hover {
   background-color: #7ab529;
   border-color: #7ab529;
 }
@@ -822,7 +836,7 @@ i#top_logo {
 #pro-gift-info-box {
   width: 60%;
   margin: 60px auto;
-  box-shadow: 0px 0px 45px -3px #CCC;
+  box-shadow: 0px 0px 45px -3px #ccc;
   padding: 20px;
   position: relative;
   display: none;
@@ -832,14 +846,12 @@ i#top_logo {
   position: absolute;
   width: 0;
   height: 0;
-  /* background-color: white;
-  */ top: -16px;
+  top: -16px;
   display: inline-block;
   border-left: 16px solid transparent;
   border-right: 16px solid transparent;
   border-bottom: 16px solid white;
-  /* box-shadow: 0px 0px 5px 0px;
-  */ left: 50%;
+  left: 50%;
   margin-left: -16px;
 }
 .flip-container.giftly .flipper .front > svg {
@@ -869,180 +881,201 @@ i#top_logo {
 }
 .paywallframe {
 }
-@media (min-resolution: 1.5dppx), (min-resolution: 120dpi), (-webkit-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2) {
-#gp_top {
+
+@media (min-resolution: 1.5dppx),
+  (min-resolution: 120dpi),
+  (-webkit-min-device-pixel-ratio: 1.5),
+  (-o-min-device-pixel-ratio: 3/2) {
+  #gp_top {
     background: url(/v2/img/gopro/pro-pattern-bg.png) 0px 0px repeat #00163f;
     background-size: 307px;
   }
-i#top_logo {
+  i#top_logo {
     background: url(/v2/img/gopro/WS-Logo-white@2x.png);
     background-size: 124px 19px;
   }
-#free-top span i {
+  #free-top span i {
     background: url(/v2/img/gopro/Free-stars@2x.png);
     background-size: 130px 24px;
   }
-#gp-pro .ws-icon-bg, .ws-icon-bg {
+  #gp-pro .ws-icon-bg,
+  .ws-icon-bg {
     background: url(/v2/img/gopro/Unlimited-BG-WS-Badge@2x.png);
     background-size: 191px 368px;
   }
-#gp-platforms i {
+
+  #gp-platforms i {
     background: url(/v2/img/gopro/Platform-Logos@2x.png);
     background-size: 433px 41px;
   }
-#gp-payment_methods i {
+  #gp-payment_methods i {
     background: url(/v2/img/gopro/desktop-pymnt-met@2x.png) 0 0 no-repeat;
     background-size: 780px 45px;
   }
-#gp_top h1 span i {
+  #gp_top h1 span i {
     background: url(/v2/img/gopro/big-pro-star@2x.png) 0 0 no-repeat;
     background-size: 31px;
   }
-#gp-pro .pro-heading i {
+  #gp-pro .pro-heading i {
     background: url(/v2/img/gopro/small-pro-star-white@2x.png) 0 0 no-repeat;
     background-size: 24px;
   }
-#gp-pro-month .pro-heading i {
+  #gp-pro-month .pro-heading i {
     background: url(/v2/img/gopro/small-pro-star@2x.png) 0 0 no-repeat;
     background-size: 24px;
   }
-#server-locations-cont {
+  #server-locations-cont {
     background: url(/v2/img/gopro/pro-pattern-bg@2x.png) 0px 0px repeat #00163f;
     background-size: 307px;
   }
-.locations_table i.checkmark {
+  .locations_table i.checkmark {
     background: url(/v2/img/gopro/blue-checkmark@2x.png);
     background-size: 24px;
   }
-.plan_compare i {
+  .plan_compare i {
     background: url(/v2/img/gopro/small-pro-star@2x.png) 0 0 no-repeat;
     background-size: 24px;
   }
 }
+
 @media only screen and (max-width: 768px) {
-#gp_top {
+  #gp_top {
     margin-top: -135px;
     padding-top: 110px;
   }
-#gp_top p {
+  #gp_top p {
     font-size: 15px;
   }
-.flip-container.monthly, .monthly .front, .monthly .back {
+  .flip-container.monthly,
+  .monthly .front,
+  .monthly .back {
     margin: 0px auto 50px;
     border-radius: 8px;
     box-shadow: 0px 0px 18px 0px #aaa;
     height: 420px;
   }
-.flip-container.yearly, .yearly .front, .yearly .back {
+  .flip-container.yearly,
+  .yearly .front,
+  .yearly .back {
     margin: 0px auto;
   }
-.flip-container.giftly, .giftly .front, .giftly .back {
+  .flip-container.giftly,
+  .giftly .front,
+  .giftly .back {
     margin: 0px auto;
     border-radius: 8px;
     box-shadow: 0px 0px 18px 0px #aaa;
     height: 560px;
   }
-#left-shadow-box {
+  #left-shadow-box {
     display: none;
   }
-#right-shadow-box {
+  #right-shadow-box {
     display: none;
   }
-#pro-monthly-box, #pro-yearly-box, #pro-gift-box {
+  #pro-monthly-box,
+  #pro-yearly-box,
+  #pro-gift-box {
     display: block;
   }
-#pro-monthly-box {
-    /* text-align: center;
-    */ margin-top: 0px;
+  #pro-monthly-box {
+    margin-top: 0px;
   }
-#pro-yearly-box {
+  #pro-yearly-box {
     margin: 0px auto;
   }
-#pro-gift-box {
+  #pro-gift-box {
   }
-#pro-features {
+  #pro-features {
     margin: 50px 0px;
   }
-.pro-feature-box {
+  .pro-feature-box {
     display: block;
     margin: 20px auto;
     text-align: left;
     width: 270px;
   }
-#gp-payment_methods i {
+  #gp-payment_methods i {
     background-size: 100%;
     width: 90%;
   }
-#pro-monthly-box .back {
+  #pro-monthly-box .back {
     height: 395px;
   }
-#gp-bottom.upgrade-pro-gift {
+  #gp-bottom.upgrade-pro-gift {
     margin-top: -130px !important;
   }
 }
+
 @media only screen and (max-width: 680px) {
-#gp-pro {
+  #gp-pro {
     margin-top: 60px;
   }
-#gp-platforms i {
+
+  #gp-platforms i {
     background-size: 216px 20px;
     background-repeat: no-repeat;
     background-position-x: center;
     width: 216px;
   }
-#gp-free {
+  #gp-free {
     display: none;
   }
-#gp-payment_methods i {
+  #gp-payment_methods i {
     width: 300px;
     height: 17px;
     background-size: 300px 17px;
   }
-#gp_top h1 {
+  #gp_top h1 {
     font-size: 20px !important;
     padding: 0px 24px !important;
   }
-#gp_top h1 span i {
+  #gp_top h1 span i {
     margin-bottom: -3px !important;
   }
-#gp-bottom {
+  #gp-bottom {
     margin-top: -210px !important;
   }
 }
-@media screen and (-ms-high-contrast:active), (-ms-high-contrast: none) {
-/* IE10+ specific styles go here */ /* entire container, keeps perspective */ .flip-container {
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .flip-container {
     perspective: 1000px;
+
     transform: none !important;
     position: relative;
     z-index: 2;
   }
-/* UPDATED! flip the pane when hovered */ .flip-container.hover .back {
+  .flip-container.hover .back {
     transform: none !important;
     display: block;
   }
-.flip-container.hover .front {
+  .flip-container.hover .front {
     transform: none !important;
     display: none;
   }
-.flip-container, .front, .back {
+  .flip-container,
+  .front,
+  .back {
     width: 300px;
     height: 470px;
   }
-/* flip speed goes here */ .flipper {
+  .flipper {
     transform: none !important;
     position: relative;
   }
-/* hide back of pane during swap */ .front, .back {
+  .front,
+  .back {
     transform: none !important;
     position: absolute;
     top: 0;
     left: 0;
   }
-/* UPDATED! front pane, placed above back */ .front {
+  .front {
     z-index: 2;
     transform: none !important;
   }
-/* back, initially hidden pane */ .back {
+  .back {
     transform: none !important;
     display: none;
   }
