@@ -8,10 +8,6 @@ dist/
 .astro/
 .output/
 
-# Scraped data (generated content)
-scraped-data/
-public/assets/
-
 # Packaged output
 ../website-cloner-ready/
 ../website-cloner-ready.zip

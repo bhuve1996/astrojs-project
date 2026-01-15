@@ -9,9 +9,7 @@
     "astro": "astro",
     "scrape": "node scripts/scrape-website.js",
     "package": "node scripts/package-project.js",
-    "clear": "node scripts/clear-scraped-data.js",
-    "remove-deps": "node scripts/remove-dependencies.js",
-    "clean-all": "node scripts/clean-all.js"
+    "clear": "node scripts/clear-scraped-data.js"
   },
   "dependencies": {
     "astro": "^5.16.9",

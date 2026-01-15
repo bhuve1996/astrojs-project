@@ -1,5 +1,6 @@
 ---
 import { loadWebsiteData } from "../utils/data-loader";
+import "../utils/client/styles.css";
 
 interface Props {
   title?: string;
@@ -69,6 +70,12 @@ const faviconType = data.assets.favicon?.type || (faviconPath.endsWith('.svg') ?
         <script src={`/${js.localPath}`}></script>
       ) : null
     ))}
+    
+    <!-- Load interactive components -->
+    <script type="module">
+      import { initInteractiveComponents } from '../utils/client/index';
+      initInteractiveComponents();
+    </script>
   </body>
 </html>
 
