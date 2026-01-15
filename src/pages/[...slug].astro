@@ -33,15 +33,35 @@ export async function getStaticPaths() {
       return !isExcludedPath(`/${pagePath}`);
     });
 
-  return pagePaths.map(pagePath => {
-    // For catch-all routes, slug must be a string, not an array
-    // Astro will automatically split it when accessed via Astro.params.slug
+  // Generate paths with domain prefix (for production)
+  const pathsWithDomain = pagePaths.map(pagePath => {
     return {
       params: {
         slug: pagePath,
       },
     };
   });
+
+  // Also generate paths without domain prefix (for local dev and simpler URLs)
+  // Extract just the path part (e.g., "windscribe.com/features" -> "features")
+  const baseDomainRegex = new RegExp(`^${siteConfig.baseDomain.replace(/\./g, '\\.')}\\/?`);
+  const pathsWithoutDomain = pagePaths
+    .map(pagePath => {
+      const pathOnly = pagePath.replace(baseDomainRegex, '');
+      // Only add if there's a path (not just the domain) and it's not empty
+      return pathOnly && pathOnly !== pagePath ? pathOnly : null;
+    })
+    .filter((path): path is string => path !== null && path !== '')
+    .map(pathOnly => {
+      return {
+        params: {
+          slug: pathOnly,
+        },
+      };
+    });
+
+  // Combine both formats
+  return [...pathsWithDomain, ...pathsWithoutDomain];
 }
 
 const { slug } = Astro.params;
@@ -59,7 +79,7 @@ if (!path || isExcludedPath(`/${path}`)) {
 // Find the page by matching the URL
 const allPages = getAllPages();
 
-// Normalize path - remove leading slash if present, ensure it matches routing format
+// Normalize path - remove leading slash if present
 let normalizedPath = path.startsWith('/') ? path.slice(1) : path;
 
 let page = allPages.find(p => {
@@ -69,34 +89,30 @@ let page = allPages.find(p => {
     .split('?')[0]
     .split('#')[0];
 
-  // Exact match
-  if (pagePath === normalizedPath) return true;
-
-  // Match without domain prefix (e.g., "download" matches "{baseDomain}/download")
+  // Extract just the path part from pagePath (remove domain)
   const baseDomainRegex = new RegExp(`^${siteConfig.baseDomain.replace(/\./g, '\\.')}\\/?`);
-  const pathWithoutDomain = normalizedPath.replace(baseDomainRegex, '');
-  const pagePathWithoutDomain = pagePath.replace(baseDomainRegex, '');
+  const pagePathOnly = pagePath.replace(baseDomainRegex, '') || pagePath;
 
-  // Direct match without domain
-  if (pathWithoutDomain && pagePathWithoutDomain === pathWithoutDomain) return true;
+  // Extract just the path part from normalizedPath (remove domain if present)
+  const pathOnly = normalizedPath.replace(baseDomainRegex, '') || normalizedPath;
 
-  // Match if page path ends with the requested path
-  if (pathWithoutDomain && pagePath.endsWith(`/${pathWithoutDomain}`)) return true;
+  // Exact match (with or without domain)
+  if (pagePath === normalizedPath) return true;
+  if (pagePathOnly === pathOnly && pathOnly) return true;
 
-  // Match if requested path ends with page path
-  if (pagePathWithoutDomain && normalizedPath.endsWith(`/${pagePathWithoutDomain}`)) return true;
+  // Match by path segment only (e.g., "features" matches "windscribe.com/features" or just "features")
+  if (pathOnly && pagePathOnly === pathOnly) return true;
+  if (pathOnly && pagePathOnly.endsWith(`/${pathOnly}`)) return true;
+  if (pagePathOnly && pathOnly.endsWith(`/${pagePathOnly}`)) return true;
 
-  // Match if both are just the segment (e.g., "download" matches "{baseDomain}/download")
-  if (pathWithoutDomain && pagePath === `${siteConfig.baseDomain}/${pathWithoutDomain}`)
-    return true;
-
-  // Path includes page path (e.g., "{baseDomain}/download" matches "{baseDomain}/download?cpid=features")
+  // Match if page path includes the requested path (or vice versa)
+  if (pagePathOnly.includes(pathOnly) || pathOnly.includes(pagePathOnly)) return true;
   if (pagePath.includes(normalizedPath) || normalizedPath.includes(pagePath)) return true;
 
   // Handle root domain
   if (
-    (normalizedPath === siteConfig.baseDomain || normalizedPath === '') &&
-    (pagePath === siteConfig.baseDomain || pagePath === siteConfig.baseDomain)
+    (normalizedPath === siteConfig.baseDomain || normalizedPath === '' || pathOnly === '') &&
+    (pagePath === siteConfig.baseDomain || pagePathOnly === '')
   )
     return true;
   return false;

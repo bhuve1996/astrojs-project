@@ -364,11 +364,15 @@ export function processPageHtml(page: PageData): string {
   // Routing expects: {baseDomain}/path (no leading slash in slug)
   // So: href="https://{baseDomain}/path" -> href="/{baseDomain}/path"
   // And: href="/path" -> href="/{baseDomain}/path" (if it's a main site path)
+  // For local development, use simple paths like /features
+  // For production, use /{baseDomain}/features format
   const routingPrefix = getRoutingPrefix();
   // Escape dots for regex (but not in character class)
   const baseDomainRegex = siteConfig.baseDomain.replace(/\./g, '\\.');
+  const isDev = import.meta.env.DEV;
 
-  // First, convert absolute URLs from original domain to relative with domain prefix
+  // First, convert absolute URLs from original domain to relative
+  // For local development, use simple paths; for production, use domain prefix
   // eslint-disable-next-line no-useless-escape
   html = html.replace(
     new RegExp(`href=["']https?:\\/\\/(?:www\\.)?${baseDomainRegex}(\\/[^"']*)["']`, 'g'),
@@ -377,10 +381,10 @@ export function processPageHtml(page: PageData): string {
       const cleanPath = path.replace(/^\/+/, '').split('?')[0].split('#')[0];
       // Handle root path
       if (!cleanPath || cleanPath === '') {
-        return `href="/${routingPrefix}"`;
+        return isDev ? 'href="/"' : `href="/${routingPrefix}"`;
       }
-      // Convert to routing format: /{baseDomain}/path
-      return `href="/${routingPrefix}/${cleanPath}"`;
+      // For development, use simple paths; for production, use domain prefix
+      return isDev ? `href="/${cleanPath}"` : `href="/${routingPrefix}/${cleanPath}"`;
     }
   );
 
@@ -391,18 +395,19 @@ export function processPageHtml(page: PageData): string {
     (match, path) => {
       const cleanPath = path.replace(/^\/+/, '').split('?')[0].split('#')[0];
       if (!cleanPath || cleanPath === '') {
-        return `href="/${routingPrefix}"`;
+        return isDev ? 'href="/"' : `href="/${routingPrefix}"`;
       }
-      return `href="/${routingPrefix}/${cleanPath}"`;
+      return isDev ? `href="/${cleanPath}"` : `href="/${routingPrefix}/${cleanPath}"`;
     }
   );
 
   // Fix relative links that start with / (but not /assets, /_next, etc.)
-  // Convert /download -> /{baseDomain}/download
+  // For local development, use simple paths like /features
+  // For production, use /{baseDomain}/features format
   html = html.replace(/href=["']\/([^"']*)["']/g, (match, path) => {
     // Handle root link
     if (!path || path === '') {
-      return `href="/${routingPrefix}"`;
+      return isDev ? 'href="/"' : `href="/${routingPrefix}"`;
     }
 
     // Don't modify if it's an asset path or special path
@@ -417,8 +422,8 @@ export function processPageHtml(page: PageData): string {
     ) {
       return match; // Keep as-is
     }
-    // Convert to routing format
-    return `href="/${routingPrefix}/${path}"`;
+    // For development, use simple paths; for production, use domain prefix
+    return isDev ? match : `href="/${routingPrefix}/${path}"`;
   });
 
   // Keep onclick handlers - interactive.js will convert them to event listeners
