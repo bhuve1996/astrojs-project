@@ -1,4 +1,5 @@
-import { getAssets, type PageData } from './loadWebsiteData';
+import { getAssets } from './loadWebsiteData';
+import type { PageData } from './loadWebsiteData';
 import { siteConfig, applyPathMapping } from '../config/site.config';
 
 /**
