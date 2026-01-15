@@ -2,7 +2,7 @@
   position: relative;
   border-radius: 2.4rem;
 }
-.protectYourIp_gradientBorder__PxN2c: before {
+.protectYourIp_gradientBorder__PxN2c:before {
   content: "";
   position: absolute;
   inset: 0;
@@ -189,7 +189,7 @@
     padding: 3rem 1.5rem;
   }
 }
-.Callout_callout__30_GH: before {
+.Callout_callout__30_GH:before {
   content: "";
   position: absolute;
   inset: 0;
@@ -231,7 +231,7 @@
   overflow: hidden;
   height: 49.5rem;
 }
-.BestFreeVPNContainer_borderContainer__bev48: before {
+.BestFreeVPNContainer_borderContainer__bev48:before {
   content: "";
   position: absolute;
   inset: 0;
@@ -256,7 +256,7 @@
   gap: .8rem;
   text-align: start;
 }
-.FAQ_itemWrapper__DZ96C: hover {
+.FAQ_itemWrapper__DZ96C:hover {
   cursor: pointer;
 }
 .FAQ_details__Aa_hj {
@@ -273,10 +273,10 @@
 .FAQ_details__Aa_hj[open] .FAQ_question__h6qwj {
   color: var(--mantine-color-white);
 }
-.FAQ_details__Aa_hj: not([open]) .FAQ_iconClose__RXxkg {
+.FAQ_details__Aa_hj:not([open]) .FAQ_iconClose__RXxkg {
   display: none;
 }
-.FAQ_details__Aa_hj: not([open]) .FAQ_question__h6qwj {
+.FAQ_details__Aa_hj:not([open]) .FAQ_question__h6qwj {
   color: color-mix(in srgb, var(--mantine-color-white), transparent 19.999999999999996%);
 }
 .FAQ_summary__Gv5mI {
@@ -310,7 +310,7 @@
   text-decoration: none;
   color: inherit;
 }
-.OSSection_osCard__Ww8XY: after {
+.OSSection_osCard__Ww8XY:after {
   content: "";
   position: absolute;
   top: 0;
@@ -320,10 +320,10 @@
   border: 1px solid #505f63;
   pointer-events: none;
 }
-.OSSection_osCard__Ww8XY: hover {
+.OSSection_osCard__Ww8XY:hover {
   cursor: pointer;
 }
-.OSSection_osCard__Ww8XY: hover span {
+.OSSection_osCard__Ww8XY:hover span {
   text-decoration: underline;
 }
 .BestFreeVPN_planetLeft__siUEe, .BestFreeVPN_planetRight__fsoMo, .BestFreeVPN_starLeft__6rSem, .BestFreeVPN_starRight__gb_kE {
@@ -426,7 +426,7 @@
   text-decoration: none;
   color: inherit;
 }
-.GangCard_nameLink__7GHd7: hover .GangCard_name__i8x_z {
+.GangCard_nameLink__7GHd7:hover .GangCard_name__i8x_z {
   text-decoration: underline;
 }
 .GangCard_benefitBox__jw8G_ {
@@ -514,7 +514,7 @@
   align-items: center;
   gap: .8rem;
 }
-.GangCard_upgradeLink__6snNE: hover svg path {
+.GangCard_upgradeLink__6snNE:hover svg path {
   stroke: black;
 }
 .GangCardsGrid_container__pbIrB, .GangCardsGrid_grid__XMcZv {

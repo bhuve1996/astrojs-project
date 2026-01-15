@@ -51,13 +51,13 @@
   transition: color 0.1s ease;
   cursor: pointer;
 }
-.common-Link: hover {
+.common-Link:hover {
   color: #32325d;
 }
-.common-Link: active {
+.common-Link:active {
   color: #000;
 }
-.common-Link--arrow: after {
+.common-Link--arrow:after {
   font: normal 16px StripeIcons;
   content: "\2192";
   padding-left: 5px;
@@ -79,12 +79,12 @@
   text-decoration: none;
   transition: all 0.15s ease;
 }
-.common-Button: hover {
+.common-Button:hover {
   color: #7795f8;
   transform: translateY(-1px);
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
-.common-Button: active {
+.common-Button:active {
   color: #555abf;
   background-color: #f6f9fc;
   transform: translateY(1px);
@@ -94,11 +94,11 @@
   color: #fff;
   background: #6772e5;
 }
-.common-Button--default: hover {
+.common-Button--default:hover {
   color: #fff;
   background-color: #7795f8;
 }
-.common-Button--default: active {
+.common-Button--default:active {
   color: #e6ebf1;
   background-color: #555abf;
 }
@@ -106,11 +106,11 @@
   color: #fff;
   background: #32325d;
 }
-.common-Button--dark: hover {
+.common-Button--dark:hover {
   color: #fff;
   background-color: #43458b;
 }
-.common-Button--dark: active {
+.common-Button--dark:active {
   color: #e6ebf1;
   background-color: #32325d;
 }
@@ -207,13 +207,13 @@ to {
   opacity: 1;
   transform: none !important;
 }
-.ws-stripe-form.submitted .success >: nth-child(2) {
+.ws-stripe-form.submitted .success >:nth-child(2) {
   transition-delay: 0.1s;
 }
-.ws-stripe-form.submitted .success >: nth-child(3) {
+.ws-stripe-form.submitted .success >:nth-child(3) {
   transition-delay: 0.2s;
 }
-.ws-stripe-form.submitted .success >: nth-child(4) {
+.ws-stripe-form.submitted .success >:nth-child(4) {
   transition-delay: 0.3s;
 }
 .ws-stripe-form.submitted .success .icon .border, .ws-stripe-form.submitted .success .icon .checkmark {
@@ -252,10 +252,10 @@ to {
   transition: color 0.1s ease-in-out;
   margin-left: 10px;
 }
-.ws-stripe-form .caption a.source: hover {
+.ws-stripe-form .caption a.source:hover {
   color: #6772e5;
 }
-.ws-stripe-form .caption a.source: active {
+.ws-stripe-form .caption a.source:active {
   color: #43458b;
 }
 .ws-stripe-form .caption a.source svg {
@@ -378,7 +378,7 @@ to {
 .ws-stripe-form .success .message span {
   font-size: inherit;
 }
-.ws-stripe-form .success .reset: active {
+.ws-stripe-form .success .reset:active {
   transition-duration: 0.15s;
   transition-delay: 0s;
   opacity: 0.65;
@@ -410,11 +410,11 @@ footer {
   color: #6772e5;
   font-weight: 600;
 }
-.optionList a: hover {
+.optionList a:hover {
   color: #32325d;
 }
-.optionList a.selected: hover {
-  cursor: default;
+.optionList a.selected:hover {
+  cursor:default;
   color: #6772e5;
 }
 .ws-stripe-form {
@@ -453,7 +453,7 @@ footer {
   margin-top: 0px;
   border-right: 1px solid #E4EAF6;
 }
-.ws-stripe-form .field.focus, .ws-stripe-form .field: focus {
+.ws-stripe-form .field.focus, .ws-stripe-form .field:focus {
   color: #424770;
   background-color: #ffffff;
 }
@@ -463,13 +463,13 @@ footer {
 .ws-stripe-form .field.invalid.focus {
   background-color: #f6f9fc;
 }
-.ws-stripe-form .field.focus: : -webkit-input-placeholder, .ws-stripe-form .field: focus: : -webkit-input-placeholder {
+.ws-stripe-form .field.focus: : -webkit-input-placeholder, .ws-stripe-form .field:focus: : -webkit-input-placeholder {
   color: #3968BC75;
 }
-.ws-stripe-form .field.focus: : -moz-placeholder, .ws-stripe-form .field: focus: : -moz-placeholder {
+.ws-stripe-form .field.focus: : -moz-placeholder, .ws-stripe-form .field:focus: : -moz-placeholder {
   color: #3968BC75;
 }
-.ws-stripe-form .field.focus: -ms-input-placeholder, .ws-stripe-form .field: focus: -ms-input-placeholder {
+.ws-stripe-form .field.focus: -ms-input-placeholder, .ws-stripe-form .field:focus: -ms-input-placeholder {
   color: #3968BC75;
 }
 .ws-stripe-form input, .ws-stripe-form button {
@@ -503,7 +503,7 @@ footer {
   cursor: pointer;
   margin: 30px 15px 60px;
 }
-.ws-stripe-form button: active {
+.ws-stripe-form button:active {
   background-color: #74ad26;
 }
 .ws-stripe-form .error svg .base {

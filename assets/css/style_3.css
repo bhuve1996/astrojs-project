@@ -28,7 +28,7 @@
   display: flex;
   animation: CountryList_scrollLeft__kVaB2 230s linear infinite;
 }
-.CountryList_container__GFIRq: hover .CountryList_scrollingLeft__1rgKT, .CountryList_container__GFIRq: hover .CountryList_scrollingRight__iqUBZ {
+.CountryList_container__GFIRq:hover .CountryList_scrollingLeft__1rgKT, .CountryList_container__GFIRq:hover .CountryList_scrollingRight__iqUBZ {
   animation-play-state: paused;
 }
 @keyframes CountryList_scrollRight__KQbNX {
@@ -127,7 +127,7 @@ to {
   align-items: center!important;
   gap: .8rem!important;
 }
-.FeatureItem_learnMoreButton__W5Lie: hover svg path {
+.FeatureItem_learnMoreButton__W5Lie:hover svg path {
   stroke: black;
 }
 .FeatureItem_learnMoreLink__HdFmv {
@@ -147,11 +147,11 @@ to {
   align-items: center;
   gap: .8rem;
 }
-.FeatureItem_learnMoreLink__HdFmv: hover {
+.FeatureItem_learnMoreLink__HdFmv:hover {
   background-color: var(--mantine-color-green);
   color: var(--mantine-color-black);
 }
-.FeatureItem_learnMoreLink__HdFmv: hover svg path {
+.FeatureItem_learnMoreLink__HdFmv:hover svg path {
   stroke: black;
 }
 .FeatureItem_imageContainer__iwAwE {
@@ -271,7 +271,7 @@ to {
   background: #fff;
   border-radius: 50%;
 }
-.ShootingStarAnimation_shootingStars__tGAE5 span: before {
+.ShootingStarAnimation_shootingStars__tGAE5 span:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -500,10 +500,10 @@ to {
 .TabbedContainer_tabButton__EnCN_ {
   flex-shrink: 0;
 }
-.TabbedContainer_tabButton__EnCN_: hover {
+.TabbedContainer_tabButton__EnCN_:hover {
   color: var(--mantine-color-white);
 }
-.TabbedContainer_tabButton__EnCN_: hover svg circle, .TabbedContainer_tabButton__EnCN_: hover svg path, .TabbedContainer_tabButton__EnCN_: hover svg rect {
+.TabbedContainer_tabButton__EnCN_:hover svg circle, .TabbedContainer_tabButton__EnCN_:hover svg path, .TabbedContainer_tabButton__EnCN_:hover svg rect {
   fill: var(--mantine-color-white);
   fill-opacity: 1;
   transition: none;
@@ -540,7 +540,7 @@ to {
     gap: 2.4rem;
   }
 }
-.SocialProof_card__huVR_: hover {
+.SocialProof_card__huVR_:hover {
   background-color: color-mix(in srgb, var(--mantine-color-white), transparent 90%);
   color: #ffffff;
 }
@@ -869,7 +869,7 @@ to {
   border-left: 1px solid #505f63;
   border-right: 1px solid #505f63;
 }
-.HowToSetUp_gridCol__C9x_B: last-child {
+.HowToSetUp_gridCol__C9x_B:last-child {
   border-bottom: 1px solid #505f63;
 }
 .HowToSetUp_item__5oqHx {
@@ -897,7 +897,7 @@ to {
     border-right: none;
     border-bottom: 1px solid #505f63;
   }
-.HowToSetUp_gridCol__C9x_B: last-child {
+.HowToSetUp_gridCol__C9x_B:last-child {
     border-right: 1px solid #505f63;
   }
 }
@@ -1015,7 +1015,7 @@ to {
   padding: 0;
   background-color: transparent;
 }
-.DnsLeakResultsAccordion_control__63II3: hover, .DnsLeakResultsAccordion_control__63II3[data-active=true] {
+.DnsLeakResultsAccordion_control__63II3:hover, .DnsLeakResultsAccordion_control__63II3[data-active=true] {
   background-color: transparent;
 }
 .DnsLeakResultsAccordion_panel___xFln {

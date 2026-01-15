@@ -78,11 +78,11 @@
 }
 .bap-loc-item button {
 }
-.bap-loc-item: hover {
+.bap-loc-item:hover {
   cursor: pointer;
   background-color: #F5F5F5;
 }
-.bap-loc-item: hover .bap-select, #bap-data-item: hover .bap-select {
+.bap-loc-item:hover .bap-select, #bap-data-item:hover .bap-select {
   background-color: #e0f0cc;
 }
 .bap-btn {
@@ -155,12 +155,12 @@ div.bap-deselect {
   color: #3968bc;
   z-index: 9;
 }
-#robert-link: hover {
+#robert-link:hover {
   background-color: #3968bc;
   color: white;
   cursor: pointer;
 }
-#bap-data-item: hover {
+#bap-data-item:hover {
   background-color: #F5F5F5;
 }
 #bap-data-item span {
@@ -258,7 +258,7 @@ div.bap-deselect {
   height: 100%;
   margin: 0px auto;
 }
-.ma-modal .cd-popup-container .cd-popup-close: : before, .ma-modal .cd-popup-container .cd-popup-close: : after {
+.ma-modal .cd-popup-container .cd-popup-close: :before, .ma-modal .cd-popup-container .cd-popup-close: :after {
   content: '';
   position: absolute;
   top: 14px;

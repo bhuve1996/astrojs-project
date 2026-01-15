@@ -53,7 +53,7 @@ body {
 /** * Garry uses Emotion which sets `box-sizing: border-box` at the global level, so we set this rule * at the root to take precedence over the emotion preset. */body * {
   box-sizing: content-box;
 }
-.clearfix: after {
+.clearfix:after {
   visibility: hidden;
   display: block;
   font-size: 0;
@@ -116,7 +116,7 @@ body {
 }
 .header-menu .sub-menu.small {
 }
-.header-menu .sub-menu: hover {
+.header-menu .sub-menu:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
 .header-menu .sub-menu li {
@@ -126,7 +126,7 @@ body {
 .header-menu .sub-menu li a {
   float: none;
 }
-.header-menu ul li: hover .sub-menu {
+.header-menu ul li:hover .sub-menu {
   display: block;
 }
 #mobile_header {
@@ -141,7 +141,7 @@ body {
 .home-ma-btn {
   background-color: #353845 !important;
 }
-.home-ma-btn: hover {
+.home-ma-btn:hover {
   background-color: #676a73 !important;
 }
 .home-top {
@@ -240,7 +240,7 @@ body {
   padding-bottom: 2px;
   transition: all 0.2s ease;
 }
-.white-section.login h3 a: hover, .white-section.signup h3 a: hover {
+.white-section.login h3 a:hover, .white-section.signup h3 a:hover {
   border-bottom-color: #005f8a;
   color: #005f8a;
 }
@@ -337,7 +337,7 @@ body {
 }
 .bottom-benefit {
   position: relative;
-  background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #23325C), color-stop(1, #12192F) );
+  background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #23325C), color-stop(1, #12192F));
   background-image: -o-linear-gradient(top, #23325C 0%, #12192F 100%);
   background-image: -moz-linear-gradient(top, #23325C 0%, #12192F 100%);
   background-image: -webkit-linear-gradient(top, #23325C 0%, #12192F 100%);
@@ -374,7 +374,7 @@ body {
   /* Old browsers */ background: -moz-radial-gradient(center, ellipse cover, #010001 0%, #070a15 100%);
   /* FF3.6-15 */ background: -webkit-radial-gradient(center, ellipse cover, #010001 0%, #070a15 100%);
   /* Chrome10-25, Safari5.1-6 */ background: radial-gradient(ellipse at center, #010001 0%, #070a15 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#010001', endColorstr='#070a15', GradientType=1 );
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#010001', endColorstr='#070a15', GradientType=1);
   /* IE6-9 fallback on horizontal gradient */;
 }
 .right-benefit {
@@ -382,13 +382,13 @@ body {
   /* Old browsers */ background: -moz-radial-gradient(center, ellipse cover, #2a3235 0%, #04080e 100%);
   /* FF3.6-15 */ background: -webkit-radial-gradient(center, ellipse cover, #2a3235 0%, #04080e 100%);
   /* Chrome10-25, Safari5.1-6 */ background: radial-gradient(ellipse at center, #2a3235 0%, #04080e 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#258dc8', endColorstr='#090f1a', GradientType=1 );
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#258dc8', endColorstr='#090f1a', GradientType=1);
   /* IE6-9 fallback on horizontal gradient */ box-shadow: inset 0 0 50px 0 #000;
   border-bottom: 1px solid #111;
   border-top: 1px solid #111;
 }
 .top-benefit {
-  background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #23325C), color-stop(1, #12192F) );
+  background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #23325C), color-stop(1, #12192F));
   background-image: -o-linear-gradient(bottom, #23325C 0%, #12192F 100%);
   background-image: -moz-linear-gradient(bottom, #23325C 0%, #12192F 100%);
   background-image: -webkit-linear-gradient(bottom, #23325C 0%, #12192F 100%);
@@ -440,15 +440,15 @@ body {
   text-decoration: none;
   border: none;
 }
-.green-btn: hover {
+.green-btn:hover {
   background-color: #6eb315;
 }
-.green-btn: disabled {
+.green-btn:disabled {
   background-color: #cccccc !important;
-  cursor: not-allowed !important;
+  cursor:not-allowed !important;
   opacity: 0.6;
 }
-.green-btn: hover .add-btn i {
+.green-btn:hover .add-btn i {
   margin-top: 5px;
 }
 .gray-btn {
@@ -459,7 +459,7 @@ body {
   text-decoration: none;
   border: none;
 }
-.gray-btn: hover {
+.gray-btn:hover {
   background-color: #bfbfc2;
 }
 .left-text {
@@ -474,7 +474,7 @@ body {
   border-radius: 25px;
   border: 1px solid white;
 }
-.white-btn: hover {
+.white-btn:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
 .big-white-btn {
@@ -486,7 +486,7 @@ body {
 .non-trans {
   background-color: #4d5979;
 }
-.non-trans: hover {
+.non-trans:hover {
   background-color: #7a829b;
 }
 .nav-menu-btn {
@@ -634,7 +634,7 @@ body {
   margin-left: -119px;
   display: none;
 }
-#why-start-btn: hover i {
+#why-start-btn:hover i {
   display: block;
 }
 .blue-section {
@@ -732,7 +732,7 @@ body {
   margin: 10px 0;
   box-shadow: 0px 0px 15px -5px #8cb5ce;
 }
-.trans-green-btn: hover {
+.trans-green-btn:hover {
   background-color: rgba(136, 194, 78, 0.3);
   box-shadow: 0px 0px 15px -2px #8cb5ce;
 }
@@ -741,7 +741,7 @@ body {
 .trans-green-btn.green-back {
   background-color: #f8ffef;
 }
-.trans-green-btn.green-back: hover {
+.trans-green-btn.green-back:hover {
   background-color: #e0ffb9;
 }
 .privacy-bg {
@@ -810,7 +810,7 @@ body {
   font-weight: 400;
   font-size: 14px;
 }
-.footer-link-cont ul li a: hover {
+.footer-link-cont ul li a:hover {
   color: #52a5d8;
 }
 .footer-left {
@@ -876,7 +876,7 @@ body {
 .add-btn {
   display: inline-block;
 }
-.add-btn: hover {
+.add-btn:hover {
 }
 .add-btn span {
   display: inline-block;
@@ -1295,7 +1295,7 @@ body {
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
-.miner .slider: hover {
+.miner .slider:hover {
   opacity: 1;
 }
 .miner .slider: : -webkit-slider-thumb {
@@ -1495,7 +1495,7 @@ h1.box_yellow a {
   /* Old browsers */ background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%);
   /* FF3.6-15 */ background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%);
   /* Chrome10-25, Safari5.1-6 */ background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0 );
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
   /* IE6-9 */;
 }
 .header-row .heading {
@@ -1608,7 +1608,7 @@ h1.box_yellow a {
   color: #3968BC !important;
   font-size: 16px !important;
 }
-.installed.btn-download.btn-chrome: : before {
+.installed.btn-download.btn-chrome: :before {
   content: "";
   width: 23px;
   height: 23px;
@@ -1621,7 +1621,7 @@ h1.box_yellow a {
   position: relative;
   padding-left: 50px;
 }
-.installed.btn-download.btn-firefox: : before {
+.installed.btn-download.btn-firefox: :before {
   content: "";
   width: 23px;
   height: 23px;
@@ -1634,7 +1634,7 @@ h1.box_yellow a {
   position: relative;
   padding-left: 50px;
 }
-.installed.btn-download.btn-opera: : before {
+.installed.btn-download.btn-opera: :before {
   content: "";
   width: 23px;
   height: 23px;
@@ -1952,7 +1952,7 @@ h1.box_yellow a {
   /* Old browsers */ background: -moz-linear-gradient(top, rgba(53, 117, 191, 1) 0%, rgba(51, 88, 177, 1) 100%);
   /* FF3.6-15 */ background: -webkit-linear-gradient(top, rgba(53, 117, 191, 1) 0%, rgba(51, 88, 177, 1) 100%);
   /* Chrome10-25, Safari5.1-6 */ background: linear-gradient(to bottom, rgba(53, 117, 191, 1) 0%, rgba(51, 88, 177, 1) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3575bf', endColorstr='#3358b1', GradientType=0 );
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3575bf', endColorstr='#3358b1', GradientType=0);
   /* IE6-9 */ color: #FFF !important;
   font-size: 16px !important;
   border: none;
@@ -2040,7 +2040,7 @@ h1.box_yellow a {
   width: inherit;
   text-decoration: none;
 }
-#table_cont table td: first-child {
+#table_cont table td:first-child {
   width: 130px;
 }
 #loc_link {
@@ -2137,7 +2137,7 @@ h1.box_yellow a {
   /* Old browsers */ background: -moz-linear-gradient(top, rgba(53, 117, 191, 1) 0%, rgba(51, 88, 177, 1) 100%);
   /* FF3.6-15 */ background: -webkit-linear-gradient(top, rgba(53, 117, 191, 1) 0%, rgba(51, 88, 177, 1) 100%);
   /* Chrome10-25, Safari5.1-6 */ background: linear-gradient(to bottom, rgba(53, 117, 191, 1) 0%, rgba(51, 88, 177, 1) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3575bf', endColorstr='#3358b1', GradientType=0 );
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3575bf', endColorstr='#3358b1', GradientType=0);
   /* IE6-9 */ color: #FFF !important;
 }
 .signup .have_voucher {
@@ -2221,9 +2221,9 @@ h1.box_yellow a {
   margin-top: 4px;
   text-align: center;
 }
-/* Disabled button styling */.signup button.disabled, .signup button: disabled, .forgotpass button.disabled, .forgotpass button: disabled {
+/* Disabled button styling */.signup button.disabled, .signup button:disabled, .forgotpass button.disabled, .forgotpass button:disabled {
   opacity: 0.5;
-  cursor: not-allowed;
+  cursor:not-allowed;
   pointer-events: none;
 }
 .signup .robert {
@@ -2426,7 +2426,7 @@ to {
     transform: rotate(360deg);
   }
 }
-.wsspinner: before {
+.wsspinner:before {
   content: '';
   box-sizing: border-box;
   position: absolute;
@@ -2467,7 +2467,7 @@ to {
   margin: 10px auto;
   border: 1px solid #eee;
 }
-.kb_results .kb_article_item: hover {
+.kb_results .kb_article_item:hover {
   cursor: pointer;
   background-color: whitesmoke;
 }
@@ -2729,7 +2729,7 @@ to {
   position: relative;
   cursor: pointer;
 }
-/* Base styles for the entire tooltip */[data-tooltip]: before, [data-tooltip]: after, .tooltip: before, .tooltip: after {
+/* Base styles for the entire tooltip */[data-tooltip]:before, [data-tooltip]:after, .tooltip:before, .tooltip:after {
   position: absolute;
   visibility: hidden;
   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -2744,13 +2744,13 @@ to {
   transform: translate3d(0, 0, 0);
   pointer-events: none;
 }
-/* Show the entire tooltip on hover and focus */[data-tooltip]: hover: before, [data-tooltip]: hover: after, [data-tooltip]: focus: before, [data-tooltip]: focus: after, .tooltip: hover: before, .tooltip: hover: after, .tooltip: focus: before, .tooltip: focus: after, .tooltip-open: before, .tooltip-open: after {
+/* Show the entire tooltip on hover and focus */[data-tooltip]:hover:before, [data-tooltip]:hover:after, [data-tooltip]:focus:before, [data-tooltip]:focus:after, .tooltip:hover:before, .tooltip:hover:after, .tooltip:focus:before, .tooltip:focus:after, .tooltip-open:before, .tooltip-open:after {
   visibility: visible;
   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
-/* Base styles for the tooltip's directional arrow */.tooltip: before, [data-tooltip]: before { z-index: 1001; border: 6px solid transparent; background: transparent; content: ""; } /* Base styles for the tooltip's content area */.tooltip: after, [data-tooltip]: after {
+/* Base styles for the tooltip's directional arrow */.tooltip:before, [data-tooltip]:before { z-index: 1001; border: 6px solid transparent; background: transparent; content: ""; } /* Base styles for the tooltip's content area */.tooltip:after, [data-tooltip]:after {
   z-index: 1000;
   padding: 8px;
   width: 160px;
@@ -2762,34 +2762,34 @@ to {
   line-height: 1.2;
   text-align: center;
 }
-#kb_section [data-tooltip]: after {
+#kb_section [data-tooltip]:after {
   width: 220px;
   margin-left: -110px;
 }
-/* Directions *//* Top (default) */[data-tooltip]: before, [data-tooltip]: after, .tooltip: before, .tooltip: after, .tooltip-top: before, .tooltip-top: after {
+/* Directions *//* Top (default) */[data-tooltip]:before, [data-tooltip]:after, .tooltip:before, .tooltip:after, .tooltip-top:before, .tooltip-top:after {
   bottom: 100%;
   left: 50%;
 }
-[data-tooltip]: before, .tooltip: before, .tooltip-top: before {
+[data-tooltip]:before, .tooltip:before, .tooltip-top:before {
   margin-left: -6px;
   margin-bottom: -12px;
   border-top-color: #000;
   border-top-color: hsla(0, 0%, 20%, 0.9);
 }
-/* Horizontally align top/bottom tooltips */[data-tooltip]: after, .tooltip: after, .tooltip-top: after {
+/* Horizontally align top/bottom tooltips */[data-tooltip]:after, .tooltip:after, .tooltip-top:after {
   margin-left: -88px;
 }
-[data-tooltip]: hover: before, [data-tooltip]: hover: after, [data-tooltip]: focus: before, [data-tooltip]: focus: after, .tooltip: hover: before, .tooltip: hover: after, .tooltip: focus: before, .tooltip: focus: after, .tooltip-top: hover: before, .tooltip-top: hover: after, .tooltip-open: before, .tooltip-open: after, .tooltip-top: focus: before, .tooltip-top: focus: after {
+[data-tooltip]:hover:before, [data-tooltip]:hover:after, [data-tooltip]:focus:before, [data-tooltip]:focus:after, .tooltip:hover:before, .tooltip:hover:after, .tooltip:focus:before, .tooltip:focus:after, .tooltip-top:hover:before, .tooltip-top:hover:after, .tooltip-open:before, .tooltip-open:after, .tooltip-top:focus:before, .tooltip-top:focus:after {
   -webkit-transform: translateY(-12px);
   -moz-transform: translateY(-12px);
   transform: translateY(-12px);
 }
-/* Left */.tooltip-left: before, .tooltip-left: after {
+/* Left */.tooltip-left:before, .tooltip-left:after {
   right: 100%;
   bottom: 50%;
   left: auto;
 }
-.tooltip-left: before {
+.tooltip-left:before {
   margin-left: 0;
   margin-right: -12px;
   margin-bottom: 0;
@@ -2797,52 +2797,52 @@ to {
   border-left-color: #000;
   border-left-color: hsla(0, 0%, 20%, 0.9);
 }
-.tooltip-left: hover: before, .tooltip-left: hover: after, .tooltip-left: focus: before, .tooltip-left: focus: after {
+.tooltip-left:hover:before, .tooltip-left:hover:after, .tooltip-left:focus:before, .tooltip-left:focus:after {
   -webkit-transform: translateX(-12px);
   -moz-transform: translateX(-12px);
   transform: translateX(-12px);
 }
-/* Bottom */.tooltip-bottom: before, .tooltip-bottom: after {
+/* Bottom */.tooltip-bottom:before, .tooltip-bottom:after {
   top: 100%;
   bottom: auto;
   left: 50%;
 }
-.tooltip-bottom: before {
+.tooltip-bottom:before {
   margin-top: -12px;
   margin-bottom: 0;
   border-top-color: transparent;
   border-bottom-color: #000;
   border-bottom-color: hsla(0, 0%, 20%, 0.9);
 }
-.tooltip-bottom: hover: before, .tooltip-bottom: hover: after, .tooltip-bottom: focus: before, .tooltip-bottom: focus: after {
+.tooltip-bottom:hover:before, .tooltip-bottom:hover:after, .tooltip-bottom:focus:before, .tooltip-bottom:focus:after {
   -webkit-transform: translateY(12px);
   -moz-transform: translateY(12px);
   transform: translateY(12px);
 }
-/* Right */.tooltip-right: before, .tooltip-right: after {
+/* Right */.tooltip-right:before, .tooltip-right:after {
   bottom: 50%;
   left: 100%;
 }
-.tooltip-right: before {
+.tooltip-right:before {
   margin-bottom: 0;
   margin-left: -12px;
   border-top-color: transparent;
   border-right-color: #000;
   border-right-color: hsla(0, 0%, 20%, 0.9);
 }
-.tooltip-right: hover: before, .tooltip-right: hover: after, .tooltip-right: focus: before, .tooltip-right: focus: after {
+.tooltip-right:hover:before, .tooltip-right:hover:after, .tooltip-right:focus:before, .tooltip-right:focus:after {
   -webkit-transform: translateX(12px);
   -moz-transform: translateX(12px);
   transform: translateX(12px);
 }
-/* Move directional arrows down a bit for left/right tooltips */.tooltip-left: before, .tooltip-right: before {
+/* Move directional arrows down a bit for left/right tooltips */.tooltip-left:before, .tooltip-right:before {
   top: 3px;
 }
-/* Vertically center tooltip content for left/right tooltips */.tooltip-left: after, .tooltip-right: after {
+/* Vertically center tooltip content for left/right tooltips */.tooltip-left:after, .tooltip-right:after {
   margin-left: 0;
   margin-bottom: -16px;
 }
-.force_tooltip_show: before, .force_tooltip_show: after {
+.force_tooltip_show:before, .force_tooltip_show:after {
   visibility: visible;
   opacity: 0.8;
   -webkit-transform: translateY(-12px);
@@ -3159,7 +3159,7 @@ i.top-tooltip {
     padding: 0;
     font-size: 14px;
   }
-.header-menu ul li a: hover {
+.header-menu ul li a:hover {
     background: none;
   }
 #header_logo {
@@ -3729,7 +3729,7 @@ i.top-tooltip {
   width: 100%;
   float: none !important;
 }
-.language-dropdown-menu li a: hover {
+.language-dropdown-menu li a:hover {
   background-color: #ebebeb;
 }
 .language-dropdown-menu li a {
@@ -3828,7 +3828,7 @@ i.top-tooltip {
   color: #333;
   font-weight: 400;
 }
-.cd-popup-container .cd-buttons: after {
+.cd-popup-container .cd-buttons:after {
   content: "";
   display: table;
   clear: both;
@@ -3854,21 +3854,21 @@ i.top-tooltip {
   letter-spacing: 0.5px;
   transition: all 0.2s ease;
 }
-.cd-popup-container .cd-buttons li: first-child a {
+.cd-popup-container .cd-buttons li:first-child a {
   background: #ff6b6b;
   border-radius: 0 0 0 12px;
   text-decoration: none;
 }
-.no-touch .cd-popup-container .cd-buttons li: first-child a: hover {
+.no-touch .cd-popup-container .cd-buttons li:first-child a:hover {
   background-color: #ff4444;
   box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
 }
-.cd-popup-container .cd-buttons li: last-child a {
+.cd-popup-container .cd-buttons li:last-child a {
   background: #4caf50;
   border-radius: 0 0 12px 0;
   text-decoration: none;
 }
-.no-touch .cd-popup-container .cd-buttons li: last-child a: hover {
+.no-touch .cd-popup-container .cd-buttons li:last-child a:hover {
   background-color: #388e3c;
   box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
 }
@@ -3905,7 +3905,7 @@ i.top-tooltip {
   position: relative;
   z-index: 2;
 }
-.privacy-top .privacy-screenshot: : before {
+.privacy-top .privacy-screenshot: :before {
   content: '';
   background-color: rgba(255, 255, 255, 0.1);
   width: 450px;
@@ -4027,11 +4027,11 @@ i.top-tooltip {
   padding: 10px;
   color: #88c53a;
 }
-.linux-cli-wrap .distro-icon .version-select: hover {
+.linux-cli-wrap .distro-icon .version-select:hover {
   background-color: #98cd55;
   color: #fff;
 }
-.linux-cli-wrap .distro-icon .version-select: : after {
+.linux-cli-wrap .distro-icon .version-select: :after {
   position: absolute;
   right: 10px;
   bottom: 12px;
@@ -4044,7 +4044,7 @@ i.top-tooltip {
   transform: rotate(-90deg);
   content: '';
 }
-.linux-cli-wrap .distro-icon .version-select: hover: after {
+.linux-cli-wrap .distro-icon .version-select:hover:after {
   background: url("data: image/svg+xml, <svg xmlns='http: //www.w3.org/2000/svg' x='0px' y='0px' width='10.1px' height='17.4px' viewBox='-300.7 388.6 10.1 17.4'> <path fill='#fff' d='M-290.6, 404.6l-1.4, 1.4l-8-8l-0.7-0.7l0.7-0.7l8-8l1.4, 1.4l-7.3, 7.3L-290.6, 404.6z' /> </svg>") no-repeat 50% 50%/6px auto;
 }
 .linux-cli-wrap .distro-icon .version-select p {
@@ -4077,7 +4077,7 @@ i.top-tooltip {
   width: 200px;
   margin: 0px auto 0px -100px;
 }
-.linux-cli-wrap .dropdown-version-list: : before {
+.linux-cli-wrap .dropdown-version-list: :before {
   content: '';
   width: 0;
   position: absolute;
@@ -4105,10 +4105,10 @@ i.top-tooltip {
   /* margin: 5px 0;
   */ padding: 10px 0;
 }
-.linux-cli-wrap .dropdown-version-list li: hover {
+.linux-cli-wrap .dropdown-version-list li:hover {
   background: rgba(0, 0, 0, 0.1);
 }
-.linux-cli-wrap .distro-list .distro-icon.selected img, .linux-cli-wrap .distro-icon img: hover {
+.linux-cli-wrap .distro-list .distro-icon.selected img, .linux-cli-wrap .distro-icon img:hover {
   filter: grayscale(0);
 }
 .linux-cli-wrap .distro-icon select, .linux-cli-wrap .distro-icon span.distro-note {
@@ -4120,7 +4120,7 @@ i.top-tooltip {
     width: 350px;
     height: 350px;
   }
-.privacy-top .privacy-screenshot: : before {
+.privacy-top .privacy-screenshot: :before {
     width: 350px;
     height: 350px;
   }
@@ -4131,7 +4131,7 @@ i.top-tooltip {
     height: 280px;
     margin: auto;
   }
-.privacy-top .privacy-screenshot: : before {
+.privacy-top .privacy-screenshot: :before {
     width: 280px;
     height: 280px;
   }
@@ -4179,7 +4179,7 @@ i.top-tooltip {
 .privacy-top {
     margin-bottom: 0px;
   }
-.privacy-top .privacy-screenshot, .privacy-top .privacy-screenshot: : before {
+.privacy-top .privacy-screenshot, .privacy-top .privacy-screenshot: :before {
     width: 200px;
     height: 200px;
   }
@@ -4359,7 +4359,7 @@ i.top-tooltip {
   border-bottom: 1px solid rgba(108, 117, 125, 0.2) !important;
   transition: all 0.2s ease !important;
 }
-body: has(.white-section.myaccount) .header-menu ul li a: hover, .myaccount-body .header-menu ul li a: hover {
+body: has(.white-section.myaccount) .header-menu ul li a:hover, .myaccount-body .header-menu ul li a:hover {
   color: var(--accent-primary) !important;
   background: none !important;
   border-bottom-color: var(--accent-primary) !important;
@@ -4377,7 +4377,7 @@ body: has(.white-section.myaccount) .header-menu ul li a, .myaccount-body .heade
     color: #ffffff !important;
     border-bottom: 1px solid transparent !important;
   }
-body: has(.white-section.myaccount) .header-menu ul li a: hover, .myaccount-body .header-menu ul li a: hover {
+body: has(.white-section.myaccount) .header-menu ul li a:hover, .myaccount-body .header-menu ul li a:hover {
     color: #ffffff !important;
     border-bottom-color: rgba(255, 255, 255, 0.5) !important;
     opacity: 0.8 !important;
@@ -4398,7 +4398,7 @@ body: has(.white-section.myaccount) .header-menu ul li a: hover, .myaccount-body
 /* Dark mode menu text */[data-theme="dark"] body: has(.white-section.myaccount) .header-menu ul li a, [data-theme="dark"] .myaccount-body .header-menu ul li a {
   color: var(--text-primary) !important;
 }
-[data-theme="dark"] body: has(.white-section.myaccount) .header-menu ul li a: hover, [data-theme="dark"] .myaccount-body .header-menu ul li a: hover {
+[data-theme="dark"] body: has(.white-section.myaccount) .header-menu ul li a:hover, [data-theme="dark"] .myaccount-body .header-menu ul li a:hover {
   color: var(--accent-primary) !important;
 }
 /* Mobile view - keep logo visible, hide only navigation menu on account pages */@media (max-width: 950px) {
@@ -4429,7 +4429,7 @@ body: has(.white-section.myaccount) .header-menu ul li a: hover, .myaccount-body
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
-body: has(.white-section.myaccount) .header-menu ul li.myaccount-logout a: hover, .myaccount-body .header-menu ul li.myaccount-logout a: hover {
+body: has(.white-section.myaccount) .header-menu ul li.myaccount-logout a:hover, .myaccount-body .header-menu ul li.myaccount-logout a:hover {
     background: rgba(255, 255, 255, 0.25) !important;
     border-color: rgba(255, 255, 255, 0.5) !important;
     color: #ffffff !important;
@@ -4437,7 +4437,7 @@ body: has(.white-section.myaccount) .header-menu ul li.myaccount-logout a: hover
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-1px);
   }
-body: has(.white-section.myaccount) .header-menu ul li.myaccount-logout a: active, .myaccount-body .header-menu ul li.myaccount-logout a: active {
+body: has(.white-section.myaccount) .header-menu ul li.myaccount-logout a:active, .myaccount-body .header-menu ul li.myaccount-logout a:active {
     transform: translateY(0);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   }
@@ -4505,12 +4505,12 @@ body: has(.white-section.myaccount) .header-menu ul, .myaccount-body .header-men
   padding: 14px 0;
   border-bottom: 1px solid rgba(226, 232, 240, 0.6);
 }
-.cancel-info-row: last-child {
+.cancel-info-row:last-child {
   border-bottom: none;
   padding-bottom: 0;
   padding-top: 20px;
 }
-.cancel-info-row: first-child {
+.cancel-info-row:first-child {
   padding-top: 0;
 }
 .cancel-info-label {
@@ -4575,7 +4575,7 @@ body: has(.white-section.myaccount) .header-menu ul, .myaccount-body .header-men
 .cancel-info-row {
     padding: 12px 0;
   }
-.cancel-info-row: last-child {
+.cancel-info-row:last-child {
     padding-top: 16px;
   }
 .cancel-info-label {

@@ -48,7 +48,7 @@
   transition: all 0.2s ease;
   border: none;
 }
-.premium-upgrade: hover {
+.premium-upgrade:hover {
   background: #2d5299;
   box-shadow: 0 2px 8px rgba(57, 104, 188, 0.3);
 }
@@ -56,7 +56,7 @@
   background: #3968bc;
   color: #ffffff;
 }
-[data-theme="dark"] .premium-upgrade: hover {
+[data-theme="dark"] .premium-upgrade:hover {
   background: #5080d6;
 }
 /* Remove p tag padding around premium-upgrade buttons */p: has(.premium-upgrade) {
@@ -221,7 +221,7 @@
   text-align: center;
   font-size: 17px;
 }
-.plan_compare td: first-child {
+.plan_compare td:first-child {
   width: 200px;
   text-align: left;
 }
@@ -729,7 +729,7 @@ i.cflag.GH {
 .upgrade_heading p {
     padding: 0px 30px 0px 10px;
   }
-.plan_compare td: first-child {
+.plan_compare td:first-child {
     width: 110px !important;
     text-align: left;
     font-size: 14px;
@@ -754,13 +754,13 @@ i.cflag.GH {
     padding: 0px !important;
     line-height: inherit !important;
   }
-.locations_table td: first-child {
+.locations_table td:first-child {
     font-size: 11px;
     width: 200px !important;
   }
 }
 @media screen and (width: 360px) {
-.plan_compare td: first-child {
+.plan_compare td:first-child {
     width: 106px !important;
     font-size: 13px;
   }
@@ -786,10 +786,10 @@ i.cflag.GH {
 .plan_compare h1 {
     font-size: 28px;
   }
-.plan_compare td: first-child {
+.plan_compare td:first-child {
     width: 120px;
   }
-.locations_table td: first-child {
+.locations_table td:first-child {
     font-size: 9px;
   }
 .plan_compare td {

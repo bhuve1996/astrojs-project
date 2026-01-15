@@ -118,7 +118,7 @@ i#top_logo {
   font-size: 14px;
   text-decoration: none;
 }
-#gp-free a: hover {
+#gp-free a:hover {
   background-color: #f9f9f9;
 }
 #gp-pro, #pro-yearly-box {
@@ -128,7 +128,7 @@ i#top_logo {
   /* Old browsers */ background: -moz-linear-gradient(top, rgba(46, 208, 253, 1) 0%, rgba(57, 104, 188, 1) 100%);
   /* FF3.6-15 */ background: -webkit-linear-gradient(top, rgba(46, 208, 253, 1) 0%, rgba(57, 104, 188, 1) 100%);
   /* Chrome10-25, Safari5.1-6 */ background: linear-gradient(to bottom, rgba(46, 208, 253, 1) 0%, rgba(57, 104, 188, 1) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#2ed0fd', endColorstr='#3968bc', GradientType=0 );
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#2ed0fd', endColorstr='#3968bc', GradientType=0);
   /* IE6-9 */ vertical-align: top;
   margin: 0px -3px 0px -3px;
   color: white;
@@ -210,7 +210,7 @@ i#top_logo {
   margin: 15px auto 10px;
   text-decoration: none;
 }
-#gp-pro a: hover, #gp-pro-month a: hover {
+#gp-pro a:hover, #gp-pro-month a:hover {
   background-color: #2ecdfb;
 }
 #gp-pro small {
@@ -254,7 +254,7 @@ i#top_logo {
   padding: 8px 42px;
   border-radius: 20px;
 }
-#gp-bottom > a: hover {
+#gp-bottom > a:hover {
   background-color: #1b4fa9;
 }
 #gp-platforms {
@@ -395,7 +395,7 @@ i#top_logo {
   position: absolute;
   border-radius: 8px;
 }
-#right-shadow-box: before {
+#right-shadow-box:before {
   position: absolute;
   width: 95%;
   height: 32%;
@@ -425,7 +425,7 @@ i#top_logo {
   position: absolute;
   border-radius: 8px;
 }
-#left-shadow-box: before {
+#left-shadow-box:before {
   position: absolute;
   width: 95%;
   height: 32%;
@@ -498,7 +498,7 @@ i#top_logo {
   /* box-shadow: 0px 0px 20px 0px #666;
   */;
 }
-.upgrade-pro-gift .promo_discount_star: before, .upgrade-pro-gift .promo_discount_star: after {
+.upgrade-pro-gift .promo_discount_star:before, .upgrade-pro-gift .promo_discount_star:after {
   content: "";
   position: absolute;
   top: 0;
@@ -509,13 +509,13 @@ i#top_logo {
   /* box-shadow: 0px 0px 20px 0px #666;
   */;
 }
-.upgrade-pro-gift .promo_discount_star: before {
+.upgrade-pro-gift .promo_discount_star:before {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
   -ms-transform: rotate(30deg);
   -o-transform: rotate(30deg);
 }
-.upgrade-pro-gift .promo_discount_star: after {
+.upgrade-pro-gift .promo_discount_star:after {
   -webkit-transform: rotate(60deg);
   -moz-transform: rotate(60deg);
   -ms-transform: rotate(60deg);
@@ -764,7 +764,7 @@ i#top_logo {
   padding: 10px 20px;
   border-radius: 25px;
 }
-.upgrade-pro-gift .buy-now: hover {
+.upgrade-pro-gift .buy-now:hover {
   background-color: #f4fbea;
 }
 #month-buynow {
@@ -773,7 +773,7 @@ i#top_logo {
   color: white;
   background-color: #86c72c;
 }
-#year-buynow: hover, #pro-yearly-box .upgrade-pro-gift .buy-now: hover, .back a.pay_btn: hover {
+#year-buynow:hover, #pro-yearly-box .upgrade-pro-gift .buy-now:hover, .back a.pay_btn:hover {
   background-color: #7ab529;
   border-color: #7ab529;
 }
@@ -827,7 +827,7 @@ i#top_logo {
   position: relative;
   display: none;
 }
-#pro-gift-info-box: before {
+#pro-gift-info-box:before {
   content: '';
   position: absolute;
   width: 0;
@@ -1009,7 +1009,7 @@ i#top_logo {
     margin-top: -210px !important;
   }
 }
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+@media screen and (-ms-high-contrast:active), (-ms-high-contrast: none) {
 /* IE10+ specific styles go here */ /* entire container, keeps perspective */ .flip-container {
     perspective: 1000px;
     transform: none !important;
