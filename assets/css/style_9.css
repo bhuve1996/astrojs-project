@@ -1,3 +1,4 @@
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -10,6 +11,8 @@
     url(/css/fonts/lato-v14-latin_latin-ext-300.ttf) format('truetype');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
+
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -23,6 +26,8 @@
     U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
     U+2215, U+E0FF, U+EFFD, U+F000;
 }
+
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -34,6 +39,8 @@
     url(/css/fonts/lato-v14-latin_latin-ext-regular.ttf) format('truetype');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
+
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -47,6 +54,8 @@
     U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
     U+2215, U+E0FF, U+EFFD, U+F000;
 }
+
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -58,6 +67,8 @@
     url(/css/fonts/lato-v14-latin_latin-ext-700.ttf) format('truetype');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
+
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -71,6 +82,8 @@
     U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
     U+2215, U+E0FF, U+EFFD, U+F000;
 }
+
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
@@ -105,6 +118,7 @@ body * {
   margin: 0px auto;
 }
 
+/* Responsive styles - (max-width: 500px) { */
 @media (max-width: 500px) {
   #main_header {
     padding: 0;
@@ -2040,12 +2054,14 @@ h1.box_yellow a {
   margin-top: 30px;
 }
 
+/* Responsive styles - only screen and (max-width: 850px) { */
 @media only screen and (max-width: 850px) {
   .login h1 {
     font-size: 1.5em !important;
   }
 }
 
+/* Responsive styles - (max-width: 950px) { */
 @media (max-width: 950px) {
   .sub-menu {
     display: none !important;
@@ -2077,6 +2093,7 @@ h1.box_yellow a {
   border-radius: 10px;
 }
 
+/* Responsive styles - (max-width: 768px) { */
 @media (max-width: 768px) {
   .forgotpass .forgotpassword-box {
     max-width: 100%;
@@ -2535,6 +2552,7 @@ h1.box_yellow a {
   color: red;
 }
 
+/* Animation keyframes: spinner */
 @keyframes spinner {
   to {
     transform: rotate(360deg);
@@ -2745,12 +2763,14 @@ h1.box_yellow a {
   display: block !important;
 }
 
+/* Responsive styles - only screen and (max-width: 850px) { */
 @media only screen and (max-width: 850px) {
   .signup h1 {
     font-size: 1.5em !important;
   }
 }
 
+/* Animation keyframes: move */
 @keyframes move-twink-back {
   from {
     background-position: 0 0;
@@ -2784,6 +2804,7 @@ h1.box_yellow a {
   }
 }
 
+/* Animation keyframes: move */
 @keyframes move-twink-back-blue {
   from {
     background-position: 0 0;
@@ -3118,6 +3139,7 @@ i.top-tooltip {
   font-size: 20px;
 }
 
+/* Responsive styles - (min-resolution: 1.5dppx), */
 @media (min-resolution: 1.5dppx),
   (min-resolution: 120dpi),
   (-webkit-min-device-pixel-ratio: 1.5),
@@ -3274,6 +3296,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - only screen and (max-width: 1415px) { */
 @media only screen and (max-width: 1415px) {
   #cloudsmoon,
   #cloudsmars,
@@ -3284,6 +3307,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - only screen and (max-width: 1090px) { */
 @media only screen and (max-width: 1090px) {
   .privacy-img {
     width: 380px;
@@ -3297,6 +3321,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - only screen and (max-width: 1040px) { */
 @media only screen and (max-width: 1040px) {
   #cloudsmoon,
   #cloudsmars,
@@ -3342,6 +3367,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - only screen and (max-width: 950px) { */
 @media only screen and (max-width: 950px) {
   .home-top {
     margin-top: -133px;
@@ -3406,6 +3432,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - only screen and (max-width: 800px) { */
 @media only screen and (max-width: 800px) {
   #cloudsmoon,
   #cloudsmars,
@@ -3480,6 +3507,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - only screen and (max-width: 750px) { */
 @media only screen and (max-width: 750px) {
   .whos-tracking {
     background-size: 100%;
@@ -3529,6 +3557,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - only screen and (max-width: 500px) { */
 @media only screen and (max-width: 500px) {
   #cloudsmoon,
   #cloudsmars,
@@ -3741,6 +3770,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - only screen and (max-width: 320px) { */
 @media only screen and (max-width: 320px) {
   #cloudsmoon,
   #cloudsmars,
@@ -4017,6 +4047,7 @@ i.top-tooltip {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
 
+/* Responsive styles - only screen and (min-width: 1170px) { */
 @media only screen and (min-width: 1170px) {
   .cd-popup-trigger {
     margin: 6em auto;
@@ -4131,6 +4162,7 @@ i.top-tooltip {
   transform: translateY(0) scale(1);
 }
 
+/* Responsive styles - only screen and (min-width: 1170px) { */
 @media only screen and (min-width: 1170px) {
   .cd-popup-container {
     margin: 0;
@@ -4381,6 +4413,7 @@ i.top-tooltip {
   margin: 12px auto;
 }
 
+/* Responsive styles - (max-width: 1220px) { */
 @media (max-width: 1220px) {
   .privacy-top .privacy-screenshot {
     width: 350px;
@@ -4392,6 +4425,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - (max-width: 1024px) { */
 @media (max-width: 1024px) {
   .privacy-top .privacy-screenshot {
     width: 280px;
@@ -4407,6 +4441,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - (max-width: 768px) { */
 @media (max-width: 768px) {
   .privacy-top {
     margin-bottom: 50px;
@@ -4445,6 +4480,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - (max-width: 500px) { */
 @media (max-width: 500px) {
   .privacy-top {
     margin-bottom: 0px;
@@ -4497,6 +4533,7 @@ i.top-tooltip {
   max-width: 512px;
 }
 
+/* Responsive styles - (max-width: 548px) { */
 @media (max-width: 548px) {
   .vpn-combo,
   .browser-ext {
@@ -4506,6 +4543,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - (max-width: 500px) { */
 @media (max-width: 500px) {
   .vpn-combo,
   .browser-ext {
@@ -4567,6 +4605,7 @@ i.top-tooltip {
   vertical-align: top;
 }
 
+/* Responsive styles - (max-width: 500px) { */
 @media (max-width: 500px) {
   .privacy-why .row .white-3col {
     margin: 0;
@@ -4591,6 +4630,7 @@ i.top-tooltip {
   margin-right: 10px;
 }
 
+/* Responsive styles - (max-width: 500px) { */
 @media (max-width: 500px) {
   .privacy-why .content-container h2,
   .privacy-why .content-container p {
@@ -4602,6 +4642,7 @@ i.top-tooltip {
   }
 }
 
+/* Responsive styles - (min-resolution: 1.5dppx), */
 @media (min-resolution: 1.5dppx),
   (min-resolution: 120dpi),
   (-webkit-min-device-pixel-ratio: 1.5),
@@ -4659,6 +4700,7 @@ body: has(.white-section.myaccount) .header-menu .sub-menu, .myaccount-body .hea
   display: none !important;
 }
 
+/* Responsive styles - (max-width: 950px) { */
 @media (max-width: 950px) {
   body: has(.white-section.myaccount) .header-menu ul li a, .myaccount-body .header-menu ul li a {
     font-size: 14px !important;
@@ -4689,6 +4731,8 @@ body: has(.white-section.myaccount) .language-selector, .myaccount-body .languag
 [data-theme="dark"] body: has(.white-section.myaccount) .header-menu ul li a:hover, [data-theme="dark"] .myaccount-body .header-menu ul li a:hover {
   color: var(--accent-primary) !important;
 }
+
+/* Responsive styles - (max-width: 950px) { */
 @media (max-width: 950px) {
   body: has(.white-section.myaccount) .header-menu, .myaccount-body .header-menu {
     display: none !important;
@@ -4838,6 +4882,7 @@ body: has(.white-section.myaccount) .language-selector, .myaccount-body .languag
   line-height: 1.5;
 }
 
+/* Responsive styles - (max-width: 768px) { */
 @media (max-width: 768px) {
   .cancel-subscription-info {
     max-width: 100%;

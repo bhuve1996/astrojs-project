@@ -882,6 +882,7 @@ i#top_logo {
 .paywallframe {
 }
 
+/* Responsive styles - (min-resolution: 1.5dppx), */
 @media (min-resolution: 1.5dppx),
   (min-resolution: 120dpi),
   (-webkit-min-device-pixel-ratio: 1.5),
@@ -938,6 +939,7 @@ i#top_logo {
   }
 }
 
+/* Responsive styles - only screen and (max-width: 768px) { */
 @media only screen and (max-width: 768px) {
   #gp_top {
     margin-top: -135px;
@@ -1007,6 +1009,7 @@ i#top_logo {
   }
 }
 
+/* Responsive styles - only screen and (max-width: 680px) { */
 @media only screen and (max-width: 680px) {
   #gp-pro {
     margin-top: 60px;
@@ -1038,6 +1041,7 @@ i#top_logo {
   }
 }
 
+/* Responsive styles - screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .flip-container {
     perspective: 1000px;

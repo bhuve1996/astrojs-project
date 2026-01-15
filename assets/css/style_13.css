@@ -252,6 +252,7 @@ div.bap-deselect {
   bottom: 80px;
 }
 
+/* Page-specific styles - upgrade/checkout page */
 .planname small {
   display: block;
 }
@@ -349,6 +350,7 @@ div.bap-deselect {
   bottom: 150px;
 }
 
+/* Responsive styles - only screen and (max-width: 912px) { */
 @media only screen and (max-width: 912px) {
   #gp_top {
     margin-top: -135px;
@@ -416,12 +418,14 @@ div.bap-deselect {
   }
 }
 
+/* Responsive styles - (max-width: 515px) { */
 @media (max-width: 515px) {
   .header-menu ul li a {
     font-size: 12px;
   }
 }
 
+/* Responsive styles - (max-width: 950px) { */
 @media (max-width: 950px) {
   #gp_top {
     margin-top: -132px;
@@ -429,6 +433,7 @@ div.bap-deselect {
   }
 }
 
+/* Responsive styles - (max-width: 800px) { */
 @media (max-width: 800px) {
   .pro-feature-box {
     margin-bottom: 30px;
@@ -439,12 +444,14 @@ div.bap-deselect {
   }
 }
 
+/* Responsive styles - (min-height: 700px) { */
 @media (min-height: 700px) {
   #bap-locs {
     height: 290px;
   }
 }
 
+/* Responsive styles - (max-height: 900px) { */
 @media (max-height: 900px) {
   .bap .cd-popup-container {
     margin: 10px auto 20px;
@@ -454,6 +461,7 @@ div.bap-deselect {
   }
 }
 
+/* Responsive styles - (min-height: 1024px) { */
 @media (min-height: 1024px) {
   #bap-locs {
     height: 410px;

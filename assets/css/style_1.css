@@ -6,6 +6,7 @@
   flex-direction: column;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Footer_footer__ma9uz {
     padding-top: 5.6rem;
@@ -30,6 +31,7 @@
   padding-bottom: 4.8rem;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Footer_footerGrid__9mfOE {
     margin-left: 3.2rem;
@@ -38,6 +40,7 @@
   }
 }
 
+/* Responsive styles - (min-width: 70em) and (min-height: 36em) { */
 @media (min-width: 70em) and (min-height: 36em) {
   .Footer_footerGrid__9mfOE {
     margin-left: 1.6rem;
@@ -123,6 +126,7 @@
   height: 20px;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .header_logoLink__ssY_O img {
     width: 167px;
@@ -133,6 +137,7 @@
   display: none !important;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .header_HeaderCTA__p9jLw {
     display: flex !important;
@@ -142,6 +147,7 @@
   display: none;
 }
 
+/* Responsive styles - (min-width: 70em) and (min-height: 36em) { */
 @media (min-width: 70em) and (min-height: 36em) {
   .header_LogoutButton__jslIL {
     display: flex;
@@ -158,6 +164,7 @@
   color: color-mix(in srgb, var(--mantine-color-white), transparent 50%);
 }
 
+/* Responsive styles - (min-width: 70em) and (min-height: 36em) { */
 @media (min-width: 70em) and (min-height: 36em) {
   .header_NavLink__XVKwo {
     display: flex;
@@ -171,6 +178,7 @@
   display: flex;
 }
 
+/* Responsive styles - (min-width: 70em) and (min-height: 36em) { */
 @media (min-width: 70em) and (min-height: 36em) {
   .header_MenuButton___o7YB.header_MenuButton___o7YB {
     display: none;
@@ -269,6 +277,7 @@
   background: rgba(20, 23, 29, 1);
 }
 
+/* Responsive styles - (max-width: 48em) { */
 @media (max-width: 48em) {
   .MobileTabletNavMenuDrawer_content__czl1d {
     border-left: none;
@@ -497,6 +506,7 @@
   line-height: 1.5;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Button_root__awKTW[data-variant='primary'],
   .Button_root__awKTW[data-variant='secondary'],
@@ -514,6 +524,7 @@
   line-height: 1.5;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Button_root__awKTW[data-variant='default'],
   .Button_root__awKTW[data-variant='filter'],
@@ -531,6 +542,7 @@
   line-height: 1.4;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Button_root__awKTW[data-variant='homepageCTA'] {
     font-size: 2rem;
@@ -558,6 +570,7 @@
   font-size: 1.4rem;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Checkbox_root__t2FKy[data-variant='filter'] .Checkbox_label__Xlu0s {
     font-size: 1.6rem;
@@ -585,6 +598,7 @@
   padding-left: 5.6rem;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .TextInput_input__3tKMJ[data-variant='search'] {
     height: 5.1rem;
@@ -649,6 +663,7 @@
   );
 }
 
+/* Responsive styles - (max-width: 47.99em) { */
 @media (max-width: 47.99em) {
   .Text_root__oE8mw[data-variant='paragraphBold'],
   .Text_root__oE8mw[data-variant='paragraphRegular'],
@@ -665,6 +680,7 @@
   );
 }
 
+/* Responsive styles - (max-width: 47.99em) { */
 @media (max-width: 47.99em) {
   .Text_root__oE8mw[data-variant='paragraphSmallBold'],
   .Text_root__oE8mw[data-variant='paragraphSmallRegular'],
@@ -681,6 +697,7 @@
   );
 }
 
+/* Responsive styles - (max-width: 47.99em) { */
 @media (max-width: 47.99em) {
   .Text_root__oE8mw[data-variant='paragraphMediumBold'],
   .Text_root__oE8mw[data-variant='paragraphMediumRegular'],
@@ -709,6 +726,7 @@
   color: var(--title-color, #ffffff);
 }
 
+/* Responsive styles - (max-width: 47.99em) { */
 @media (max-width: 47.99em) {
   .Title_root__ULbci[data-variant='homepageH1'] {
     font-size: 4rem;
@@ -780,6 +798,7 @@
   border-radius: 0.8rem;
 }
 
+/* Responsive styles - (max-width: 48em) { */
 @media (max-width: 48em) {
   .Card_root__jPPRW {
     padding: 3.2rem 2.4rem;
@@ -823,6 +842,7 @@
   font-size: 1.4rem;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Select_input__X9W1h {
     font-size: 1.6rem;
@@ -884,6 +904,7 @@
   padding-left: 1.6rem;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -895,6 +916,7 @@
   unicode-range: u+0460-052f, u+1c80-1c8a, u+20b4, u+2de0-2dff, u+a640-a69f, u+fe2e-fe2f;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -906,6 +928,7 @@
   unicode-range: u+0301, u+0400-045f, u+0490-0491, u+04b0-04b1, u+2116;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -917,6 +940,7 @@
   unicode-range: u+0370-0377, u+037a-037f, u+0384-038a, u+038c, u+038e-03a1, u+03a3-03ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -930,6 +954,7 @@
     u+0303-0304, u+0308-0309, u+0323, u+0329, u+1ea0-1ef9, u+20ab;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -944,6 +969,7 @@
     u+a720-a7ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -957,6 +983,7 @@
     u+2000-206f, u+20ac, u+2122, u+2191, u+2193, u+2212, u+2215, u+feff, u+fffd;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -968,6 +995,7 @@
   unicode-range: u+0460-052f, u+1c80-1c8a, u+20b4, u+2de0-2dff, u+a640-a69f, u+fe2e-fe2f;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -979,6 +1007,7 @@
   unicode-range: u+0301, u+0400-045f, u+0490-0491, u+04b0-04b1, u+2116;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -990,6 +1019,7 @@
   unicode-range: u+0370-0377, u+037a-037f, u+0384-038a, u+038c, u+038e-03a1, u+03a3-03ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1003,6 +1033,7 @@
     u+0303-0304, u+0308-0309, u+0323, u+0329, u+1ea0-1ef9, u+20ab;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1017,6 +1048,7 @@
     u+a720-a7ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1030,6 +1062,7 @@
     u+2000-206f, u+20ac, u+2122, u+2191, u+2193, u+2212, u+2215, u+feff, u+fffd;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1041,6 +1074,7 @@
   unicode-range: u+0460-052f, u+1c80-1c8a, u+20b4, u+2de0-2dff, u+a640-a69f, u+fe2e-fe2f;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1052,6 +1086,7 @@
   unicode-range: u+0301, u+0400-045f, u+0490-0491, u+04b0-04b1, u+2116;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1063,6 +1098,7 @@
   unicode-range: u+0370-0377, u+037a-037f, u+0384-038a, u+038c, u+038e-03a1, u+03a3-03ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1076,6 +1112,7 @@
     u+0303-0304, u+0308-0309, u+0323, u+0329, u+1ea0-1ef9, u+20ab;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1090,6 +1127,7 @@
     u+a720-a7ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1103,6 +1141,7 @@
     u+2000-206f, u+20ac, u+2122, u+2191, u+2193, u+2212, u+2215, u+feff, u+fffd;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1114,6 +1153,7 @@
   unicode-range: u+0460-052f, u+1c80-1c8a, u+20b4, u+2de0-2dff, u+a640-a69f, u+fe2e-fe2f;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1125,6 +1165,7 @@
   unicode-range: u+0301, u+0400-045f, u+0490-0491, u+04b0-04b1, u+2116;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1136,6 +1177,7 @@
   unicode-range: u+0370-0377, u+037a-037f, u+0384-038a, u+038c, u+038e-03a1, u+03a3-03ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1149,6 +1191,7 @@
     u+0303-0304, u+0308-0309, u+0323, u+0329, u+1ea0-1ef9, u+20ab;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1163,6 +1206,7 @@
     u+a720-a7ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: italic;
@@ -1176,6 +1220,7 @@
     u+2000-206f, u+20ac, u+2122, u+2191, u+2193, u+2212, u+2215, u+feff, u+fffd;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1187,6 +1232,7 @@
   unicode-range: u+0460-052f, u+1c80-1c8a, u+20b4, u+2de0-2dff, u+a640-a69f, u+fe2e-fe2f;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1198,6 +1244,7 @@
   unicode-range: u+0301, u+0400-045f, u+0490-0491, u+04b0-04b1, u+2116;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1209,6 +1256,7 @@
   unicode-range: u+0370-0377, u+037a-037f, u+0384-038a, u+038c, u+038e-03a1, u+03a3-03ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1222,6 +1270,7 @@
     u+0303-0304, u+0308-0309, u+0323, u+0329, u+1ea0-1ef9, u+20ab;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1236,6 +1285,7 @@
     u+a720-a7ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1249,6 +1299,7 @@
     u+2000-206f, u+20ac, u+2122, u+2191, u+2193, u+2212, u+2215, u+feff, u+fffd;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1260,6 +1311,7 @@
   unicode-range: u+0460-052f, u+1c80-1c8a, u+20b4, u+2de0-2dff, u+a640-a69f, u+fe2e-fe2f;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1271,6 +1323,7 @@
   unicode-range: u+0301, u+0400-045f, u+0490-0491, u+04b0-04b1, u+2116;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1282,6 +1335,7 @@
   unicode-range: u+0370-0377, u+037a-037f, u+0384-038a, u+038c, u+038e-03a1, u+03a3-03ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1295,6 +1349,7 @@
     u+0303-0304, u+0308-0309, u+0323, u+0329, u+1ea0-1ef9, u+20ab;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1309,6 +1364,7 @@
     u+a720-a7ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1322,6 +1378,7 @@
     u+2000-206f, u+20ac, u+2122, u+2191, u+2193, u+2212, u+2215, u+feff, u+fffd;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1333,6 +1390,7 @@
   unicode-range: u+0460-052f, u+1c80-1c8a, u+20b4, u+2de0-2dff, u+a640-a69f, u+fe2e-fe2f;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1344,6 +1402,7 @@
   unicode-range: u+0301, u+0400-045f, u+0490-0491, u+04b0-04b1, u+2116;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1355,6 +1414,7 @@
   unicode-range: u+0370-0377, u+037a-037f, u+0384-038a, u+038c, u+038e-03a1, u+03a3-03ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1368,6 +1428,7 @@
     u+0303-0304, u+0308-0309, u+0323, u+0329, u+1ea0-1ef9, u+20ab;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1382,6 +1443,7 @@
     u+a720-a7ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1395,6 +1457,7 @@
     u+2000-206f, u+20ac, u+2122, u+2191, u+2193, u+2212, u+2215, u+feff, u+fffd;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1406,6 +1469,7 @@
   unicode-range: u+0460-052f, u+1c80-1c8a, u+20b4, u+2de0-2dff, u+a640-a69f, u+fe2e-fe2f;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1417,6 +1481,7 @@
   unicode-range: u+0301, u+0400-045f, u+0490-0491, u+04b0-04b1, u+2116;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1428,6 +1493,7 @@
   unicode-range: u+0370-0377, u+037a-037f, u+0384-038a, u+038c, u+038e-03a1, u+03a3-03ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1441,6 +1507,7 @@
     u+0303-0304, u+0308-0309, u+0323, u+0329, u+1ea0-1ef9, u+20ab;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1455,6 +1522,7 @@
     u+a720-a7ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -1468,6 +1536,7 @@
     u+2000-206f, u+20ac, u+2122, u+2191, u+2193, u+2212, u+2215, u+feff, u+fffd;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: IBM Plex Sans Fallback;
   src: local('Arial');
@@ -1489,12 +1558,14 @@
   flex-grow: 1;
 }
 
+/* Responsive styles - (min-width: 48em) { */
 @media (min-width: 48em) {
   .CountryCityHero_ctaButton__ABGIv {
     flex: inherit;
   }
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: 'Instrument Serif';
   font-style: italic;
@@ -1508,6 +1579,7 @@
     u+a720-a7ff;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: 'Instrument Serif';
   font-style: italic;
@@ -1520,6 +1592,7 @@
     u+2000-206f, u+20ac, u+2122, u+2191, u+2193, u+2212, u+2215, u+feff, u+fffd;
 }
 
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: 'Instrument Serif Fallback';
   src: local('Times New Roman');
@@ -1541,6 +1614,7 @@
   gap: 1.6rem;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Hero_container__kSOP9 {
     flex-direction: row;
@@ -1554,6 +1628,7 @@
   align-items: center;
 }
 
+/* Responsive styles - (min-width: 70em) and (min-height: 36em) { */
 @media (min-width: 70em) and (min-height: 36em) {
   .Hero_contentWrapper__Xu9SO {
     align-items: flex-start;
@@ -1563,6 +1638,7 @@
   text-align: center;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Hero_title__GhpEy {
     text-align: left;
@@ -1573,6 +1649,7 @@
   white-space: break-spaces;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Hero_description__2wQH3 {
     text-align: left;
@@ -1582,6 +1659,7 @@
   flex-direction: column;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Hero_ctaContainer__NdH_1 {
     flex-direction: row;
@@ -1592,6 +1670,7 @@
   height: 28rem;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .Hero_imageContainer__1WAB1 {
     width: 30rem;
@@ -1599,6 +1678,7 @@
   }
 }
 
+/* Responsive styles - (min-width: 70em) and (min-height: 36em) { */
 @media (min-width: 70em) and (min-height: 36em) {
   .Hero_imageContainer__1WAB1 {
     width: 40rem;

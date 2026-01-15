@@ -1,3 +1,4 @@
+/* Font face definition - StripeIcons icon font */
 @font-face {
   font-family: StripeIcons;
   src: url(data: application/octet-stream;
@@ -5,6 +6,7 @@
     format('woff');
 }
 
+/* Container and layout styles - page containers */
 .container,
 .container-fluid,
 .container-lg,
@@ -23,6 +25,7 @@
   max-width: 1160px;
 }
 
+/* Common component: SuperTitle - Large title/heading text */
 .common-SuperTitle {
   font-weight: 300;
   font-size: 45px;
@@ -31,6 +34,7 @@
   letter-spacing: -0.01em;
 }
 
+/* Responsive styles - (min-width: 670px) { */
 @media (min-width: 670px) {
   .common-SuperTitle {
     font-size: 50px;
@@ -38,6 +42,7 @@
   }
 }
 
+/* Common component: IntroText - Introduction/subtitle text */
 .common-IntroText {
   font-weight: 400;
   font-size: 21px;
@@ -45,6 +50,7 @@
   color: #525f7f;
 }
 
+/* Responsive styles - (min-width: 670px) { */
 @media (min-width: 670px) {
   .common-IntroText {
     font-size: 24px;
@@ -52,6 +58,7 @@
   }
 }
 
+/* Common component: BodyText - Body paragraph text */
 .common-BodyText {
   font-weight: 400;
   font-size: 17px;
@@ -59,6 +66,7 @@
   color: #6b7c93;
 }
 
+/* Common component: Link - Link/anchor component */
 .common-Link {
   color: #6772e5;
   font-weight: 500;
@@ -77,6 +85,7 @@
   padding-left: 5px;
 }
 
+/* Common component: Button - Button component */
 .common-Button {
   white-space: nowrap;
   display: inline-block;
@@ -147,12 +156,14 @@
   pointer-events: none;
 }
 
+/* Common component: ButtonIcon - Button icon wrapper */
 .common-ButtonIcon {
   display: inline;
   margin: 0 5px 0 0;
   position: relative;
 }
 
+/* Common component: ButtonGroup - Button group container */
 .common-ButtonGroup {
   display: -ms-flexbox;
   display: flex;
@@ -165,6 +176,8 @@
   flex-shrink: 0;
   margin: 10px;
 }
+
+/* Animation keyframes: spin */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -174,18 +187,22 @@
   }
 }
 
+/* Animation keyframes: void */
 @keyframes void-animation-out {
   0%,
   to {
     opacity: 1;
   }
 }
+
+/* Page-specific styles - upgrade/checkout page */
 .planname {
   font-size: 24px !important;
   color: #fff;
   font-weight: bold !important;
 }
 
+/* Responsive styles - (min-width: 670px) { */
 @media (min-width: 670px) {
   .cell.intro {
     -ms-flex-align: center;
@@ -196,6 +213,8 @@
     margin-left: 13px;
   }
 }
+
+/* Page-specific styles - upgrade/checkout page */
 .cell.intro > * {
   width: 100%;
   max-width: 700px;
@@ -212,6 +231,7 @@
   margin-top: 20px;
 }
 
+/* Stripe payment form styles - checkout form */
 .ws-stripe-form {
   -ms-flex-align: center;
   align-items: center;
@@ -224,11 +244,14 @@
   margin-right: -20px;
 }
 
+/* Responsive styles - (min-width: 670px) { */
 @media (min-width: 670px) {
   .ws-stripe-form {
     padding: 40px;
   }
 }
+
+/* Stripe payment form styles - checkout form */
 .ws-stripe-form.submitted form,
 .ws-stripe-form.submitting form {
   opacity: 0;
@@ -374,11 +397,14 @@
   overflow: hidden;
 }
 
+/* Responsive styles - (min-width: 670px) { */
 @media (min-width: 670px) {
   .ws-stripe-form .success {
     padding: 40px;
   }
 }
+
+/* Stripe payment form styles - checkout form */
 .ws-stripe-form .success > * {
   transition-property: opacity, transform;
   transition-duration: 0.35s;
@@ -428,12 +454,15 @@
   will-change: transform;
 }
 
+/* Footer component styles */
 footer {
   position: relative;
   max-width: 750px;
   padding: 50px 20px;
   margin: 0 auto;
 }
+
+/* Page-specific styles - upgrade/checkout page */
 .optionList {
   margin: 6px 0;
 }
@@ -460,6 +489,7 @@ footer {
   color: #6772e5;
 }
 
+/* Stripe payment form styles - checkout form */
 .ws-stripe-form {
   background-color: #202e59;
 }

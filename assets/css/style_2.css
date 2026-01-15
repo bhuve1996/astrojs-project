@@ -46,6 +46,7 @@
   gap: 4.8rem;
 }
 
+/* Responsive styles - (min-width: 62em) { */
 @media (min-width: 62em) {
   .protectYourIp_contentGrid__QlFmz {
     grid-template-columns: 350px 1fr;
@@ -58,6 +59,7 @@
   max-width: 100%;
 }
 
+/* Responsive styles - (min-width: 62em) { */
 @media (min-width: 62em) {
   .protectYourIp_illustration__qRA_l {
     width: 350px;
@@ -67,6 +69,7 @@
   justify-content: center;
 }
 
+/* Responsive styles - (min-width: 62em) { */
 @media (min-width: 62em) {
   .protectYourIp_statusText__0Lhln {
     justify-content: flex-start;
@@ -76,6 +79,7 @@
   display: none;
 }
 
+/* Responsive styles - (min-width: 62em) { */
 @media (min-width: 62em) {
   .protectYourIp_statusIcon__bE8wy {
     display: block;
@@ -90,6 +94,7 @@
   font-size: clamp(1rem, 3vw, 3.2rem) !important;
 }
 
+/* Responsive styles - (min-width: 62em) { */
 @media (min-width: 62em) {
   .protectYourIp_ipv6__iYamI {
     font-size: clamp(1rem, 3vw, 2.2rem) !important;
@@ -103,6 +108,7 @@
   text-align: center;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .CTA_cta__aBbc_.CTA_cta__aBbc_ {
     width: auto;
@@ -150,6 +156,7 @@
   font-weight: 500;
 }
 
+/* Responsive styles - (max-width: 48em) { */
 @media (max-width: 48em) {
   .thinkbefore_buttonGroup__QbG8m button {
     display: flex;
@@ -180,6 +187,7 @@
   font-size: 1.4rem;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .SearchSection_input__AmeHJ {
     font-size: 1.6rem;
@@ -196,12 +204,14 @@
   background-color: color-mix(in srgb, var(--mantine-color-white), transparent 95%);
 }
 
+/* Responsive styles - (max-width: 62em) { */
 @media (max-width: 62em) {
   .Callout_callout__30_GH {
     padding: 3rem 2rem;
   }
 }
 
+/* Responsive styles - (max-width: 48em) { */
 @media (max-width: 48em) {
   .Callout_callout__30_GH {
     padding: 3rem 1.5rem;
@@ -241,6 +251,7 @@
   z-index: 1;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .BestFreeVPNContainer_outerContainer__4ilTG {
     padding-left: 2.4rem;
@@ -327,6 +338,7 @@
   padding-bottom: 8rem;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .AllYourDevicesContainer_middleWrapper__6g1_B {
     padding-top: 10rem;
@@ -361,6 +373,7 @@
   display: none;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .BestFreeVPN_planetLeft__siUEe,
   .BestFreeVPN_planetRight__fsoMo,
@@ -378,6 +391,7 @@
   }
 }
 
+/* Responsive styles - (min-width: 70em) and (min-height: 36em) { */
 @media (min-width: 70em) and (min-height: 36em) {
   .BestFreeVPN_starLeft__6rSem {
     left: 25%;
@@ -397,6 +411,7 @@
   font-weight: 400;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .BestFreeVPN_title__lVbpX em {
     -webkit-text-stroke: 0.04rem;
@@ -407,6 +422,7 @@
   padding-right: 1.6rem;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .BestFreeVPN_ctaWrapper__xJ9rx {
     padding-left: 0;
@@ -419,6 +435,7 @@
   padding-bottom: 3.2rem;
 }
 
+/* Responsive styles - (min-width: 48em) and (min-height: 36em) { */
 @media (min-width: 48em) and (min-height: 36em) {
   .HeaderHeroBackgroundContainer_container__5eYfx {
     padding-top: calc(var(--header-height) + 8rem);
@@ -590,6 +607,7 @@
   width: 100%;
 }
 
+/* Responsive styles - (min-width: 48em) { */
 @media (min-width: 48em) {
   .GangCardsGrid_lastCardWrapper__TGEt4 {
     width: calc(50% - 1.2rem);

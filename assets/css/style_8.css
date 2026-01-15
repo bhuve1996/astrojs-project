@@ -304,6 +304,7 @@ input#toggle:checked + label:after {
   text-align: center;
 }
 
+/* Responsive styles - screen and (max-width: 800px) { */
 @media screen and (max-width: 800px) {
   #sl_questions h1 {
     font-size: 16px;
@@ -319,6 +320,7 @@ input#toggle:checked + label:after {
   }
 }
 
+/* Responsive styles - screen and (max-width: 400px) { */
 @media screen and (max-width: 400px) {
   #sl_questions h1 {
     text-align: left;
@@ -339,6 +341,7 @@ input#toggle:checked + label:after {
   }
 }
 
+/* Responsive styles - screen and (max-width: 320px) { */
 @media screen and (max-width: 320px) {
   #sl_input input {
     font-size: 12px;
