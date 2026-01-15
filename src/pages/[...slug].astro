@@ -1,6 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getAllPages, getPageTitle, getPageDescription, getPageOgImage, getPageCanonical } from '../utils/loadWebsiteData';
+import {
+  getAllPages,
+  getPageTitle,
+  getPageDescription,
+  getPageOgImage,
+  getPageCanonical,
+} from '../utils/loadWebsiteData';
 import { processPageHtml } from '../utils/processHtml';
 import { isExcludedPath, siteConfig } from '../config/site.config';
 
@@ -9,31 +15,31 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const allPages = getAllPages();
-  
+
   // Only generate paths for actual pages, not static assets
   const pagePaths = allPages
-    .map((page) => {
+    .map(page => {
       // Convert URL to slug path string (remove protocol, query strings, trailing slashes)
       // e.g., "https://windscribe.com/download?cpid=features" -> "windscribe.com/download"
       let pagePath = page.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
       // Remove query strings
       pagePath = pagePath.split('?')[0].split('#')[0];
-      
+
       return pagePath || 'windscribe.com';
     })
-    .filter((pagePath) => {
+    .filter(pagePath => {
       // Exclude paths using config-driven rules
       // This prevents the catch-all route from matching these paths
       return !isExcludedPath(`/${pagePath}`);
     });
-  
-  return pagePaths.map((pagePath) => {
+
+  return pagePaths.map(pagePath => {
     // For catch-all routes, slug must be a string, not an array
     // Astro will automatically split it when accessed via Astro.params.slug
     return {
       params: {
-        slug: pagePath
-      }
+        slug: pagePath,
+      },
     };
   });
 }
@@ -53,15 +59,44 @@ if (!path || isExcludedPath(`/${path}`)) {
 // Find the page by matching the URL
 const allPages = getAllPages();
 let page = allPages.find(p => {
-  const pagePath = p.url.replace(/^https?:\/\//, '').replace(/\/$/, '').split('?')[0].split('#')[0];
-  return pagePath === path || pagePath.includes(path);
+  const pagePath = p.url
+    .replace(/^https?:\/\//, '')
+    .replace(/\/$/, '')
+    .split('?')[0]
+    .split('#')[0];
+  // Exact match
+  if (pagePath === path) return true;
+  // Path includes page path (e.g., "windscribe.com/download" matches "windscribe.com/download?cpid=features")
+  if (pagePath.includes(path) || path.includes(pagePath)) return true;
+  // Handle root domain
+  if (
+    path === 'windscribe.com' &&
+    (pagePath === 'windscribe.com' || pagePath === siteConfig.baseDomain)
+  )
+    return true;
+  return false;
 });
 
-// If not found, try partial match
+// If not found, try more flexible matching
 if (!page) {
+  // Try matching by last segment
+  const pathSegments = path.split('/');
+  const lastSegment = pathSegments[pathSegments.length - 1];
+
   page = allPages.find(p => {
-    const pagePath = p.url.replace(/^https?:\/\//, '').replace(/\/$/, '').split('?')[0].split('#')[0];
-    return path.includes(pagePath) || pagePath.includes(path);
+    const pagePath = p.url
+      .replace(/^https?:\/\//, '')
+      .replace(/\/$/, '')
+      .split('?')[0]
+      .split('#')[0];
+    const pageSegments = pagePath.split('/');
+    const pageLastSegment = pageSegments[pageSegments.length - 1];
+
+    // Match by last segment
+    if (lastSegment && pageLastSegment === lastSegment) return true;
+    // Match if path is substring of page path
+    if (pagePath.includes(path)) return true;
+    return false;
   });
 }
 
@@ -84,21 +119,18 @@ const canonical = getPageCanonical(page);
 const processedHtml = processPageHtml(page);
 ---
 
-<BaseLayout 
-  title={title}
-  description={description}
-  ogImage={ogImage}
-  canonical={canonical}
->
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
   <main>
-    {processedHtml ? (
-      <Fragment set:html={processedHtml} />
-    ) : (
-      <div>
-        <h1>{title}</h1>
-        <p>Page not found or content not available.</p>
-        <p>URL: {path}</p>
-      </div>
-    )}
+    {
+      processedHtml ? (
+        <Fragment set:html={processedHtml} />
+      ) : (
+        <div>
+          <h1>{title}</h1>
+          <p>Page not found or content not available.</p>
+          <p>URL: {path}</p>
+        </div>
+      )
+    }
   </main>
 </BaseLayout>

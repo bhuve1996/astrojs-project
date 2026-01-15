@@ -72,6 +72,9 @@ const allJsFiles = [...defaultJsFiles, ...jsFiles];
 
     <!-- Import CSS files from assets -->
     {allCssFiles.map(css => <link rel="stylesheet" href={css} />)}
+
+    <!-- Interactive features CSS -->
+    <link rel="stylesheet" href="/css/interactive.css" />
   </head>
   <body>
     <slot />

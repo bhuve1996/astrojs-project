@@ -63,7 +63,7 @@ export function processHtmlImages(html: string): string {
         localPath = applyPathMapping(decodedPath);
         // Only use mapped path if it's different (was actually mapped)
         if (localPath === decodedPath) {
-          localPath = null as any; // Reset if no mapping applied
+          localPath = null as string | null; // Reset if no mapping applied
         } else {
           localPath = localPath.startsWith('/') ? localPath : `/${localPath}`;
         }
@@ -243,6 +243,28 @@ export function processPageHtml(page: PageData): string {
 
   // Fix any /images/ references to /assets/images/
   html = html.replace(/src=["'](\/images\/[^"']+)["']/g, 'src="/assets$1"');
+
+  // Fix internal links to use relative paths (remove external domains)
+  // Match: href="https://windscribe.com/path" -> href="/path"
+  html = html.replace(/href=["']https?:\/\/(?:www\.)?windscribe\.com(\/[^"']*)["']/g, 'href="$1"');
+
+  // Fix other windscribe subdomain links
+  html = html.replace(
+    /href=["']https?:\/\/(?:[^.]+\.)?windscribe\.com(\/[^"']*)["']/g,
+    'href="$1"'
+  );
+
+  // Fix any absolute URLs to same domain (keep relative)
+  html = html.replace(/href=["']https?:\/\/[^/]+(\/[^"']*)["']/g, (match, path) => {
+    // Only convert if it's a windscribe domain
+    if (match.includes('windscribe.com')) {
+      return `href="${path}"`;
+    }
+    return match; // Keep external links as-is
+  });
+
+  // Keep onclick handlers - interactive.js will convert them to event listeners
+  // This allows the HTML to work even if JS hasn't loaded yet
 
   return html;
 }
