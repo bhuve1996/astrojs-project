@@ -238,13 +238,28 @@ export function processPageHtml(page: PageData): string {
   html = html.replace(/<script[^>]*matomo[^>]*>[\s\S]*?<\/script>/gi, '');
   html = html.replace(/<script[^>]*piwik[^>]*>[\s\S]*?<\/script>/gi, '');
 
-  // Remove references to missing Next.js JS bundles
+  // Remove references to missing Next.js JS bundles in /assets/js/
+  // Pattern: /assets/js/[hash]-[hash].js or /assets/js/[name]-[hash].js
+  // Handle both single and double quotes, and multiline script tags
   html = html.replace(
-    /<script[^>]*src=["'][^"']*\/(?:assets|_next)\/js\/[^"']*\.js["'][^>]*><\/script>/gi,
+    /<script[^>]*src=["'][^"']*\/assets\/js\/[^"']*\.js["'][^>]*>\s*<\/script>/gis,
     ''
   );
 
-  // Remove references to missing legacy JS files
+  // Remove references to missing root-level JS files in /assets/
+  // Pattern: /assets/[hash]-[hash].js or /assets/[name]-[hash].js
+  html = html.replace(
+    /<script[^>]*src=["'][^"']*\/assets\/[^/]+\.js["'][^>]*>\s*<\/script>/gis,
+    ''
+  );
+
+  // Remove references to missing Next.js JS bundles in /_next/
+  html = html.replace(
+    /<script[^>]*src=["'][^"']*\/_next\/[^"']*\.js["'][^>]*>\s*<\/script>/gis,
+    ''
+  );
+
+  // Remove references to missing legacy/vendor JS files
   const missingJsFiles = [
     'jquery-1.11.3.min.js',
     'modernizr-2.8.3.min.js',
@@ -254,16 +269,43 @@ export function processPageHtml(page: PageData): string {
     'checkout.js',
     'stripe-form.js',
     'garry-version-selector.js',
+    // Next.js chunk files (patterns)
+    'webpack-',
+    'main-app-',
+    'layout-',
+    'page-',
+    'polyfills-',
+    'framework-',
+    'app-',
+    'not-found-',
+    'webpack-runtime-',
   ];
   missingJsFiles.forEach(file => {
+    // Match exact filename or filename pattern
+    const escapedFile = file.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Handle both single and double quotes, multiline
     html = html.replace(
       new RegExp(
-        `<script[^>]*src=["'][^"']*${file.replace(/\./g, '\\.')}["'][^>]*></script>`,
-        'gi'
+        `<script[^>]*src=["'][^"']*${escapedFile}[^"']*\\.js["'][^>]*>\\s*</script>`,
+        'gis'
       ),
       ''
     );
   });
+
+  // Remove script tags with src pointing to missing Next.js chunks (any pattern)
+  // This catches any remaining Next.js chunk references with hash patterns
+  // Pattern: /assets/js/[hash]-[hash].js or /assets/[hash]-[hash].js
+  html = html.replace(
+    /<script[^>]*src=["'][^"']*\/(?:assets\/js\/|assets\/|_next\/)[a-f0-9-]+[^"']*\.js["'][^>]*>\s*<\/script>/gis,
+    ''
+  );
+
+  // Also remove script tags that might be self-closing or have different formats
+  html = html.replace(
+    /<script[^>]*src=["'][^"']*\/(?:assets\/js\/|assets\/|_next\/)[^"']*\.js["'][^>]*\/?>/gis,
+    ''
+  );
 
   // Remove references to missing CSS files (hashed Next.js CSS)
   html = html.replace(
@@ -283,6 +325,22 @@ export function processPageHtml(page: PageData): string {
   // Remove invalid image optimization endpoints
   html = html.replace(/\/assets\/image\?[^"'\s]+/g, '');
   html = html.replace(/\/_next\/image\?[^"'\s]+/g, '');
+
+  // Remove references to missing images (white-star.svg and other missing images)
+  // Check if image exists before removing - for now, remove known missing images
+  const missingImages = ['white-star.svg'];
+  missingImages.forEach(img => {
+    const escapedImg = img.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Remove from src attributes
+    html = html.replace(new RegExp(`src=["'][^"']*${escapedImg}["']`, 'gi'), 'src=""');
+    // Remove from srcset attributes
+    html = html.replace(new RegExp(`srcset=["'][^"']*${escapedImg}[^"']*["']`, 'gi'), 'srcset=""');
+    // Remove entire img tag if src only contains missing image
+    html = html.replace(new RegExp(`<img[^>]*src=["']${escapedImg}["'][^>]*>`, 'gi'), '');
+  });
+
+  // Remove any img tags with empty or broken src attributes
+  html = html.replace(/<img[^>]*src=["']\s*["'][^>]*>/gi, '');
 
   // Fix any remaining /_next/static/media/ font references (remove them - fonts don't exist)
   html = html.replace(/url\(["']?\/_next\/static\/media\/[^"')]+\.woff2["']?\)/gi, '');
