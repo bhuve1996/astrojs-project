@@ -14,21 +14,33 @@ const __dirname = path.dirname(__filename);
 
 function fixCSSSyntax(css) {
   // Fix pseudo-selectors with spaces: : hover -> :hover
-  css = css.replace(/:\s+(hover|active|after|before|focus|visited|link|first-child|last-child|nth-child|first-of-type|last-of-type|nth-of-type|only-child|only-of-type|empty|not|target|enabled|disabled|checked|default|valid|invalid|required|optional|placeholder|selection|backdrop|root|scope)/g, ':$1');
-  
+  css = css.replace(
+    /:\s+(hover|active|after|before|focus|visited|link|first-child|last-child|nth-child|first-of-type|last-of-type|nth-of-type|only-child|only-of-type|empty|not|target|enabled|disabled|checked|default|valid|invalid|required|optional|placeholder|selection|backdrop|root|scope)/g,
+    ':$1'
+  );
+
   // Fix :: pseudo-elements with spaces: :: after -> ::after
-  css = css.replace(/::\s+(after|before|first-line|first-letter|selection|backdrop|placeholder)/g, '::$1');
-  
+  css = css.replace(
+    /::\s+(after|before|first-line|first-letter|selection|backdrop|placeholder)/g,
+    '::$1'
+  );
+
   // Fix attribute selectors with spaces: [ attr ] -> [attr]
   css = css.replace(/\[\s+([^\]]+)\s+\]/g, '[$1]');
-  
+
   // Fix @ rules with spaces: @ media -> @media
-  css = css.replace(/@\s+(media|keyframes|import|charset|namespace|page|font-face|supports|document|viewport)/g, '@$1');
-  
+  css = css.replace(
+    /@\s+(media|keyframes|import|charset|namespace|page|font-face|supports|document|viewport)/g,
+    '@$1'
+  );
+
   // Fix function calls with spaces: calc( 50% ) -> calc(50%)
-  css = css.replace(/(calc|url|var|attr|counter|counters|linear-gradient|radial-gradient)\(\s+/g, '$1(');
+  css = css.replace(
+    /(calc|url|var|attr|counter|counters|linear-gradient|radial-gradient)\(\s+/g,
+    '$1('
+  );
   css = css.replace(/\s+\)/g, ')');
-  
+
   return css;
 }
 

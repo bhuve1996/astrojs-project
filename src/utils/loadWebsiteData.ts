@@ -11,11 +11,11 @@ export interface PageStructure {
     ogImage?: string;
     ogUrl?: string;
     canonical?: string;
-    [key: string]: any;
+    [key: string]: unknown;
   };
-  sections?: any[];
-  components?: any[];
-  [key: string]: any;
+  sections?: unknown[];
+  components?: unknown[];
+  [key: string]: unknown;
 }
 
 export interface PageData {
@@ -23,7 +23,7 @@ export interface PageData {
   originalHTML?: string;
   renderedHTML?: string;
   structure?: PageStructure;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface AssetData {
@@ -31,7 +31,7 @@ export interface AssetData {
   type?: string;
   localPath?: string;
   filename?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface WebsiteData {
@@ -41,10 +41,10 @@ export interface WebsiteData {
     css?: AssetData[];
     js?: AssetData[];
     fonts?: AssetData[];
-    [key: string]: any;
+    [key: string]: unknown;
   };
-  structure?: any;
-  [key: string]: any;
+  structure?: unknown;
+  [key: string]: unknown;
 }
 
 export function getWebsiteData(): WebsiteData {
@@ -54,7 +54,7 @@ export function getWebsiteData(): WebsiteData {
 export function getPageByUrl(url: string): PageData | undefined {
   const data = getWebsiteData();
   return data.pages.find(
-    (page) =>
+    page =>
       page.url === url ||
       page.url.includes(url) ||
       url.includes(page.url.replace(/^https?:\/\//, ''))
@@ -75,9 +75,7 @@ export function getPageTitle(page: PageData): string {
 
 export function getPageDescription(page: PageData): string {
   return (
-    page.structure?.meta?.description ||
-    page.structure?.meta?.ogDescription ||
-    'Windscribe VPN'
+    page.structure?.meta?.description || page.structure?.meta?.ogDescription || 'Windscribe VPN'
   );
 }
 

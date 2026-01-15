@@ -71,7 +71,9 @@
     try {
       return context.querySelector(selector);
     } catch (err) {
-      console.warn('Invalid selector:', selector, err);
+      if (window.__DEBUG__) {
+        console.warn('Invalid selector:', selector, err);
+      }
       return null;
     }
   }
@@ -83,7 +85,9 @@
     try {
       return Array.from(context.querySelectorAll(selector));
     } catch (err) {
-      console.warn('Invalid selector:', selector, err);
+      if (window.__DEBUG__) {
+        console.warn('Invalid selector:', selector, err);
+      }
       return [];
     }
   }
@@ -506,6 +510,7 @@
             });
           } catch (err) {
             if (window.__DEBUG__) {
+              // eslint-disable-next-line no-console
               console.warn('Could not convert onclick:', onclick, err);
             }
           }

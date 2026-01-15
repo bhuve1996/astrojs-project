@@ -63,7 +63,7 @@ export function processHtmlImages(html: string): string {
         localPath = applyPathMapping(decodedPath);
         // Only use mapped path if it's different (was actually mapped)
         if (localPath === decodedPath) {
-          localPath = null as string | null; // Reset if no mapping applied
+          localPath = undefined; // Reset if no mapping applied
         } else {
           localPath = localPath.startsWith('/') ? localPath : `/${localPath}`;
         }

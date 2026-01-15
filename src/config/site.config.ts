@@ -9,7 +9,7 @@ export interface UrlReplacement {
   /** Pattern to match (regex or string) */
   pattern: string | RegExp;
   /** Replacement value or function */
-  replacement: string | ((match: string, ...args: any[]) => string);
+  replacement: string | ((match: string, ...args: unknown[]) => string);
   /** Whether to use regex matching */
   useRegex?: boolean;
 }
