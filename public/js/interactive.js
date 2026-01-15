@@ -4,18 +4,96 @@
  * Handles modals, dropdowns, forms, and other interactive elements
  * Vanilla JavaScript implementation (no jQuery dependency)
  * Replaces all jQuery functionality from scraped HTML
+ * All selectors and settings are config-driven from site.config.ts
  */
 
 /* eslint-env browser */
 (function () {
   'use strict';
 
+  // Get config (injected by BaseLayout.astro)
+  const getConfig = () => {
+    if (window.__INTERACTIVE_CONFIG__) {
+      return window.__INTERACTIVE_CONFIG__;
+    }
+
+    // Fallback to default config if not injected
+    return {
+      selectors: {
+        modals: '.cd-popup',
+        modalClose: '.cd-popup-close, .img-replace',
+        languageSelector: '.language-selector',
+        languageToggle: '.language-selector-toggle',
+        languageMenu: '.language-dropdown-menu',
+        dropdown: '.dropdown, [data-dropdown]',
+        dropdownToggle: '.dropdown-toggle, [data-dropdown-toggle]',
+        dropdownMenu: '.dropdown-menu, [data-dropdown-menu]',
+        bapLocationItem: '.bap-loc-item',
+        bapSelect: '.bap-select',
+        bapDeselect: '.bap-deselect',
+        bapTotal: '.bap-total',
+        bapPayButton: '#bap-pay-btn',
+        bapMaxMsg: '#max-msg',
+        paymentOption: '.payment_opt',
+        planButtons: {
+          month: '#month-buynow',
+          year: '#year-buynow',
+          gift: '#gift-buynow',
+        },
+        payButtons: '.pay_btn',
+        renewOption: '.renew_option h1',
+        paywallElements: ['#paywall_month', '#paywall_year', '#paywall_alc'],
+      },
+      buildAPlan: {
+        maxLocations: 7,
+        minPurchase: 3,
+        pricePerLocation: 1,
+      },
+      hashNavigation: {
+        targets: {
+          month: '#pro-monthly-box',
+          year: '#pro-yearly-box',
+          gift: '#pro-gift-box',
+        },
+      },
+    };
+  };
+
+  const config = getConfig();
+  const selectors = config.selectors;
+  const buildAPlanConfig = config.buildAPlan;
+  const hashNav = config.hashNavigation;
+
+  /**
+   * Safe query selector with error handling
+   */
+  function safeQuerySelector(selector, context = document) {
+    try {
+      return context.querySelector(selector);
+    } catch (err) {
+      console.warn('Invalid selector:', selector, err);
+      return null;
+    }
+  }
+
+  /**
+   * Safe query selector all with error handling
+   */
+  function safeQuerySelectorAll(selector, context = document) {
+    try {
+      return Array.from(context.querySelectorAll(selector));
+    } catch (err) {
+      console.warn('Invalid selector:', selector, err);
+      return [];
+    }
+  }
+
   /**
    * Close a modal
    */
   function closeModal(modalSelector) {
     const modal =
-      typeof modalSelector === 'string' ? document.querySelector(modalSelector) : modalSelector;
+      typeof modalSelector === 'string' ? safeQuerySelector(modalSelector) : modalSelector;
 
     if (modal) {
       modal.classList.remove('is-visible');
@@ -28,7 +106,7 @@
    */
   function openModal(modalSelector) {
     const modal =
-      typeof modalSelector === 'string' ? document.querySelector(modalSelector) : modalSelector;
+      typeof modalSelector === 'string' ? safeQuerySelector(modalSelector) : modalSelector;
 
     if (modal) {
       modal.classList.add('is-visible');
@@ -40,11 +118,11 @@
    * Modal/Popup functionality
    */
   function initModals() {
-    const modals = document.querySelectorAll('.cd-popup');
+    const modals = safeQuerySelectorAll(selectors.modals);
 
     modals.forEach(modal => {
       // Close button
-      const closeButtons = modal.querySelectorAll('.cd-popup-close, .img-replace');
+      const closeButtons = safeQuerySelectorAll(selectors.modalClose, modal);
       closeButtons.forEach(btn => {
         btn.addEventListener('click', e => {
           e.preventDefault();
@@ -80,8 +158,8 @@
    * Language dropdown functionality
    */
   function initLanguageDropdown() {
-    const languageSelector = document.querySelector('.language-selector');
-    const languageToggle = document.querySelector('.language-selector-toggle');
+    const languageSelector = safeQuerySelector(selectors.languageSelector);
+    const languageToggle = safeQuerySelector(selectors.languageToggle);
 
     if (languageSelector && languageToggle) {
       languageToggle.addEventListener('click', e => {
@@ -103,11 +181,11 @@
    * Dropdown functionality (generic)
    */
   function initDropdowns() {
-    const dropdowns = document.querySelectorAll('.dropdown, [data-dropdown]');
+    const dropdowns = safeQuerySelectorAll(selectors.dropdown);
 
     dropdowns.forEach(dropdown => {
-      const toggle = dropdown.querySelector('.dropdown-toggle, [data-dropdown-toggle]');
-      const menu = dropdown.querySelector('.dropdown-menu, [data-dropdown-menu]');
+      const toggle = safeQuerySelector(selectors.dropdownToggle, dropdown);
+      const menu = safeQuerySelector(selectors.dropdownMenu, dropdown);
 
       if (toggle && menu) {
         toggle.addEventListener('click', e => {
@@ -159,21 +237,24 @@
     };
 
     function selectAlcLocation(id) {
-      if (buildPlan.locations.indexOf(id) === -1 && buildPlan.locations.length < 7) {
+      if (
+        buildPlan.locations.indexOf(id) === -1 &&
+        buildPlan.locations.length < buildAPlanConfig.maxLocations
+      ) {
         buildPlan.locations.push(id);
-        buildPlan.total++;
+        buildPlan.total += buildAPlanConfig.pricePerLocation;
 
         const locElement = document.getElementById(`bap-loc${id}`);
         if (locElement) {
-          const selectBtn = locElement.querySelector('.bap-select');
-          const deselectBtn = locElement.querySelector('.bap-deselect');
+          const selectBtn = safeQuerySelector(selectors.bapSelect, locElement);
+          const deselectBtn = safeQuerySelector(selectors.bapDeselect, locElement);
           if (selectBtn) selectBtn.style.display = 'none';
           if (deselectBtn) deselectBtn.style.display = 'block';
         }
 
         updateBuildPlanUI();
-      } else if (buildPlan.locations.length >= 7) {
-        const maxMsg = document.getElementById('max-msg');
+      } else if (buildPlan.locations.length >= buildAPlanConfig.maxLocations) {
+        const maxMsg = safeQuerySelector(selectors.bapMaxMsg);
         if (maxMsg) {
           maxMsg.style.display = 'block';
           setTimeout(() => {
@@ -187,14 +268,16 @@
       const index = buildPlan.locations.indexOf(id);
       if (index > -1) {
         buildPlan.locations.splice(index, 1);
-        if (buildPlan.total > 0) {
-          buildPlan.total--;
+        if (buildPlan.total >= buildAPlanConfig.pricePerLocation) {
+          buildPlan.total -= buildAPlanConfig.pricePerLocation;
+        } else {
+          buildPlan.total = 0;
         }
 
         const locElement = document.getElementById(`bap-loc${id}`);
         if (locElement) {
-          const selectBtn = locElement.querySelector('.bap-select');
-          const deselectBtn = locElement.querySelector('.bap-deselect');
+          const selectBtn = safeQuerySelector(selectors.bapSelect, locElement);
+          const deselectBtn = safeQuerySelector(selectors.bapDeselect, locElement);
           if (selectBtn) selectBtn.style.display = 'block';
           if (deselectBtn) deselectBtn.style.display = 'none';
         }
@@ -205,15 +288,15 @@
 
     function updateBuildPlanUI() {
       // Update total display if exists
-      const totalElement = document.querySelector('.bap-total');
+      const totalElement = safeQuerySelector(selectors.bapTotal);
       if (totalElement) {
         totalElement.textContent = `$${buildPlan.total}`;
       }
 
       // Show/hide pay button based on minimum
-      const payButton = document.getElementById('bap-pay-btn');
+      const payButton = safeQuerySelector(selectors.bapPayButton);
       if (payButton) {
-        if (buildPlan.total >= 3) {
+        if (buildPlan.total >= buildAPlanConfig.minPurchase) {
           payButton.style.display = 'block';
         } else {
           payButton.style.display = 'none';
@@ -223,26 +306,26 @@
 
     // Build-a-plan modal functions
     window.openBuildPlanModal = function () {
-      const modal = document.querySelector('.cd-popup.bap');
+      const modal = safeQuerySelector(`${selectors.modals}.bap`);
       if (modal) {
         openModal(modal);
       }
     };
 
     window.closeBuildPLanModal = function () {
-      const modal = document.querySelector('.cd-popup.bap');
+      const modal = safeQuerySelector(`${selectors.modals}.bap`);
       if (modal) {
         closeModal(modal);
       }
     };
 
     window.bapPayButtonClick = function () {
-      if (buildPlan.total <= 2) {
-        const maxMsg = document.getElementById('max-msg');
+      if (buildPlan.total < buildAPlanConfig.minPurchase) {
+        const maxMsg = safeQuerySelector(selectors.bapMaxMsg);
         if (maxMsg) {
           const h1 = maxMsg.querySelector('h1');
           if (h1) {
-            h1.textContent = 'The minimum purchase is $3.';
+            h1.textContent = `The minimum purchase is $${buildAPlanConfig.minPurchase}.`;
             h1.style.lineHeight = '30px';
           }
           maxMsg.style.display = 'block';
@@ -250,7 +333,7 @@
       } else {
         window.closeBuildPLanModal();
         // Trigger gift buy now click
-        const giftBtn = document.getElementById('gift-buynow');
+        const giftBtn = safeQuerySelector(selectors.planButtons.gift);
         if (giftBtn) {
           giftBtn.click();
         }
@@ -258,7 +341,7 @@
     };
 
     // Handle onclick attributes on location items
-    document.querySelectorAll('.bap-loc-item[onclick]').forEach(item => {
+    safeQuerySelectorAll(`${selectors.bapLocationItem}[onclick]`).forEach(item => {
       const onclick = item.getAttribute('onclick');
       if (onclick && onclick.includes('toggleAlcLocation')) {
         const match = onclick.match(/toggleAlcLocation\((\d+)\)/);
@@ -276,10 +359,10 @@
    */
   function initPaymentForms() {
     // Payment option selection
-    document.querySelectorAll('.payment_opt').forEach(option => {
+    safeQuerySelectorAll(selectors.paymentOption).forEach(option => {
       option.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelectorAll('.payment_opt').forEach(opt => {
+        safeQuerySelectorAll(selectors.paymentOption).forEach(opt => {
           opt.classList.remove('selected');
         });
         this.classList.add('selected');
@@ -287,7 +370,7 @@
         const method = this.getAttribute('data-id');
         if (method) {
           // Update renewal text
-          const renewOption = document.querySelector('.renew_option h1');
+          const renewOption = safeQuerySelector(selectors.renewOption);
           if (renewOption) {
             if (method === 'coinpay' || method === 'paywall' || method === 'paypal') {
               renewOption.textContent = 'One-time payment';
@@ -297,13 +380,13 @@
           }
 
           // Show/hide paywall options
-          ['paywall_month', 'paywall_year', 'paywall_alc'].forEach(id => {
-            const el = document.getElementById(id);
+          selectors.paywallElements.forEach(id => {
+            const el = safeQuerySelector(id);
             if (el) el.style.display = 'none';
           });
 
           // Show pay buttons
-          document.querySelectorAll('.pay_btn').forEach(btn => {
+          safeQuerySelectorAll(selectors.payButtons).forEach(btn => {
             btn.style.display = 'block';
           });
         }
@@ -311,12 +394,12 @@
     });
 
     // Plan selection buttons
-    ['month-buynow', 'year-buynow', 'gift-buynow'].forEach(id => {
-      const btn = document.getElementById(id);
+    Object.entries(selectors.planButtons).forEach(([key, id]) => {
+      const btn = safeQuerySelector(id);
       if (btn) {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
-          handlePlanSelection(id);
+          handlePlanSelection(key);
         });
       }
     });
@@ -324,19 +407,15 @@
     // Handle hash-based navigation
     if (window.location.hash) {
       const hash = window.location.hash.substring(1);
-      const targetMap = {
-        month: '#pro-monthly-box',
-        year: '#pro-yearly-box',
-        gift: '#pro-gift-box',
-      };
+      const target = hashNav.targets[hash];
 
-      if (targetMap[hash]) {
+      if (target) {
         setTimeout(() => {
-          const target = document.querySelector(targetMap[hash]);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const targetElement = safeQuerySelector(target);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             setTimeout(() => {
-              const btn = document.getElementById(`${hash}-buynow`);
+              const btn = safeQuerySelector(selectors.planButtons[hash]);
               if (btn) btn.click();
             }, 500);
           }
@@ -345,10 +424,12 @@
     }
   }
 
-  function handlePlanSelection(buttonId) {
+  function handlePlanSelection(buttonKey) {
     // This would trigger the payment modal
     // For now, just log - actual implementation depends on payment integration
-    console.log('Plan selected:', buttonId);
+    if (window.__DEBUG__) {
+      console.log('Plan selected:', buttonKey);
+    }
   }
 
   /**
@@ -356,7 +437,7 @@
    */
   function initInputHandlers() {
     // Real-time validation
-    document.querySelectorAll('input[type="email"], input[required]').forEach(input => {
+    safeQuerySelectorAll('input[type="email"], input[required]').forEach(input => {
       input.addEventListener('blur', function () {
         if (this.hasAttribute('required') && !this.value.trim()) {
           this.classList.add('error');
@@ -386,7 +467,7 @@
    */
   function initOnclickHandlers() {
     // Find all elements with onclick attributes
-    document.querySelectorAll('[onclick]').forEach(element => {
+    safeQuerySelectorAll('[onclick]').forEach(element => {
       const onclick = element.getAttribute('onclick');
       if (onclick) {
         // Remove onclick attribute
@@ -396,21 +477,21 @@
         if (onclick.includes('openModal') || onclick.includes('openBuildPlanModal')) {
           element.addEventListener('click', e => {
             e.preventDefault();
-            const modal = document.querySelector('.cd-popup.bap');
+            const modal = safeQuerySelector(`${selectors.modals}.bap`);
             if (modal) openModal(modal);
           });
         } else if (onclick.includes('closeModal') || onclick.includes('closeBuildPLanModal')) {
           element.addEventListener('click', e => {
             e.preventDefault();
-            const modal = document.querySelector('.cd-popup.bap');
+            const modal = safeQuerySelector(`${selectors.modals}.bap`);
             if (modal) closeModal(modal);
           });
         } else if (onclick.includes('continue_payment')) {
           element.addEventListener('click', e => {
             e.preventDefault();
-            const warningModal = document.querySelector('.cd-popup.warning');
+            const warningModal = safeQuerySelector(`${selectors.modals}.warning`);
             if (warningModal) closeModal(warningModal);
-            const giftBtn = document.getElementById('gift-buynow');
+            const giftBtn = safeQuerySelector(selectors.planButtons.gift);
             if (giftBtn) giftBtn.click();
           });
         } else if (onclick.includes('toggleAlcLocation')) {
@@ -424,7 +505,9 @@
               func.call(this, e);
             });
           } catch (err) {
-            console.warn('Could not convert onclick:', onclick, err);
+            if (window.__DEBUG__) {
+              console.warn('Could not convert onclick:', onclick, err);
+            }
           }
         }
       }
@@ -435,7 +518,7 @@
    * Form validation
    */
   function initFormValidation() {
-    const forms = document.querySelectorAll('form[data-validate], form#payment-form');
+    const forms = safeQuerySelectorAll('form[data-validate], form#payment-form');
 
     forms.forEach(form => {
       form.addEventListener('submit', e => {
@@ -451,7 +534,7 @@
    */
   function validateForm(form) {
     let isValid = true;
-    const requiredFields = form.querySelectorAll('[required]');
+    const requiredFields = safeQuerySelectorAll('[required]', form);
 
     requiredFields.forEach(field => {
       if (!field.value.trim()) {
@@ -463,7 +546,7 @@
     });
 
     // Email validation
-    const emailFields = form.querySelectorAll('input[type="email"]');
+    const emailFields = safeQuerySelectorAll('input[type="email"]', form);
     emailFields.forEach(field => {
       if (field.value && !isValidEmail(field.value)) {
         isValid = false;
@@ -490,11 +573,11 @@
    * Smooth scroll to anchor
    */
   function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    safeQuerySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
         if (href && href !== '#' && href !== '#0') {
-          const target = document.querySelector(href);
+          const target = safeQuerySelector(href);
           if (target) {
             e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });

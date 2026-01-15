@@ -82,6 +82,12 @@ const allJsFiles = [...defaultJsFiles, ...jsFiles];
     <!-- Import JS files from assets -->
     {allJsFiles.map(js => <script src={js} />)}
 
+    <!-- Inject interactive config -->
+    <script
+      is:inline
+      set:html={`window.__INTERACTIVE_CONFIG__ = ${JSON.stringify(siteConfig.interactive)};`}
+    />
+
     <!-- Initialize interactive features -->
     <script is:inline src="/js/interactive.js"></script>
   </body>
