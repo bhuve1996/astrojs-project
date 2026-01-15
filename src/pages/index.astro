@@ -1,0 +1,25 @@
+---
+import { loadWebsiteData } from "../utils/data-loader";
+import { processHTML } from "../utils/html-processor";
+
+const data = await loadWebsiteData();
+const firstPage = data.pages.find(p => p.url === 'https://windscribe.com/' || p.url === 'https://windscribe.com');
+
+let processedHTML = '';
+if (firstPage) {
+  processedHTML = await processHTML(firstPage.renderedHTML);
+}
+---
+
+{firstPage ? (
+  <Fragment set:html={processedHTML} />
+) : (
+  <html>
+    <head>
+      <title>Windscribe Clone</title>
+    </head>
+    <body>
+      <p>No page data found</p>
+    </body>
+  </html>
+)}

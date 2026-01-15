@@ -1,0 +1,54 @@
+---
+import { getAllRoutes, getPageByPath, loadWebsiteData } from "../utils/data-loader";
+import { processHTML } from "../utils/html-processor";
+
+export async function getStaticPaths() {
+  const routes = await getAllRoutes();
+  
+  return routes.map(route => {
+    const pathParts = route.path.split('/').filter(Boolean);
+    return {
+      params: { 
+        slug: pathParts.length > 0 ? pathParts.join('/') : 'index'
+      },
+      props: {
+        route
+      }
+    };
+  });
+}
+
+interface Props {
+  route: {
+    url: string;
+    path: string;
+    title: string;
+  };
+}
+
+const { route } = Astro.props;
+const slug = Astro.params.slug || 'index';
+const pathToMatch = slug === 'index' ? '/' : `/${slug}`;
+const pageData = await getPageByPath(pathToMatch);
+
+let processedHTML = '';
+if (pageData) {
+  processedHTML = await processHTML(pageData.renderedHTML);
+}
+---
+
+{pageData ? (
+  <Fragment set:html={processedHTML} />
+) : (
+  <html>
+    <head>
+      <title>Page not found</title>
+    </head>
+    <body>
+      <div style="text-align: center; padding: 4rem 2rem;">
+        <h1>Page not found</h1>
+        <p>The page at {route.path} could not be loaded.</p>
+      </div>
+    </body>
+  </html>
+)}
