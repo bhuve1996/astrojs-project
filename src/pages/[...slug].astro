@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAllPages, getPageTitle, getPageDescription, getPageOgImage, getPageCanonical } from '../utils/loadWebsiteData';
+import { processPageHtml } from '../utils/processHtml';
+import { isExcludedPath, siteConfig } from '../config/site.config';
+
+// Only prerender paths that are actual pages
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const allPages = getAllPages();
+  
+  // Only generate paths for actual pages, not static assets
+  const pagePaths = allPages
+    .map((page) => {
+      // Convert URL to slug path string (remove protocol, query strings, trailing slashes)
+      // e.g., "https://windscribe.com/download?cpid=features" -> "windscribe.com/download"
+      let pagePath = page.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+      // Remove query strings
+      pagePath = pagePath.split('?')[0].split('#')[0];
+      
+      return pagePath || 'windscribe.com';
+    })
+    .filter((pagePath) => {
+      // Exclude paths using config-driven rules
+      // This prevents the catch-all route from matching these paths
+      return !isExcludedPath(`/${pagePath}`);
+    });
+  
+  return pagePaths.map((pagePath) => {
+    // For catch-all routes, slug must be a string, not an array
+    // Astro will automatically split it when accessed via Astro.params.slug
+    return {
+      params: {
+        slug: pagePath
+      }
+    };
+  });
+}
+
+const { slug } = Astro.params;
+// slug comes as an array for catch-all routes, join it back to a string
+const path = slug ? (Array.isArray(slug) ? slug.join('/') : slug) : '';
+
+// Early return for static assets and internal paths (using config)
+// These should be handled by middleware, but double-check here as well
+// This prevents any processing and route matching warnings
+if (!path || isExcludedPath(`/${path}`)) {
+  // Return 404 immediately - these paths shouldn't be handled by this route
+  return new Response('Not Found', { status: 404, statusText: 'Not Found' });
+}
+
+// Find the page by matching the URL
+const allPages = getAllPages();
+let page = allPages.find(p => {
+  const pagePath = p.url.replace(/^https?:\/\//, '').replace(/\/$/, '').split('?')[0].split('#')[0];
+  return pagePath === path || pagePath.includes(path);
+});
+
+// If not found, try partial match
+if (!page) {
+  page = allPages.find(p => {
+    const pagePath = p.url.replace(/^https?:\/\//, '').replace(/\/$/, '').split('?')[0].split('#')[0];
+    return path.includes(pagePath) || pagePath.includes(path);
+  });
+}
+
+// Fallback to first page if still not found (guaranteed to exist since we have pages)
+if (!page && allPages.length > 0) {
+  page = allPages[0];
+}
+
+// Ensure we have a page (TypeScript safety)
+if (!page) {
+  return Astro.redirect('/');
+}
+
+const title = getPageTitle(page);
+const description = getPageDescription(page);
+const ogImage = getPageOgImage(page);
+const canonical = getPageCanonical(page);
+
+// Process HTML to fix image URLs and other issues
+const processedHtml = processPageHtml(page);
+---
+
+<BaseLayout 
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonical={canonical}
+>
+  <main>
+    {processedHtml ? (
+      <Fragment set:html={processedHtml} />
+    ) : (
+      <div>
+        <h1>{title}</h1>
+        <p>Page not found or content not available.</p>
+        <p>URL: {path}</p>
+      </div>
+    )}
+  </main>
+</BaseLayout>

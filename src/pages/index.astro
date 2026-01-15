@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAllPages, getPageTitle, getPageDescription, getPageOgImage, getPageCanonical } from '../utils/loadWebsiteData';
+import { processPageHtml } from '../utils/processHtml';
+import { siteConfig } from '../config/site.config';
+
+// Try to get the homepage - look for pages with just the domain or index (using config)
+const allPages = getAllPages();
+const homepage = allPages.find(p => {
+  const url = p.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+  return url === siteConfig.baseDomain || url.endsWith(siteConfig.baseDomain) || !url.includes('/');
+}) || allPages[0];
+
+const pages = allPages;
+
+// Process HTML to fix image URLs and other issues
+const processedHtml = homepage ? processPageHtml(homepage) : '';
+---
+
+<BaseLayout 
+  title={homepage ? getPageTitle(homepage) : "Windscribe"}
+  description={homepage ? getPageDescription(homepage) : "Windscribe VPN"}
+  ogImage={homepage ? getPageOgImage(homepage) : undefined}
+  canonical={homepage ? getPageCanonical(homepage) : undefined}
+>
+  <main>
+    {processedHtml ? (
+      <Fragment set:html={processedHtml} />
+    ) : (
+      <div>
+        <h1>Welcome to Windscribe</h1>
+        <p>Available pages:</p>
+        <ul>
+          {pages.map((page) => {
+            const pagePath = page.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+            const pageTitle = getPageTitle(page);
+            return (
+              <li>
+                <a href={`/${pagePath}`}>
+                  {pageTitle || page.url}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    )}
+  </main>
+</BaseLayout>
