@@ -71,6 +71,18 @@ const { slug } = Astro.params;
 // slug comes as an array for catch-all routes, join it back to a string
 const path = slug ? (Array.isArray(slug) ? slug.join('/') : slug) : '';
 
+// Get query parameters from URL (preserve them but don't use for matching)
+let queryParams = '';
+try {
+  const url = new URL(Astro.request.url);
+  queryParams = url.search;
+} catch (e) {
+  // If URL parsing fails, try to get from Astro.url
+  if (Astro.url) {
+    queryParams = Astro.url.search;
+  }
+}
+
 // Early return for static assets and internal paths (using config)
 // These should be handled by middleware, but double-check here as well
 // This prevents any processing and route matching warnings
@@ -82,8 +94,10 @@ if (!path || isExcludedPath(`/${path}`)) {
 // Find the page by matching the URL
 const allPages = getAllPages();
 
-// Normalize path - remove leading slash if present
+// Normalize path - remove leading slash if present, remove query params for matching
 let normalizedPath = path.startsWith('/') ? path.slice(1) : path;
+// Remove query parameters from path for matching (but preserve in URL)
+normalizedPath = normalizedPath.split('?')[0].split('#')[0];
 
 let page = allPages.find(p => {
   const pagePath = p.url
@@ -97,7 +111,9 @@ let page = allPages.find(p => {
   const pagePathOnly = pagePath.replace(baseDomainRegex, '') || pagePath;
 
   // Extract just the path part from normalizedPath (remove domain if present)
-  const pathOnly = normalizedPath.replace(baseDomainRegex, '') || normalizedPath;
+  // Also remove query params for matching
+  const cleanNormalizedPath = normalizedPath.split('?')[0].split('#')[0];
+  const pathOnly = cleanNormalizedPath.replace(baseDomainRegex, '') || cleanNormalizedPath;
 
   // Exact match (with or without domain)
   if (pagePath === normalizedPath) return true;
@@ -144,14 +160,36 @@ if (!page) {
   });
 }
 
-// Fallback to first page if still not found (guaranteed to exist since we have pages)
-if (!page && allPages.length > 0) {
-  page = allPages[0];
+// Handle special cases for missing pages
+if (!page) {
+  // Extract path only for checking
+  const baseDomainRegex = new RegExp(`^${siteConfig.baseDomain.replace(/\./g, '\\.')}\\/?`);
+  const cleanPath = normalizedPath.split('?')[0].split('#')[0];
+  const pathOnly = cleanPath.replace(baseDomainRegex, '') || cleanPath;
+
+  // If login page is requested but doesn't exist, try to find signup or redirect
+  if (normalizedPath === 'login' || pathOnly === 'login' || cleanPath === 'login') {
+    // Try to find a signup page or redirect to homepage
+    const signupPage = allPages.find(p => {
+      const pagePath = p.url.replace(/^https?:\/\//, '').split('?')[0];
+      return pagePath.includes('signup');
+    });
+    if (signupPage) {
+      return Astro.redirect(`/signup${queryParams}`);
+    }
+    // Redirect to homepage if no signup page
+    return Astro.redirect(`/${queryParams}`);
+  }
+
+  // Fallback to first page if still not found (guaranteed to exist since we have pages)
+  if (allPages.length > 0) {
+    page = allPages[0];
+  }
 }
 
 // Ensure we have a page (TypeScript safety)
 if (!page) {
-  return Astro.redirect('/');
+  return Astro.redirect(`/${queryParams}`);
 }
 
 const title = getPageTitle(page);

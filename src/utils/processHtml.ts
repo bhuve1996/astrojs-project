@@ -404,26 +404,34 @@ export function processPageHtml(page: PageData): string {
   // Fix relative links that start with / (but not /assets, /_next, etc.)
   // For local development, use simple paths like /features
   // For production, use /{baseDomain}/features format
+  // Preserve query parameters and hash in links
   html = html.replace(/href=["']\/([^"']*)["']/g, (match, path) => {
     // Handle root link
     if (!path || path === '') {
       return isDev ? 'href="/"' : `href="/${routingPrefix}"`;
     }
 
+    // Extract query params and hash to preserve them
+    const pathParts = path.split('?');
+    const basePath = pathParts[0];
+    const queryAndHash = pathParts[1] ? `?${pathParts[1]}` : '';
+
     // Don't modify if it's an asset path or special path
     if (
-      path.startsWith('assets/') ||
-      path.startsWith('_next/') ||
-      path.startsWith('_/') ||
-      path.startsWith('.well-known/') ||
-      path.startsWith('favicon') ||
-      path.startsWith(`${routingPrefix}/`) || // Already in correct format
-      path.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|css|js|woff|woff2|ttf|eot|json|xml)$/i)
+      basePath.startsWith('assets/') ||
+      basePath.startsWith('_next/') ||
+      basePath.startsWith('_/') ||
+      basePath.startsWith('.well-known/') ||
+      basePath.startsWith('favicon') ||
+      basePath.startsWith(`${routingPrefix}/`) || // Already in correct format
+      basePath.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|css|js|woff|woff2|ttf|eot|json|xml)$/i)
     ) {
       return match; // Keep as-is
     }
     // For development, use simple paths; for production, use domain prefix
-    return isDev ? match : `href="/${routingPrefix}/${path}"`;
+    // Preserve query parameters and hash
+    const newPath = isDev ? basePath : `${routingPrefix}/${basePath}`;
+    return `href="/${newPath}${queryAndHash}"`;
   });
 
   // Keep onclick handlers - interactive.js will convert them to event listeners

@@ -231,6 +231,25 @@ html {
 }
 
 /* Desktop: Sub-menu positioning */
+.header-menu li {
+  position: relative;
+}
+
+.header-menu .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  z-index: 1000;
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+}
+
+/* Also support generic li:has(.sub-menu) for other menus */
 li:has(.sub-menu) {
   position: relative;
 }
