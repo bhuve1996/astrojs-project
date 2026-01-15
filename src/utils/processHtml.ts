@@ -1,6 +1,6 @@
 import { getAssets } from './loadWebsiteData';
 import type { PageData } from './loadWebsiteData';
-import { siteConfig, applyPathMapping } from '../config/site.config';
+import { siteConfig, applyPathMapping, getRoutingPrefix } from '../config/site.config';
 
 /**
  * Creates a mapping from original image paths to local asset paths
@@ -303,43 +303,48 @@ export function processPageHtml(page: PageData): string {
   html = html.replace(/src=["'](\/images\/[^"']+)["']/g, 'src="/assets$1"');
 
   // Fix internal links to match routing format
-  // Routing expects: windscribe.com/path (no leading slash in slug)
-  // So: href="https://windscribe.com/path" -> href="/windscribe.com/path"
-  // And: href="/path" -> href="/windscribe.com/path" (if it's a main site path)
+  // Routing expects: {baseDomain}/path (no leading slash in slug)
+  // So: href="https://{baseDomain}/path" -> href="/{baseDomain}/path"
+  // And: href="/path" -> href="/{baseDomain}/path" (if it's a main site path)
+  const routingPrefix = getRoutingPrefix();
+  // Escape dots for regex (but not in character class)
+  const baseDomainRegex = siteConfig.baseDomain.replace(/\./g, '\\.');
 
-  // First, convert absolute windscribe.com URLs to relative with domain prefix
+  // First, convert absolute URLs from original domain to relative with domain prefix
+  // eslint-disable-next-line no-useless-escape
   html = html.replace(
-    /href=["']https?:\/\/(?:www\.)?windscribe\.com(\/[^"']*)["']/g,
+    new RegExp(`href=["']https?:\\/\\/(?:www\\.)?${baseDomainRegex}(\\/[^"']*)["']`, 'g'),
     (match, path) => {
       // Remove leading slash and query/hash for routing
       const cleanPath = path.replace(/^\/+/, '').split('?')[0].split('#')[0];
       // Handle root path
       if (!cleanPath || cleanPath === '') {
-        return 'href="/windscribe.com"';
+        return `href="/${routingPrefix}"`;
       }
-      // Convert to routing format: /windscribe.com/path
-      return `href="/windscribe.com/${cleanPath}"`;
+      // Convert to routing format: /{baseDomain}/path
+      return `href="/${routingPrefix}/${cleanPath}"`;
     }
   );
 
-  // Fix other windscribe subdomain links (keep as relative to main domain)
+  // Fix other subdomain links (keep as relative to main domain)
   html = html.replace(
-    /href=["']https?:\/\/(?:[^.]+\.)?windscribe\.com(\/[^"']*)["']/g,
+    // eslint-disable-next-line no-useless-escape
+    new RegExp(`href=["']https?:\\/\\/(?:[^.]+\.)?${baseDomainRegex}(\\/[^"']*)["']`, 'g'),
     (match, path) => {
       const cleanPath = path.replace(/^\/+/, '').split('?')[0].split('#')[0];
       if (!cleanPath || cleanPath === '') {
-        return 'href="/windscribe.com"';
+        return `href="/${routingPrefix}"`;
       }
-      return `href="/windscribe.com/${cleanPath}"`;
+      return `href="/${routingPrefix}/${cleanPath}"`;
     }
   );
 
   // Fix relative links that start with / (but not /assets, /_next, etc.)
-  // Convert /download -> /windscribe.com/download
+  // Convert /download -> /{baseDomain}/download
   html = html.replace(/href=["']\/([^"']*)["']/g, (match, path) => {
     // Handle root link
     if (!path || path === '') {
-      return 'href="/windscribe.com"';
+      return `href="/${routingPrefix}"`;
     }
 
     // Don't modify if it's an asset path or special path
@@ -349,13 +354,13 @@ export function processPageHtml(page: PageData): string {
       path.startsWith('_/') ||
       path.startsWith('.well-known/') ||
       path.startsWith('favicon') ||
-      path.startsWith('windscribe.com/') || // Already in correct format
+      path.startsWith(`${routingPrefix}/`) || // Already in correct format
       path.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|css|js|woff|woff2|ttf|eot|json|xml)$/i)
     ) {
       return match; // Keep as-is
     }
     // Convert to routing format
-    return `href="/windscribe.com/${path}"`;
+    return `href="/${routingPrefix}/${path}"`;
   });
 
   // Keep onclick handlers - interactive.js will convert them to event listeners

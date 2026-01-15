@@ -30,7 +30,7 @@ const processedHtml = homepage ? processPageHtml(homepage) : '';
   title={homepage ? getPageTitle(homepage) : 'Windscribe'}
   description={homepage ? getPageDescription(homepage) : 'Windscribe VPN'}
   ogImage={homepage ? getPageOgImage(homepage) : undefined}
-  canonical={homepage ? getPageCanonical(homepage) : undefined}
+  canonical={homepage ? getPageCanonical(homepage, siteConfig.baseUrl) : undefined}
 >
   <main>
     {

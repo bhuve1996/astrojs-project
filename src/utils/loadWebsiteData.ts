@@ -83,6 +83,15 @@ export function getPageOgImage(page: PageData): string | undefined {
   return page.structure?.meta?.ogImage;
 }
 
-export function getPageCanonical(page: PageData): string | undefined {
-  return page.structure?.meta?.canonical || page.structure?.meta?.ogUrl || page.url;
+export function getPageCanonical(page: PageData, baseUrl?: string): string | undefined {
+  const canonical = page.structure?.meta?.canonical || page.structure?.meta?.ogUrl || page.url;
+
+  // If baseUrl is provided and canonical is a relative path, make it absolute
+  if (baseUrl && canonical && !canonical.startsWith('http')) {
+    // Convert routing format to relative path
+    const relativePath = canonical.replace(/^[^/]+/, '').replace(/^\//, '') || '/';
+    return `${baseUrl}${relativePath}`;
+  }
+
+  return canonical;
 }

@@ -20,12 +20,12 @@ export async function getStaticPaths() {
   const pagePaths = allPages
     .map(page => {
       // Convert URL to slug path string (remove protocol, query strings, trailing slashes)
-      // e.g., "https://windscribe.com/download?cpid=features" -> "windscribe.com/download"
+      // e.g., "https://{baseDomain}/download?cpid=features" -> "{baseDomain}/download"
       let pagePath = page.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
       // Remove query strings
       pagePath = pagePath.split('?')[0].split('#')[0];
 
-      return pagePath || 'windscribe.com';
+      return pagePath || siteConfig.baseDomain;
     })
     .filter(pagePath => {
       // Exclude paths using config-driven rules
@@ -72,9 +72,10 @@ let page = allPages.find(p => {
   // Exact match
   if (pagePath === normalizedPath) return true;
 
-  // Match without domain prefix (e.g., "download" matches "windscribe.com/download")
-  const pathWithoutDomain = normalizedPath.replace(/^windscribe\.com\/?/, '');
-  const pagePathWithoutDomain = pagePath.replace(/^windscribe\.com\/?/, '');
+  // Match without domain prefix (e.g., "download" matches "{baseDomain}/download")
+  const baseDomainRegex = new RegExp(`^${siteConfig.baseDomain.replace(/\./g, '\\.')}\\/?`);
+  const pathWithoutDomain = normalizedPath.replace(baseDomainRegex, '');
+  const pagePathWithoutDomain = pagePath.replace(baseDomainRegex, '');
 
   // Direct match without domain
   if (pathWithoutDomain && pagePathWithoutDomain === pathWithoutDomain) return true;
@@ -85,16 +86,17 @@ let page = allPages.find(p => {
   // Match if requested path ends with page path
   if (pagePathWithoutDomain && normalizedPath.endsWith(`/${pagePathWithoutDomain}`)) return true;
 
-  // Match if both are just the segment (e.g., "download" matches "windscribe.com/download")
-  if (pathWithoutDomain && pagePath === `windscribe.com/${pathWithoutDomain}`) return true;
+  // Match if both are just the segment (e.g., "download" matches "{baseDomain}/download")
+  if (pathWithoutDomain && pagePath === `${siteConfig.baseDomain}/${pathWithoutDomain}`)
+    return true;
 
-  // Path includes page path (e.g., "windscribe.com/download" matches "windscribe.com/download?cpid=features")
+  // Path includes page path (e.g., "{baseDomain}/download" matches "{baseDomain}/download?cpid=features")
   if (pagePath.includes(normalizedPath) || normalizedPath.includes(pagePath)) return true;
 
   // Handle root domain
   if (
-    (normalizedPath === 'windscribe.com' || normalizedPath === '') &&
-    (pagePath === 'windscribe.com' || pagePath === siteConfig.baseDomain)
+    (normalizedPath === siteConfig.baseDomain || normalizedPath === '') &&
+    (pagePath === siteConfig.baseDomain || pagePath === siteConfig.baseDomain)
   )
     return true;
   return false;
@@ -136,7 +138,7 @@ if (!page) {
 const title = getPageTitle(page);
 const description = getPageDescription(page);
 const ogImage = getPageOgImage(page);
-const canonical = getPageCanonical(page);
+const canonical = getPageCanonical(page, siteConfig.baseUrl);
 
 // Process HTML to fix image URLs and other issues
 const processedHtml = processPageHtml(page);

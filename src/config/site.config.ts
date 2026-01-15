@@ -24,8 +24,11 @@ export interface PathMapping {
 }
 
 export interface SiteConfig {
-  /** Base domain for the site */
+  /** Base domain for routing (used in URL paths) */
   baseDomain: string;
+
+  /** Base URL for the site (used in links, can be from env or localhost) */
+  baseUrl: string;
 
   /** URL replacements to apply to HTML content */
   urlReplacements: UrlReplacement[];
@@ -113,8 +116,48 @@ export interface SiteConfig {
   };
 }
 
+/**
+ * Get base URL from environment or default to localhost
+ * In production, set SITE_URL environment variable
+ * In development, defaults to http://localhost:4321
+ */
+function getBaseUrl(): string {
+  // Check for environment variable first (for deployed sites)
+  if (import.meta.env.SITE_URL) {
+    return import.meta.env.SITE_URL;
+  }
+
+  // Check for Astro's public env vars
+  if (import.meta.env.PUBLIC_SITE_URL) {
+    return import.meta.env.PUBLIC_SITE_URL;
+  }
+
+  // Default to localhost for development
+  if (import.meta.env.DEV) {
+    return 'http://localhost:4321';
+  }
+
+  // For production build without env var, use relative URLs
+  return '';
+}
+
+/**
+ * Get base domain from environment or use default
+ * This is used for routing paths (e.g., "windscribe.com/download")
+ */
+function getBaseDomain(): string {
+  // Check for environment variable
+  if (import.meta.env.PUBLIC_BASE_DOMAIN) {
+    return import.meta.env.PUBLIC_BASE_DOMAIN;
+  }
+
+  // Default domain (can be changed via env var)
+  return 'windscribe.com';
+}
+
 export const siteConfig: SiteConfig = {
-  baseDomain: 'windscribe.com',
+  baseDomain: getBaseDomain(),
+  baseUrl: getBaseUrl(),
 
   // URL replacements for HTML content
   // Note: Don't replace /_next/image here - it's handled by processHtmlImages()
@@ -299,4 +342,30 @@ export function applyPathMapping(path: string): string {
   }
 
   return mappedPath;
+}
+
+/**
+ * Get the routing path prefix (e.g., "windscribe.com" for "/windscribe.com/path")
+ */
+export function getRoutingPrefix(): string {
+  return siteConfig.baseDomain;
+}
+
+/**
+ * Check if a URL is from the original site domain (for link conversion)
+ */
+export function isOriginalDomain(url: string): boolean {
+  return url.includes(siteConfig.baseDomain);
+}
+
+/**
+ * Convert an original domain URL to routing format
+ */
+export function convertToRoutingPath(url: string): string {
+  // Remove protocol and extract path
+  const path = url
+    .replace(/^https?:\/\//, '')
+    .replace(/^[^/]+/, '')
+    .replace(/^\/+/, '');
+  return path ? `${siteConfig.baseDomain}/${path}` : siteConfig.baseDomain;
 }
