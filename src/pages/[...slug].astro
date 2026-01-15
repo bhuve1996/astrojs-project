@@ -16,22 +16,25 @@ export const prerender = true;
 export async function getStaticPaths() {
   const allPages = getAllPages();
 
-  // Only generate paths for actual pages, not static assets
-  const pagePaths = allPages
-    .map(page => {
-      // Convert URL to slug path string (remove protocol, query strings, trailing slashes)
-      // e.g., "https://{baseDomain}/download?cpid=features" -> "{baseDomain}/download"
-      let pagePath = page.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
-      // Remove query strings
-      pagePath = pagePath.split('?')[0].split('#')[0];
+  // Normalize and deduplicate page paths
+  // Convert URL to slug path string (remove protocol, query strings, trailing slashes)
+  // e.g., "https://{baseDomain}/download?cpid=features" -> "{baseDomain}/download"
+  const normalizedPaths = new Set<string>();
 
-      return pagePath || siteConfig.baseDomain;
-    })
-    .filter(pagePath => {
-      // Exclude paths using config-driven rules
-      // This prevents the catch-all route from matching these paths
-      return !isExcludedPath(`/${pagePath}`);
-    });
+  allPages.forEach(page => {
+    let pagePath = page.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+    // Remove query strings and hash
+    pagePath = pagePath.split('?')[0].split('#')[0];
+    // Normalize: remove trailing slash
+    pagePath = pagePath.replace(/\/$/, '') || siteConfig.baseDomain;
+
+    // Only add if not excluded
+    if (!isExcludedPath(`/${pagePath}`)) {
+      normalizedPaths.add(pagePath);
+    }
+  });
+
+  const pagePaths = Array.from(normalizedPaths);
 
   // Generate paths with domain prefix (for production)
   const pathsWithDomain = pagePaths.map(pagePath => {
