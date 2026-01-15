@@ -53,10 +53,11 @@ export function getWebsiteData(): WebsiteData {
 
 export function getPageByUrl(url: string): PageData | undefined {
   const data = getWebsiteData();
-  return data.pages.find(page => 
-    page.url === url || 
-    page.url.includes(url) || 
-    url.includes(page.url.replace(/^https?:\/\//, ''))
+  return data.pages.find(
+    (page) =>
+      page.url === url ||
+      page.url.includes(url) ||
+      url.includes(page.url.replace(/^https?:\/\//, ''))
   );
 }
 
@@ -73,9 +74,11 @@ export function getPageTitle(page: PageData): string {
 }
 
 export function getPageDescription(page: PageData): string {
-  return page.structure?.meta?.description || 
-         page.structure?.meta?.ogDescription || 
-         'Windscribe VPN';
+  return (
+    page.structure?.meta?.description ||
+    page.structure?.meta?.ogDescription ||
+    'Windscribe VPN'
+  );
 }
 
 export function getPageOgImage(page: PageData): string | undefined {

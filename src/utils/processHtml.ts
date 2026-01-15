@@ -8,7 +8,7 @@ import { siteConfig, applyPathMapping } from '../config/site.config';
 function createImageMap(): Map<string, string> {
   const assets = getAssets();
   const imageMap = new Map<string, string>();
-  
+
   if (assets.images) {
     assets.images.forEach((img) => {
       // Extract original path from Next.js image URL
@@ -36,7 +36,7 @@ function createImageMap(): Map<string, string> {
       }
     });
   }
-  
+
   return imageMap;
 }
 
@@ -48,16 +48,16 @@ export function processHtmlImages(html: string): string {
   if (!html) return html;
   
   const imageMap = createImageMap();
-  
+
   // Process images FIRST before other URL replacements
   // This ensures /_next/image?url=... patterns are handled correctly
-  
+
   // Helper function to find and replace image URL
   const replaceImageUrl = (encodedPath: string): string | null => {
     try {
       const decodedPath = decodeURIComponent(encodedPath);
       let localPath = imageMap.get(decodedPath) || imageMap.get(decodedPath.replace(/^\//, ''));
-      
+
       // Apply path mappings from config if no direct mapping found
       if (!localPath) {
         localPath = applyPathMapping(decodedPath);
@@ -68,7 +68,7 @@ export function processHtmlImages(html: string): string {
           localPath = localPath.startsWith('/') ? localPath : `/${localPath}`;
         }
       }
-      
+
       if (localPath) {
         return localPath;
       }
@@ -101,7 +101,7 @@ export function processHtmlImages(html: string): string {
     }
     return null;
   };
-  
+
   // Replace Next.js image URLs in src attributes
   // Handle both single and double quotes, and HTML entities like &amp;
   // Pattern: src=".../_next/image?url=ENCODED_PATH&params..." or src='...'

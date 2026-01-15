@@ -1,6 +1,6 @@
 /**
  * Site Configuration
- * 
+ *
  * Central configuration for URL replacements, path mappings, and routing rules.
  * All URL transformations and path exclusions are driven from this config.
  */
@@ -66,7 +66,7 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   baseDomain: 'windscribe.com',
-  
+
   // URL replacements for HTML content
   // Note: Don't replace /_next/image here - it's handled by processHtmlImages()
   urlReplacements: [
@@ -117,7 +117,7 @@ export const siteConfig: SiteConfig = {
       '/favicon',
     ],
   },
-  
+
   // Next.js specific paths to block
   nextJsPaths: {
     prefixes: [
@@ -129,7 +129,7 @@ export const siteConfig: SiteConfig = {
       '/_next/.*',
     ],
   },
-  
+
   // Asset paths
   assets: {
     basePath: '/assets',
