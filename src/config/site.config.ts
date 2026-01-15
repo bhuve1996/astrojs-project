@@ -256,6 +256,12 @@ export const siteConfig: SiteConfig = {
       payButtons: '.pay_btn',
       renewOption: '.renew_option h1',
       paywallElements: ['#paywall_month', '#paywall_year', '#paywall_alc'],
+      // Mobile menu/drawer selectors
+      mobileMenuToggle: '[data-menu-toggle], .menu-toggle, .hamburger, [aria-controls*="menu"]',
+      mobileMenu: '.mobile-menu, [data-menu], .drawer, .offcanvas, .MobileTabletNavMenuDrawer',
+      mobileMenuClose: '.menu-close, .drawer-close, [data-menu-close]',
+      subMenu: '.sub-menu',
+      navMenuBtn: '.nav-menu-btn',
     },
     buildAPlan: {
       maxLocations: 7,

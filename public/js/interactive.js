@@ -43,6 +43,11 @@
         payButtons: '.pay_btn',
         renewOption: '.renew_option h1',
         paywallElements: ['#paywall_month', '#paywall_year', '#paywall_alc'],
+        mobileMenuToggle: '[data-menu-toggle], .menu-toggle, .hamburger, [aria-controls*="menu"]',
+        mobileMenu: '.mobile-menu, [data-menu], .drawer, .offcanvas, .MobileTabletNavMenuDrawer',
+        mobileMenuClose: '.menu-close, .drawer-close, [data-menu-close]',
+        subMenu: '.sub-menu',
+        navMenuBtn: '.nav-menu-btn',
       },
       buildAPlan: {
         maxLocations: 7,
@@ -593,6 +598,157 @@
   }
 
   /**
+   * Mobile menu/drawer functionality
+   */
+  function initMobileMenu() {
+    const menuToggles = safeQuerySelectorAll(selectors.mobileMenuToggle || '[data-menu-toggle]');
+    const mobileMenus = safeQuerySelectorAll(selectors.mobileMenu || '.mobile-menu, .drawer');
+
+    // Handle menu toggles
+    menuToggles.forEach(toggle => {
+      toggle.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Get the menu this toggle controls
+        const menuId = toggle.getAttribute('aria-controls') || toggle.getAttribute('data-menu');
+        const menu = menuId
+          ? safeQuerySelector(`#${menuId}`) || safeQuerySelector(`[data-menu="${menuId}"]`)
+          : mobileMenus[0];
+
+        if (menu) {
+          const isOpen = menu.classList.contains('is-open') || menu.classList.contains('open');
+          const isVisible =
+            menu.classList.contains('is-visible') || menu.hasAttribute('data-opened');
+
+          if (isOpen || isVisible) {
+            closeMobileMenu(menu, toggle);
+          } else {
+            openMobileMenu(menu, toggle);
+          }
+        }
+      });
+    });
+
+    // Handle close buttons
+    const closeButtons = safeQuerySelectorAll(selectors.mobileMenuClose || '.menu-close');
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const menu = btn.closest(selectors.mobileMenu || '.mobile-menu, .drawer');
+        const toggle = safeQuerySelector(selectors.mobileMenuToggle || '[data-menu-toggle]');
+        if (menu) {
+          closeMobileMenu(menu, toggle);
+        }
+      });
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', e => {
+      mobileMenus.forEach(menu => {
+        const isOpen = menu.classList.contains('is-open') || menu.classList.contains('open');
+        const isVisible = menu.classList.contains('is-visible') || menu.hasAttribute('data-opened');
+
+        if ((isOpen || isVisible) && !menu.contains(e.target)) {
+          const toggle = safeQuerySelector(selectors.mobileMenuToggle || '[data-menu-toggle]');
+          closeMobileMenu(menu, toggle);
+        }
+      });
+    });
+
+    // Close menu on ESC key
+    document.addEventListener('keyup', event => {
+      if (event.key === 'Escape' || event.keyCode === 27) {
+        mobileMenus.forEach(menu => {
+          const isOpen = menu.classList.contains('is-open') || menu.classList.contains('open');
+          const isVisible =
+            menu.classList.contains('is-visible') || menu.hasAttribute('data-opened');
+
+          if (isOpen || isVisible) {
+            const toggle = safeQuerySelector(selectors.mobileMenuToggle || '[data-menu-toggle]');
+            closeMobileMenu(menu, toggle);
+          }
+        });
+      }
+    });
+  }
+
+  function openMobileMenu(menu, toggle) {
+    if (menu) {
+      menu.classList.add('is-open', 'open', 'is-visible');
+      menu.setAttribute('data-opened', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      if (toggle) {
+        toggle.classList.add('is-active', 'active');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('data-opened', 'true');
+      }
+    }
+  }
+
+  function closeMobileMenu(menu, toggle) {
+    if (menu) {
+      menu.classList.remove('is-open', 'open', 'is-visible');
+      menu.removeAttribute('data-opened');
+      menu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+
+      if (toggle) {
+        toggle.classList.remove('is-active', 'active');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.removeAttribute('data-opened');
+      }
+    }
+  }
+
+  /**
+   * Sub-menu functionality (nested dropdowns in navigation)
+   */
+  function initSubMenus() {
+    const subMenus = safeQuerySelectorAll(selectors.subMenu || '.sub-menu');
+    const navMenuBtns = safeQuerySelectorAll(selectors.navMenuBtn || '.nav-menu-btn');
+
+    // Handle nav menu buttons with sub-menus
+    navMenuBtns.forEach(btn => {
+      const subMenu = btn.parentElement?.querySelector(selectors.subMenu || '.sub-menu');
+      if (subMenu) {
+        btn.addEventListener('click', e => {
+          // Only toggle if it's not a link (or prevent default if it is)
+          if (btn.getAttribute('href') && btn.getAttribute('href') !== '#') {
+            // Allow navigation, but also toggle menu on mobile
+            if (window.innerWidth <= 768) {
+              e.preventDefault();
+            }
+          } else {
+            e.preventDefault();
+          }
+
+          const isOpen = subMenu.classList.contains('is-open') || subMenu.style.display === 'block';
+
+          // Close all other sub-menus
+          subMenus.forEach(menu => {
+            if (menu !== subMenu) {
+              menu.classList.remove('is-open');
+              menu.style.display = '';
+            }
+          });
+
+          // Toggle current sub-menu
+          if (isOpen) {
+            subMenu.classList.remove('is-open');
+            subMenu.style.display = '';
+          } else {
+            subMenu.classList.add('is-open');
+            subMenu.style.display = 'block';
+          }
+        });
+      }
+    });
+  }
+
+  /**
    * Initialize all interactive features
    */
   function initInteractive() {
@@ -602,6 +758,8 @@
         initModals();
         initLanguageDropdown();
         initDropdowns();
+        initMobileMenu();
+        initSubMenus();
         initBuildAPlan();
         initPaymentForms();
         initInputHandlers();
@@ -613,6 +771,8 @@
       initModals();
       initLanguageDropdown();
       initDropdowns();
+      initMobileMenu();
+      initSubMenus();
       initBuildAPlan();
       initPaymentForms();
       initInputHandlers();
