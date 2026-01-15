@@ -3,29 +3,35 @@
 ## What Was Done
 
 ### ✅ 1. Created Central Configuration (`src/config/site.config.ts`)
+
 - All URL replacements, path mappings, and routing rules in one place
 - Easy to modify without code changes
 - Type-safe configuration
 
 ### ✅ 2. Updated Middleware (`src/middleware.ts`)
+
 - Now uses `isExcludedPath()` and `isNextJsPath()` from config
 - All path exclusions driven from config
 
 ### ✅ 3. Updated HTML Processing (`src/utils/processHtml.ts`)
+
 - Uses `urlReplacements` from config
 - Uses `pathMappings` for image path conversion
 - Config-driven URL transformations
 
 ### ✅ 4. Updated Routes (`src/pages/[...slug].astro` & `index.astro`)
+
 - Uses `isExcludedPath()` from config
 - Uses `siteConfig.baseDomain` for homepage detection
 - All path filtering driven from config
 
 ### ✅ 5. Updated Layout (`src/layouts/BaseLayout.astro`)
+
 - Uses `siteConfig.assets.*` for asset paths
 - Config-driven CSS/JS loading
 
 ### ✅ 6. Documentation
+
 - `ERRORS_EXPLANATION.md` - Explains the warnings
 - `CONFIG_GUIDE.md` - How to use the config system
 - `WARNINGS.md` - About router warnings
@@ -45,13 +51,16 @@
 ## Runtime Replacement
 
 ### Current: Build-Time Replacement ✅
+
 - URLs replaced when pages are **generated** (build time)
 - Faster page loads
 - Better for static sites
 - All replacements configured in `site.config.ts`
 
 ### Runtime Replacement (If Needed)
+
 If you want runtime replacement instead:
+
 1. Move HTML processing to client-side JavaScript
 2. Replace URLs after page loads
 3. Less efficient but more flexible
@@ -72,7 +81,7 @@ urlReplacements: [
     replacement: '/',
     useRegex: true,
   },
-]
+];
 ```
 
 ### Example: Exclude New Path
@@ -107,7 +116,7 @@ Each commit is self-contained and can be reviewed/tested independently.
 ✅ **Maintainable**: Easy to update without code changes  
 ✅ **Consistent**: Same rules everywhere  
 ✅ **Documented**: Clear explanation of warnings  
-✅ **Flexible**: Easy to add new replacements/mappings  
+✅ **Flexible**: Easy to add new replacements/mappings
 
 ## Next Steps
 

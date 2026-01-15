@@ -1,0 +1,27 @@
+---
+export interface Props {
+  id: string;
+  title?: string;
+  class?: string;
+}
+
+const { id, title, class: className = '' } = Astro.props;
+---
+
+<div
+  class={`cd-popup ${className}`}
+  id={id}
+  role="dialog"
+  aria-labelledby={`${id}-title`}
+  aria-modal="true"
+>
+  <div class="cd-popup-container">
+    {title && <h1 id={`${id}-title`}>{title}</h1>}
+    <a href="#" class="cd-popup-close" aria-label="Close modal">×</a>
+    <div class="cd-popup-content">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<!-- Modal functionality is handled by /js/interactive.js -->

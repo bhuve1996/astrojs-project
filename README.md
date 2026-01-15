@@ -1,89 +1,193 @@
-# Scraped Website Data
+# Windscribe VPN - Astro.js Static Site
 
-## 📊 Scraping Summary
+A static website built with Astro.js, recreated from the Windscribe VPN website.
 
-**Website:** https://windscribe.com
-**Scraped Date:** 2026-01-15T12:18:55.279Z
+## 📊 Project Status
 
-### ✅ What's Done
+### ✅ Completed
 
-- ✅ **Pages Scraped:** 10 pages
-- ✅ **Images Downloaded:** 213 images
-  - SVG: 27
-  - PNG: 95
-  - WebP: 91
-  - JPG: 0
-- ✅ **CSS Files:** 15 stylesheets
-- ✅ **JS Files:** 30 JavaScript files
-- ✅ **Metadata Extracted:** All page metadata, SEO tags, Open Graph tags
-- ✅ **HTML Pages:** All pages saved as individual HTML files
-- ✅ **Website Data JSON:** Complete structured data in website-data.json
+- ✅ **Astro.js Project Setup** - Full static site generation setup
+- ✅ **Pages Scraped & Integrated** - 10 pages from windscribe.com
+- ✅ **Assets Organized** - 213 images, 15 CSS files, all properly structured
+- ✅ **Dynamic Routing** - Catch-all route `[...slug].astro` for all pages
+- ✅ **Image Processing** - Next.js image URLs converted to local paths
+- ✅ **SEO & Metadata** - Full Open Graph, Twitter cards, canonical URLs
+- ✅ **Config-Driven System** - Centralized configuration in `src/config/site.config.ts`
+- ✅ **Code Quality** - Prettier, ESLint, Husky pre-commit hooks configured
+- ✅ **CSS Comments** - All CSS files have descriptive comments
 
 ### 📋 What's Included
 
-1. **website-data.json** - Complete structured data:
-   - All pages with HTML content
-   - All assets (images, CSS, JS) with metadata
-   - Page structure and components
-   - SEO and metadata information
-
-2. **pages/** - Individual HTML files for each scraped page
-
-3. **assets/images/** - All downloaded images with correct file extensions
-
-4. **assets/css/** - All stylesheets
-
-5. **assets/js/** - All JavaScript files (if downloaded)
+1. **Static Site Generation** - All pages pre-rendered at build time
+2. **Dynamic Routing** - Automatic route generation from scraped data
+3. **Asset Management** - Images, CSS, and JS files properly linked
+4. **SEO Optimization** - Meta tags, Open Graph, Twitter cards
+5. **TypeScript** - Full type safety throughout the project
+6. **Code Formatting** - Prettier + ESLint with pre-commit hooks
 
 ### ⚠️ What's Missing / Pending
 
-- ⚠️ **Client-side JavaScript Execution:** Some dynamic content may not be fully captured
-- ⚠️ **Interactive Features:** Forms, dropdowns, modals need client-side JS implementation
-- ⚠️ **Authentication/Login:** Login functionality not implemented
-- ⚠️ **Dynamic Routes:** Some client-side routing may not be captured
-- ⚠️ **External Resources:** Some external APIs or CDN resources may not be included
-- ⚠️ **Fonts:** Font files may need to be downloaded separately if referenced
+- ⚠️ **Form Handling** - Payment forms need backend integration
+- ⚠️ **Authentication** - Login/signup functionality (if needed)
+- ⚠️ **Advanced Interactions** - Some complex JavaScript features may need reimplementation
 
-### 🔧 Next Steps
+## 🚀 Getting Started
 
-1. **Build the Site:**
-   ```bash
-   npm install
-   npm run build
-   npm run preview
-   ```
+### Prerequisites
 
-2. **Review Scraped Data:**
-   - Check `website-data.json` for complete structure
-   - Verify all images are in `assets/images/`
-   - Check CSS files in `assets/css/`
+- Node.js 18+
+- npm or yarn
 
-3. **Implement Missing Features:**
-   - Add client-side JavaScript for interactive elements
-   - Implement form handling
-   - Add dropdown/modal functionality
-   - Handle dynamic content loading
+### Installation
 
-### 📁 File Structure
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Development Scripts
+
+```bash
+npm run dev          # Start dev server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run format       # Format code with Prettier
+npm run lint         # Lint code with ESLint
+npm run lint:fix     # Fix linting errors
+npm run fix:css      # Fix CSS syntax errors
+npm run comment:css  # Add comments to CSS files
+```
+
+## 📁 Project Structure
 
 ```
-scraped-data/
-├── website-data.json          # Complete structured data
-├── pages/                      # Individual HTML pages
-│   └── *.html
+astrojs-project/
+├── src/
+│   ├── config/
+│   │   └── site.config.ts      # Central configuration
+│   ├── layouts/
+│   │   └── BaseLayout.astro     # Base layout with SEO
+│   ├── pages/
+│   │   ├── index.astro          # Homepage
+│   │   ├── [...slug].astro      # Dynamic catch-all route
+│   │   └── 404.astro            # 404 page
+│   ├── components/              # Astro components (to be created)
+│   ├── utils/
+│   │   ├── loadWebsiteData.ts   # Load scraped data
+│   │   └── processHtml.ts       # Process HTML content
+│   └── middleware.ts            # Astro middleware
 ├── assets/
-│   ├── images/                 # All images (SVG, PNG, WebP, JPG)
-│   ├── css/                    # All stylesheets
+│   ├── images/                  # All images (SVG, PNG, WebP)
+│   ├── css/                     # All stylesheets
 │   └── js/                      # JavaScript files
-└── README.md                   # This file
+├── pages/                       # Original scraped HTML files
+├── website-data.json            # Complete scraped data
+├── scripts/                     # Utility scripts
+│   ├── format-css.js
+│   ├── fix-css-syntax.js
+│   ├── add-css-comments.js
+│   └── clean-and-comment-css.js
+└── public/                      # Public static assets (symlinked to assets/)
 ```
 
-### 📝 Notes
+## 🔧 Configuration
 
-- All images are saved with correct file extensions based on Content-Type headers
-- Metadata includes: title, description, Open Graph tags, Twitter cards, canonical URLs
-- Pages are saved with rendered HTML from Puppeteer for better JavaScript execution
-- Some assets may reference external URLs that need to be updated in the build process
+All site configuration is centralized in `src/config/site.config.ts`:
+
+- URL replacements
+- Path mappings
+- Asset paths
+- Domain settings
+- Exclusion rules
+
+See `CONFIG_GUIDE.md` for detailed configuration options.
+
+## 📝 Next Steps
+
+### ✅ Recently Completed
+
+1. ✅ **Interactive JavaScript** - Created `src/utils/interactive.js` with:
+   - Modal/popup functionality
+   - Dropdown menus
+   - Form validation
+   - Email validation (supports Windscribe `bro:xxxx` format)
+
+2. ✅ **Astro Components** - Created reusable components:
+   - `Modal.astro` - Modal/popup component
+   - `Dropdown.astro` - Dropdown menu component
+
+### Immediate Tasks
+
+1. **Test Interactive Features**
+   - Test modals on upgrade page
+   - Test dropdowns in navigation
+   - Test form validation
+   - Fix any JavaScript errors
+
+2. **Form Handling**
+   - Integrate payment form submission
+   - Add form submission handlers
+   - Implement error handling
+
+3. **Enhance User Experience**
+   - Add smooth transitions
+   - Implement loading states
+   - Improve accessibility
+   - Add keyboard navigation
+
+4. **Testing & Optimization**
+   - Test all interactive features
+   - Optimize images and assets
+   - Performance testing
+   - Cross-browser testing
+
+### Future Enhancements
+
+- [ ] Add TypeScript types for all components
+- [ ] Implement form submission handling
+- [ ] Add analytics integration
+- [ ] Create component library
+- [ ] Add unit tests
+- [ ] Performance optimization
+- [ ] Accessibility improvements
+
+## 🛠️ Technologies Used
+
+- **Astro.js** - Static site generator
+- **TypeScript** - Type safety
+- **Prettier** - Code formatting
+- **ESLint** - Code linting
+- **Husky** - Git hooks
+
+## 📚 Documentation
+
+- `CONFIG_GUIDE.md` - Configuration system guide
+- `SETUP.md` - Setup instructions
+- `CHANGES_SUMMARY.md` - Summary of major changes
+- `ERRORS_EXPLANATION.md` - Common errors explained
+- `WARNINGS.md` - Expected warnings in development
+
+## 🤝 Contributing
+
+1. Make changes
+2. Run `npm run format` and `npm run lint:fix`
+3. Commit (pre-commit hooks will run automatically)
+4. Push changes
+
+## 📄 License
+
+This project is for educational purposes, recreating the Windscribe VPN website.
 
 ---
-Generated by Website Cloner Scraper
+
+**Last Updated:** 2026-01-15  
+**Astro Version:** 4.0.0
