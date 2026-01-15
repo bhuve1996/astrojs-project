@@ -36,6 +36,8 @@ A static website built with Astro.js, recreated from the Windscribe VPN website.
 
 - ✅ **Build**: PASSING - All pages build successfully
 - ✅ **Static Generation**: 12 pages generated correctly
+- ✅ **Asset Paths**: Fixed - All CSS/image paths use `/assets/` structure
+- ✅ **Next.js References**: Removed - All `/_next/` paths converted to `/assets/`
 - ⚠️ **Browser Testing**: Needs manual testing (see Testing section below)
 - ⚠️ **Interactive Features**: JavaScript loaded, needs browser verification
 
@@ -136,17 +138,24 @@ All configuration is documented in the `site.config.ts` file with inline comment
 
 ### ✅ Recently Completed
 
-1. ✅ **Interactive JavaScript** - Created `public/js/interactive.js` with:
+1. ✅ **Asset Path Fixes** - Fixed all 404 errors:
+   - CSS font paths: `/css/fonts/` → `/assets/css/fonts/`
+   - CSS image paths: `/v2/img/` → `/assets/images/`
+   - HTML Next.js paths: `/_next/` → `/assets/`
+   - All 15 CSS files updated
+   - HTML processing updated
+
+2. ✅ **Interactive JavaScript** - Created `public/js/interactive.js` with:
    - Modal/popup functionality
    - Dropdown menus
    - Form validation
    - Email validation (supports Windscribe `bro:xxxx` format)
 
-2. ✅ **Astro Components** - Created reusable components:
+3. ✅ **Astro Components** - Created reusable components:
    - `Modal.astro` - Modal/popup component
    - `Dropdown.astro` - Dropdown menu component
 
-3. ✅ **Build Fix** - Fixed script loading issue with `is:inline` directive
+4. ✅ **Build Fix** - Fixed script loading issue with `is:inline` directive
 
 ### Immediate Tasks
 

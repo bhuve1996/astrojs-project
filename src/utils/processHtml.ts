@@ -10,7 +10,7 @@ function createImageMap(): Map<string, string> {
   const imageMap = new Map<string, string>();
 
   if (assets.images) {
-    assets.images.forEach((img) => {
+    assets.images.forEach(img => {
       // Extract original path from Next.js image URL
       try {
         const url = new URL(img.url);
@@ -46,7 +46,7 @@ function createImageMap(): Map<string, string> {
  */
 export function processHtmlImages(html: string): string {
   if (!html) return html;
-  
+
   const imageMap = createImageMap();
 
   // Process images FIRST before other URL replacements
@@ -72,7 +72,7 @@ export function processHtmlImages(html: string): string {
       if (localPath) {
         return localPath;
       }
-      
+
       // Try with partial path (in case of query params)
       const partialPath = encodedPath.split('&')[0];
       if (partialPath !== encodedPath) {
@@ -109,7 +109,7 @@ export function processHtmlImages(html: string): string {
     /src=(["'])\/_next\/image\?url=([^"'\s&]+(?:&amp;[^"'\s&]+)*?)(?:&amp;[^"']*)?\1/g,
     (match, quote, encodedPath) => {
       // Decode HTML entities in the encoded path
-      let decodedPath = encodedPath.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+      const decodedPath = encodedPath.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
       const localPath = replaceImageUrl(decodedPath);
       if (localPath) {
         return `src=${quote}${localPath}${quote}`;
@@ -117,13 +117,13 @@ export function processHtmlImages(html: string): string {
       return match; // Return original if no match found
     }
   );
-  
+
   // Also handle cases with trailing quote (different pattern)
   html = html.replace(
     /src=(["'])\/_next\/image\?url=([^"'\s&]+(?:&amp;[^"'\s&]+)*?)(["'])/g,
     (match, quote1, encodedPath, quote2) => {
       // Decode HTML entities
-      let decodedPath = encodedPath.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+      const decodedPath = encodedPath.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
       const localPath = replaceImageUrl(decodedPath);
       if (localPath) {
         return `src=${quote1}${localPath}${quote2}`;
@@ -131,7 +131,7 @@ export function processHtmlImages(html: string): string {
       return match;
     }
   );
-  
+
   // Replace Next.js image URLs in srcset attributes (handle HTML entities like &amp; in srcset)
   html = html.replace(
     /srcset=(["'])([^"']*\/_next\/image\?url=[^"'\s]+[^"']*)\1/g,
@@ -153,7 +153,7 @@ export function processHtmlImages(html: string): string {
       return `srcset=${quote}${processed}${quote}`;
     }
   );
-  
+
   // Also replace any remaining absolute Next.js image URLs (in any context)
   html = html.replace(
     /https?:\/\/[^/]+\/_next\/image\?url=([^"'\s&<>]+)(?:[^"'\s&<>]*)?/g,
@@ -165,11 +165,11 @@ export function processHtmlImages(html: string): string {
       return match;
     }
   );
-  
+
   // Remove Next.js-specific image attributes
   html = html.replace(/\s+data-nimg="[^"]*"/g, '');
   html = html.replace(/\s+style="color:transparent"/g, '');
-  
+
   // Apply config-driven URL replacements AFTER image processing
   // This handles other Next.js paths that don't need special image processing
   for (const replacement of siteConfig.urlReplacements) {
@@ -187,8 +187,35 @@ export function processHtmlImages(html: string): string {
       }
     }
   }
-  
+
   return html;
+}
+
+/**
+ * Processes all HTML content in a page, fixing image URLs and other issues
+ */
+/**
+ * Process CSS content to fix asset paths
+ */
+export function processCssAssetPaths(css: string): string {
+  if (!css) return css;
+
+  // Fix font paths: /css/fonts/ -> /assets/css/fonts/
+  css = css.replace(/url\((\/css\/fonts\/[^)]+)\)/g, 'url(/assets$1)');
+
+  // Fix image paths: /v2/img/ -> /assets/images/
+  css = css.replace(/url\((\/v2\/img\/[^)]+)\)/g, (match, imgPath) => {
+    const filename = imgPath.replace('/v2/img/', '');
+    return `url(/assets/images/${filename})`;
+  });
+
+  // Fix any other /css/ references to /assets/css/
+  css = css.replace(/url\((\/css\/[^)]+)\)/g, 'url(/assets$1)');
+
+  // Fix any /images/ references to /assets/images/
+  css = css.replace(/url\((\/images\/[^)]+)\)/g, 'url(/assets$1)');
+
+  return css;
 }
 
 /**
@@ -196,11 +223,26 @@ export function processHtmlImages(html: string): string {
  */
 export function processPageHtml(page: PageData): string {
   if (!page.renderedHTML) return '';
-  
+
   let html = page.renderedHTML;
-  
-  // Fix image URLs
+
+  // Fix image URLs (Next.js image optimization URLs)
   html = processHtmlImages(html);
-  
+
+  // Fix any remaining /_next/ references (Next.js artifacts)
+  html = html.replace(/\/_next\//g, '/assets/');
+
+  // Fix any /v2/img/ references in HTML (legacy paths)
+  html = html.replace(/\/v2\/img\//g, '/assets/images/');
+
+  // Fix any /css/fonts/ references in HTML
+  html = html.replace(/\/css\/fonts\//g, '/assets/css/fonts/');
+
+  // Fix any /css/ references to /assets/css/
+  html = html.replace(/href=["'](\/css\/[^"']+)["']/g, 'href="/assets$1"');
+
+  // Fix any /images/ references to /assets/images/
+  html = html.replace(/src=["'](\/images\/[^"']+)["']/g, 'src="/assets$1"');
+
   return html;
 }

@@ -38,7 +38,7 @@
   display: inline-block;
   width: 23px;
   height: 24px;
-  background: url(/v2/img/link_icon@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/link_icon@2x.png) 0 0 no-repeat;
   background-size: 23px 24px;
   position: absolute;
   top: 10px;
@@ -62,7 +62,7 @@
   width: 23px;
   height: 23px;
   border: none;
-  background: url(/v2/img/securelink_settings_icon@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/securelink_settings_icon@2x.png) 0 0 no-repeat;
   background-size: 46px 23px;
   position: absolute;
   right: 10px;
@@ -70,7 +70,7 @@
   outline: none;
 }
 #sl_input button#options_btn.active {
-  background: url(/v2/img/securelink_settings_icon@2x.png) -23px 0 no-repeat;
+  background: url(/assets/images/securelink_settings_icon@2x.png) -23px 0 no-repeat;
   background-size: 46px 23px;
 }
 #sl_input button#sl_copy {

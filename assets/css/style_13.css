@@ -104,7 +104,7 @@ div.bap-deselect {
   width: 24px !important;
   height: 24px !important;
   border: none;
-  background: url(/v2/img/select-icon-selected@2x.png) no-repeat;
+  background: url(/assets/images/select-icon-selected@2x.png) no-repeat;
   background-size: 24px;
   display: none;
 }

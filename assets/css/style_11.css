@@ -2,7 +2,7 @@
   text-align: center;
 }
 #gp_top {
-  background: url(/v2/img/gopro/pro-pattern-bg.png) 0px 0px repeat #00163f;
+  background: url(/assets/images/gopro/pro-pattern-bg.png) 0px 0px repeat #00163f;
   padding: 100px 10px 170px;
   margin-top: -95px;
 }
@@ -55,7 +55,7 @@ i#top_logo {
   width: 124px;
   height: 19px;
   margin: 0px auto;
-  background: url(/v2/img/gopro/WS-Logo-white.png);
+  background: url(/assets/images/gopro/WS-Logo-white.png);
 }
 #gp-bottom {
   margin-top: -130px;
@@ -86,7 +86,7 @@ i#top_logo {
   float: right;
   width: 130px;
   height: 24px;
-  background: url(/v2/img/gopro/Free-stars.png);
+  background: url(/assets/images/gopro/Free-stars.png);
   margin-right: 20px;
 }
 #free-bottom {
@@ -164,10 +164,10 @@ i#top_logo {
   margin-right: 5px;
 }
 #gp-pro .pro-heading i {
-  background: url(/v2/img/gopro/small-pro-star-white.png) 0 0 no-repeat;
+  background: url(/assets/images/gopro/small-pro-star-white.png) 0 0 no-repeat;
 }
 #gp-pro-month .pro-heading i {
-  background: url(/v2/img/gopro/small-pro-star.png) 0 0 no-repeat;
+  background: url(/assets/images/gopro/small-pro-star.png) 0 0 no-repeat;
 }
 #gp-pro-month span.heading {
 }
@@ -229,7 +229,7 @@ i#top_logo {
 .ws-icon-bg {
   width: 191px;
   height: 368px;
-  background: url(/v2/img/gopro/Unlimited-BG-WS-Badge.png);
+  background: url(/assets/images/gopro/Unlimited-BG-WS-Badge.png);
   position: absolute;
   top: 30px;
   right: 0px;
@@ -280,7 +280,7 @@ i#top_logo {
   height: 41px;
   display: block;
   margin: 40px auto 20px;
-  background: url(/v2/img/gopro/Platform-Logos.png);
+  background: url(/assets/images/gopro/Platform-Logos.png);
 }
 .back > span {
 }
@@ -477,7 +477,7 @@ i#top_logo {
 #gp-payment_methods i {
   width: 780px;
   height: 45px;
-  background: url(/v2/img/gopro/desktop-pymnt-met.png) 0 0 no-repeat;
+  background: url(/assets/images/gopro/desktop-pymnt-met.png) 0 0 no-repeat;
   display: block;
   margin: 30px auto 0px;
 }
@@ -654,12 +654,12 @@ i#top_logo {
   width: 31px;
   height: 31px;
   display: inline-block;
-  background: url(/v2/img/gopro/big-pro-star.png) 0 0 no-repeat;
+  background: url(/assets/images/gopro/big-pro-star.png) 0 0 no-repeat;
   margin: 0px 5px 10px;
   vertical-align: bottom;
 }
 #server-locations-cont {
-  background: url(/v2/img/gopro/pro-pattern-bg.png) 0px 0px repeat #00163f;
+  background: url(/assets/images/gopro/pro-pattern-bg.png) 0px 0px repeat #00163f;
   height: 400px;
   padding-top: 20px;
 }
@@ -673,12 +673,12 @@ i#top_logo {
   background: white;
 }
 .locations_table i.checkmark {
-  background: url(/v2/img/gopro/blue-checkmark.png);
+  background: url(/assets/images/gopro/blue-checkmark.png);
   width: 24px;
   height: 24px;
 }
 .plan_compare i {
-  background: url(/v2/img/gopro/small-pro-star.png) 0 0 no-repeat;
+  background: url(/assets/images/gopro/small-pro-star.png) 0 0 no-repeat;
   width: 24px;
   height: 24px;
 }
@@ -888,53 +888,53 @@ i#top_logo {
   (-webkit-min-device-pixel-ratio: 1.5),
   (-o-min-device-pixel-ratio: 3/2) {
   #gp_top {
-    background: url(/v2/img/gopro/pro-pattern-bg.png) 0px 0px repeat #00163f;
+    background: url(/assets/images/gopro/pro-pattern-bg.png) 0px 0px repeat #00163f;
     background-size: 307px;
   }
   i#top_logo {
-    background: url(/v2/img/gopro/WS-Logo-white@2x.png);
+    background: url(/assets/images/gopro/WS-Logo-white@2x.png);
     background-size: 124px 19px;
   }
   #free-top span i {
-    background: url(/v2/img/gopro/Free-stars@2x.png);
+    background: url(/assets/images/gopro/Free-stars@2x.png);
     background-size: 130px 24px;
   }
   #gp-pro .ws-icon-bg,
   .ws-icon-bg {
-    background: url(/v2/img/gopro/Unlimited-BG-WS-Badge@2x.png);
+    background: url(/assets/images/gopro/Unlimited-BG-WS-Badge@2x.png);
     background-size: 191px 368px;
   }
 
   #gp-platforms i {
-    background: url(/v2/img/gopro/Platform-Logos@2x.png);
+    background: url(/assets/images/gopro/Platform-Logos@2x.png);
     background-size: 433px 41px;
   }
   #gp-payment_methods i {
-    background: url(/v2/img/gopro/desktop-pymnt-met@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/gopro/desktop-pymnt-met@2x.png) 0 0 no-repeat;
     background-size: 780px 45px;
   }
   #gp_top h1 span i {
-    background: url(/v2/img/gopro/big-pro-star@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/gopro/big-pro-star@2x.png) 0 0 no-repeat;
     background-size: 31px;
   }
   #gp-pro .pro-heading i {
-    background: url(/v2/img/gopro/small-pro-star-white@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/gopro/small-pro-star-white@2x.png) 0 0 no-repeat;
     background-size: 24px;
   }
   #gp-pro-month .pro-heading i {
-    background: url(/v2/img/gopro/small-pro-star@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/gopro/small-pro-star@2x.png) 0 0 no-repeat;
     background-size: 24px;
   }
   #server-locations-cont {
-    background: url(/v2/img/gopro/pro-pattern-bg@2x.png) 0px 0px repeat #00163f;
+    background: url(/assets/images/gopro/pro-pattern-bg@2x.png) 0px 0px repeat #00163f;
     background-size: 307px;
   }
   .locations_table i.checkmark {
-    background: url(/v2/img/gopro/blue-checkmark@2x.png);
+    background: url(/assets/images/gopro/blue-checkmark@2x.png);
     background-size: 24px;
   }
   .plan_compare i {
-    background: url(/v2/img/gopro/small-pro-star@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/gopro/small-pro-star@2x.png) 0 0 no-repeat;
     background-size: 24px;
   }
 }

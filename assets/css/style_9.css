@@ -7,8 +7,8 @@
   src:
     local('Lato Light'),
     local('Lato-Light'),
-    url(/css/fonts/lato-v14-latin_latin-ext-300.woff2) format('woff2'),
-    url(/css/fonts/lato-v14-latin_latin-ext-300.ttf) format('truetype');
+    url(/assets/css/fonts/lato-v14-latin_latin-ext-300.woff2) format('woff2'),
+    url(/assets/css/fonts/lato-v14-latin_latin-ext-300.ttf) format('truetype');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -20,8 +20,8 @@
   src:
     local('Lato Light'),
     local('Lato-Light'),
-    url(/css/fonts/lato-v14-latin-300.woff2) format('woff2'),
-    url(/css/fonts/lato-v14-latin-300.ttf) format('truetype');
+    url(/assets/css/fonts/lato-v14-latin-300.woff2) format('woff2'),
+    url(/assets/css/fonts/lato-v14-latin-300.ttf) format('truetype');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
     U+2215, U+E0FF, U+EFFD, U+F000;
@@ -35,8 +35,8 @@
   src:
     local('Lato Regular'),
     local('Lato-Regular'),
-    url(/css/fonts/lato-v14-latin_latin-ext-regular.woff2) format('woff2'),
-    url(/css/fonts/lato-v14-latin_latin-ext-regular.ttf) format('truetype');
+    url(/assets/css/fonts/lato-v14-latin_latin-ext-regular.woff2) format('woff2'),
+    url(/assets/css/fonts/lato-v14-latin_latin-ext-regular.ttf) format('truetype');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -48,8 +48,8 @@
   src:
     local('Lato Regular'),
     local('Lato-Regular'),
-    url(/css/fonts/lato-v14-latin-regular.woff2) format('woff2'),
-    url(/css/fonts/lato-v14-latin-regular.ttf) format('truetype');
+    url(/assets/css/fonts/lato-v14-latin-regular.woff2) format('woff2'),
+    url(/assets/css/fonts/lato-v14-latin-regular.ttf) format('truetype');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
     U+2215, U+E0FF, U+EFFD, U+F000;
@@ -63,8 +63,8 @@
   src:
     local('Lato Bold'),
     local('Lato-Bold'),
-    url(/css/fonts/lato-v14-latin_latin-ext-700.woff2) format('woff2'),
-    url(/css/fonts/lato-v14-latin_latin-ext-700.ttf) format('truetype');
+    url(/assets/css/fonts/lato-v14-latin_latin-ext-700.woff2) format('woff2'),
+    url(/assets/css/fonts/lato-v14-latin_latin-ext-700.ttf) format('truetype');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -76,8 +76,8 @@
   src:
     local('Lato Bold'),
     local('Lato-Bold'),
-    url(/css/fonts/lato-v14-latin-700.woff2) format('woff2'),
-    url(/css/fonts/lato-v14-latin-700.ttf) format('truetype');
+    url(/assets/css/fonts/lato-v14-latin-700.woff2) format('woff2'),
+    url(/assets/css/fonts/lato-v14-latin-700.ttf) format('truetype');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
     U+2215, U+E0FF, U+EFFD, U+F000;
@@ -91,7 +91,7 @@
   src:
     local('Quicksand Regular'),
     local('Quicksand-Regular'),
-    url(/css/fonts/Quicksand-Regular.woff2) format('woff2');
+    url(/assets/css/fonts/Quicksand-Regular.woff2) format('woff2');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
     U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -127,7 +127,7 @@ body * {
   }
 }
 #main_header a#header_logo {
-  background: url(/v2/img/WS-Logo-white.png) 0 0 no-repeat;
+  background: url(/assets/images/WS-Logo-white.png) 0 0 no-repeat;
   width: 200px;
   height: 31px;
   display: inline-block;
@@ -201,10 +201,10 @@ body * {
   position: relative;
   padding-top: 95px;
   margin-top: -95px;
-  background: url(/v2/img/BG-Gradient.png) 0 0;
+  background: url(/assets/images/BG-Gradient.png) 0 0;
 }
 #top-screenshot {
-  background: url(/v2/img/DesktopApp2@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/DesktopApp2@2x.png) 0 0 no-repeat;
   background-size: 374px 580px;
   width: 374px;
   height: 580px;
@@ -239,7 +239,7 @@ body * {
   text-decoration: none;
 }
 #cloud-blend {
-  background: url(/v2/img/WhiteGradient-UpDivider.png) 0 0 repeat-x;
+  background: url(/assets/images/WhiteGradient-UpDivider.png) 0 0 repeat-x;
   height: 34px;
   position: absolute;
   z-index: 3;
@@ -247,7 +247,7 @@ body * {
   width: 100%;
 }
 #cloud-blend-down {
-  background: url(/v2/img/WhiteGradient-DownDivider.png) 0 0 repeat-x;
+  background: url(/assets/images/WhiteGradient-DownDivider.png) 0 0 repeat-x;
   height: 34px;
   position: absolute;
   z-index: 3;
@@ -259,7 +259,7 @@ body * {
 #top-clouds {
   width: 1400px;
   height: 187px;
-  background: url(/v2/img/clouds.png) center bottom no-repeat;
+  background: url(/assets/images/clouds.png) center bottom no-repeat;
   z-index: 5;
   position: absolute;
   bottom: -1px;
@@ -322,7 +322,7 @@ body * {
   cursor: pointer;
 }
 #home-tagline {
-  background: url(/v2/img/BigTagline-BG-DesktopHD.png) 0 0 no-repeat;
+  background: url(/assets/images/BigTagline-BG-DesktopHD.png) 0 0 no-repeat;
   width: 800px;
   height: 255px;
   padding-top: 130px;
@@ -378,7 +378,7 @@ body * {
 }
 .benefit .lmore i,
 .lmore i {
-  background: url(/v2/img/Green-OpenMoreButton.png) 0 0 no-repeat;
+  background: url(/assets/images/Green-OpenMoreButton.png) 0 0 no-repeat;
   display: inline-block;
   width: 45px;
   height: 45px;
@@ -410,7 +410,7 @@ body * {
   padding-bottom: 220px;
 }
 #cloudsmars {
-  background: url(/v2/img/cloudsmars.png) center bottom no-repeat;
+  background: url(/assets/images/cloudsmars.png) center bottom no-repeat;
   height: 205px;
   width: 1400px;
   position: absolute;
@@ -425,7 +425,7 @@ body * {
   color: white;
 }
 #cloudsmoon {
-  background: url(/v2/img/cloudsmoon.png) center top no-repeat;
+  background: url(/assets/images/cloudsmoon.png) center top no-repeat;
   height: 205px;
   width: 1400px;
   position: absolute;
@@ -485,19 +485,19 @@ body * {
   vertical-align: top;
 }
 .benefit-img.tracking {
-  background: url(/v2/img/illus01.png) 0 0 no-repeat;
+  background: url(/assets/images/illus01.png) 0 0 no-repeat;
 }
 .benefit-img.unblock {
-  background: url(/v2/img/illus02.png) 0 0 no-repeat;
+  background: url(/assets/images/illus02.png) 0 0 no-repeat;
 }
 .benefit-img.beyond {
-  background: url(/v2/img/illus03.png) 0 0 no-repeat;
+  background: url(/assets/images/illus03.png) 0 0 no-repeat;
 }
 .benefit-img.rip {
-  background: url(/v2/img/illus04.png) 0 0 no-repeat;
+  background: url(/assets/images/illus04.png) 0 0 no-repeat;
 }
 .benefit-img.leak {
-  background: url(/v2/img/illus05.png) 0 0 no-repeat;
+  background: url(/assets/images/illus05.png) 0 0 no-repeat;
 }
 .benefit-text {
   display: inline-block;
@@ -688,7 +688,7 @@ body * {
 #why-start-btn {
   width: 460px;
   height: 380px;
-  background: url(/v2/img/why-illus01.png) 0 0 no-repeat;
+  background: url(/assets/images/why-illus01.png) 0 0 no-repeat;
   position: relative;
   margin: -260px auto 0px;
   z-index: 2;
@@ -699,7 +699,7 @@ body * {
   width: 237px;
   height: 62px;
 
-  background: url(/v2/img/start-tooltip.png);
+  background: url(/assets/images/start-tooltip.png);
   position: absolute;
   bottom: -26px;
   left: 50%;
@@ -765,7 +765,7 @@ body * {
   margin-bottom: 0px;
 }
 .shredder {
-  background: url(/v2/img/why-illus04.png) 0 0 no-repeat;
+  background: url(/assets/images/why-illus04.png) 0 0 no-repeat;
   width: 460px;
   height: 380px;
   display: inline-block;
@@ -774,7 +774,7 @@ body * {
 .whos-tracking {
   width: 460px;
   height: 380px;
-  background: url(/v2/img/why-illus05.png) 0 0 no-repeat;
+  background: url(/assets/images/why-illus05.png) 0 0 no-repeat;
   display: inline-block;
   vertical-align: top;
 }
@@ -826,11 +826,11 @@ body * {
   background-position: bottom !important;
 }
 .privacy-img-left {
-  background: url(/v2/img/why-illus02.png) 0 0 no-repeat;
+  background: url(/assets/images/why-illus02.png) 0 0 no-repeat;
   left: 0px;
 }
 .privacy-img-right {
-  background: url(/v2/img/why-illus03.png) 0 0 no-repeat;
+  background: url(/assets/images/why-illus03.png) 0 0 no-repeat;
   right: 0px;
 }
 .blue-bg {
@@ -893,14 +893,14 @@ body * {
   text-align: right;
 }
 #footer_logo {
-  background: url(/v2/img/Footer-Blue-Divider.png) center top no-repeat;
+  background: url(/assets/images/Footer-Blue-Divider.png) center top no-repeat;
   margin: 30px auto;
   width: 100%;
   text-align: center;
   padding-top: 30px;
 }
 #footer_logo i {
-  background: url(/v2/img/WS-Logo-Footer.png) 0 0 no-repeat;
+  background: url(/assets/images/WS-Logo-Footer.png) 0 0 no-repeat;
   width: 140px;
   height: 22px;
   display: block;
@@ -923,7 +923,7 @@ body * {
   width: 460px;
   height: 227px;
   margin: 0px auto;
-  background: url(/v2/img/download-illus01.png);
+  background: url(/assets/images/download-illus01.png);
   position: absolute;
   z-index: 3;
   bottom: -5px;
@@ -959,33 +959,33 @@ body * {
   display: inline-block;
   width: 27px;
   height: 27px;
-  background: url(/v2/img/arrow-down-white.png);
+  background: url(/assets/images/arrow-down-white.png);
   margin-left: 20px;
   vertical-align: middle;
 }
 .add-btn.android span {
-  background: url(/v2/img/android-logo-white.png) 0 0 no-repeat;
+  background: url(/assets/images/android-logo-white.png) 0 0 no-repeat;
 }
 .add-btn.ios span {
-  background: url(/v2/img/mac-logo-white.png) 0 0 no-repeat;
+  background: url(/assets/images/mac-logo-white.png) 0 0 no-repeat;
 }
 .add-btn.windows span {
-  background: url(/v2/img/win-logo-white.png) 0 0 no-repeat;
+  background: url(/assets/images/win-logo-white.png) 0 0 no-repeat;
 }
 .add-btn.mac span {
-  background: url(/v2/img/mac-logo-white.png) 0 0 no-repeat;
+  background: url(/assets/images/mac-logo-white.png) 0 0 no-repeat;
 }
 .add-btn.linux span {
-  background: url(/v2/img/linux-logo-white.png) 0 0 no-repeat;
+  background: url(/assets/images/linux-logo-white.png) 0 0 no-repeat;
 }
 .add-btn.chrome span {
-  background: url(/v2/img/chrome-logo-white.png) 0 0 no-repeat;
+  background: url(/assets/images/chrome-logo-white.png) 0 0 no-repeat;
 }
 .add-btn.firefox span {
-  background: url(/v2/img/firefox-logo-white.png) 0 0 no-repeat;
+  background: url(/assets/images/firefox-logo-white.png) 0 0 no-repeat;
 }
 .add-btn.opera span {
-  background: url(/v2/img/opera-logo-white.png) 0 0 no-repeat;
+  background: url(/assets/images/opera-logo-white.png) 0 0 no-repeat;
 }
 #res-buttons span.plus,
 .add-buttons span.plus {
@@ -1027,48 +1027,48 @@ body * {
   display: inline-block;
   width: 27px;
   height: 27px;
-  background: url(/v2/img/arrow-down-green.png);
+  background: url(/assets/images/arrow-down-green.png);
   margin-left: 10px;
   vertical-align: middle;
 }
 .download-link.android span {
-  background: url(/v2/img/android-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/android-logo-green.png) 0 0 no-repeat;
 }
 .download-link.ios span {
-  background: url(/v2/img/mac-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/mac-logo-green.png) 0 0 no-repeat;
 }
 .download-link.bb span {
-  background: url(/v2/img/bb-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/bb-logo-green.png) 0 0 no-repeat;
 }
 .download-link.windows span {
-  background: url(/v2/img/win-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/win-logo-green.png) 0 0 no-repeat;
 }
 .download-link.mac span {
-  background: url(/v2/img/mac-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/mac-logo-green.png) 0 0 no-repeat;
 }
 .download-link.chrome span {
-  background: url(/v2/img/chrome-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/chrome-logo-green.png) 0 0 no-repeat;
 }
 .download-link.firefox span {
-  background: url(/v2/img/firefox-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/firefox-logo-green.png) 0 0 no-repeat;
 }
 .download-link.opera span {
-  background: url(/v2/img/opera-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/opera-logo-green.png) 0 0 no-repeat;
 }
 .download-link.wifi span {
-  background: url(/v2/img/wifi-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/wifi-logo-green.png) 0 0 no-repeat;
 }
 .download-link.linux span {
-  background: url(/v2/img/linux-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/linux-logo-green.png) 0 0 no-repeat;
 }
 .download-link.firetv span {
-  background: url(/v2/img/firetv-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/firetv-logo-green.png) 0 0 no-repeat;
 }
 .download-link.shield span {
-  background: url(/v2/img/nvidia-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/nvidia-logo-green.png) 0 0 no-repeat;
 }
 .download-link.kodi span {
-  background: url(/v2/img/kodi-logo-green.png) 0 0 no-repeat;
+  background: url(/assets/images/kodi-logo-green.png) 0 0 no-repeat;
 }
 .downloads h1 {
   margin-bottom: 30px;
@@ -1296,7 +1296,7 @@ body * {
   margin: 0px 10px 0px 0px;
 }
 .status_page i {
-  background: url(/v2/img/gopro/small-pro-star@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/gopro/small-pro-star@2x.png) 0 0 no-repeat;
   background-size: 24px;
   display: inline-block;
   width: 24px;
@@ -1305,14 +1305,14 @@ body * {
   margin: 0px 0px 0px 5px;
 }
 .status_page i.cross {
-  background: url(/v2/img/close_button_red@2x.png) center center no-repeat;
+  background: url(/assets/images/close_button_red@2x.png) center center no-repeat;
   background-size: 24px;
   width: 24px;
   height: 24px;
   margin: 0px;
 }
 .status_page i.checkmark {
-  background: url(/v2/img/gopro/blue-checkmark@2x.png);
+  background: url(/assets/images/gopro/blue-checkmark@2x.png);
   background-size: 24px;
   width: 24px;
   height: 24px;
@@ -2850,11 +2850,11 @@ h1.box_yellow a {
   display: block;
 }
 .stars {
-  background: rgba(0, 0, 0, 0) url(/v2/img/stars_bg.png) repeat top center;
+  background: rgba(0, 0, 0, 0) url(/assets/images/stars_bg.png) repeat top center;
   z-index: 0;
 }
 .twinkling {
-  background: transparent url(/v2/img/bg-twinkle.png) repeat top center;
+  background: transparent url(/assets/images/bg-twinkle.png) repeat top center;
   z-index: 1;
   -moz-animation: move-twink-back 900s linear infinite;
   -ms-animation: move-twink-back 900s linear infinite;
@@ -2863,7 +2863,7 @@ h1.box_yellow a {
   animation: move-twink-back 900s linear infinite;
 }
 .twinkling-blue {
-  background: transparent url(/v2/img/twinkling-blue.png) repeat top center;
+  background: transparent url(/assets/images/twinkling-blue.png) repeat top center;
   z-index: 1;
   -moz-animation: move-twink-back-blue 200s linear infinite;
   -ms-animation: move-twink-back-blue 200s linear infinite;
@@ -3145,154 +3145,154 @@ i.top-tooltip {
   (-webkit-min-device-pixel-ratio: 1.5),
   (-o-min-device-pixel-ratio: 3/2) {
   #main_header a#header_logo {
-    background: url(/v2/img/WS-Logo-white@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/WS-Logo-white@2x.png) 0 0 no-repeat;
     background-size: 200px 31px;
   }
   .home-top {
-    background: url(/v2/img/BG-Gradient@2x.png) 0 0;
+    background: url(/assets/images/BG-Gradient@2x.png) 0 0;
     background-size: auto 800px;
   }
   #top-screenshot {
-    background: url(/v2/img/DesktopApp2@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/DesktopApp2@2x.png) 0 0 no-repeat;
     background-size: 374px 580px;
   }
   #cloud-blend {
-    background: url(/v2/img/WhiteGradient-UpDivider@2x.png) 0 0 repeat-x;
+    background: url(/assets/images/WhiteGradient-UpDivider@2x.png) 0 0 repeat-x;
     background-size: auto 34px;
   }
   #cloud-blend-down {
-    background: url(/v2/img/WhiteGradient-DownDivider@2x.png) 0 0 repeat-x;
+    background: url(/assets/images/WhiteGradient-DownDivider@2x.png) 0 0 repeat-x;
     background-size: auto 34px;
   }
   #top-clouds {
-    background: url(/v2/img/clouds@2x.png) center bottom no-repeat;
+    background: url(/assets/images/clouds@2x.png) center bottom no-repeat;
     background-size: 1400px 187px;
   }
   #home-tagline {
-    background: url(/v2/img/BigTagline-BG-DesktopHD@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/BigTagline-BG-DesktopHD@2x.png) 0 0 no-repeat;
     background-size: 800px 385px;
   }
   .benefit .lmore i,
   .lmore i {
-    background: url(/v2/img/Green-OpenMoreButton@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/Green-OpenMoreButton@2x.png) 0 0 no-repeat;
     background-size: 45px 45px;
   }
   #cloudsmars {
-    background: url(/v2/img/cloudsmars@2x.png) center bottom no-repeat;
+    background: url(/assets/images/cloudsmars@2x.png) center bottom no-repeat;
     background-size: 1400px 205px;
   }
   #cloudsmoon {
-    background: url(/v2/img/cloudsmoon@2x.png) center top no-repeat;
+    background: url(/assets/images/cloudsmoon@2x.png) center top no-repeat;
     background-size: 1400px 205px;
   }
   .benefit-img.tracking {
-    background: url(/v2/img/illus01@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/illus01@2x.png) 0 0 no-repeat;
     background-size: 460px 380px;
   }
   .benefit-img.unblock {
-    background: url(/v2/img/illus02@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/illus02@2x.png) 0 0 no-repeat;
     background-size: 460px 380px;
   }
   .benefit-img.beyond {
-    background: url(/v2/img/illus03@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/illus03@2x.png) 0 0 no-repeat;
     background-size: 460px 380px;
   }
   .benefit-img.rip {
-    background: url(/v2/img/illus04@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/illus04@2x.png) 0 0 no-repeat;
     background-size: 460px 380px;
   }
   .benefit-img.leak {
-    background: url(/v2/img/illus05@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/illus05@2x.png) 0 0 no-repeat;
     background-size: 460px 380px;
   }
   #footer_logo {
-    background: url(/v2/img/Footer-Blue-Divider@2x.png) center top no-repeat;
+    background: url(/assets/images/Footer-Blue-Divider@2x.png) center top no-repeat;
     background-size: 520px;
   }
   #footer_logo i {
-    background: url(/v2/img/WS-Logo-Footer@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/WS-Logo-Footer@2x.png) 0 0 no-repeat;
     background-size: 140px 22px;
   }
   .download-link i {
-    background: url(/v2/img/arrow-down-green@2x.png);
+    background: url(/assets/images/arrow-down-green@2x.png);
     background-size: 27px;
   }
   .download-link span {
     background-size: 40px !important;
   }
   .download-link.android span {
-    background: url(/v2/img/android-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/android-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.ios span {
-    background: url(/v2/img/mac-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/mac-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.bb span {
-    background: url(/v2/img/bb-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/bb-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.windows span {
-    background: url(/v2/img/win-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/win-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.mac span {
-    background: url(/v2/img/mac-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/mac-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.chrome span {
-    background: url(/v2/img/chrome-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/chrome-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.firefox span {
-    background: url(/v2/img/firefox-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/firefox-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.opera span {
-    background: url(/v2/img/opera-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/opera-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.wifi span {
-    background: url(/v2/img/wifi-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/wifi-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.linux span {
-    background: url(/v2/img/linux-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/linux-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.firetv span {
-    background: url(/v2/img/firetv-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/firetv-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.shield span {
-    background: url(/v2/img/nvidia-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/nvidia-logo-green@2x.png) 0 0 no-repeat;
   }
   .download-link.kodi span {
-    background: url(/v2/img/kodi-logo-green@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/kodi-logo-green@2x.png) 0 0 no-repeat;
   }
   #download-illus {
-    background: url(/v2/img/download-illus01@2x.png);
+    background: url(/assets/images/download-illus01@2x.png);
     background-size: 460px 227px;
   }
   #res-buttons .add-btn i {
-    background: url(/v2/img/arrow-down-white@2x.png);
+    background: url(/assets/images/arrow-down-white@2x.png);
     background-size: 27px;
   }
   #res-buttons .add-btn span {
     background-size: 40px !important;
   }
   #res-buttons .add-btn.android span {
-    background: url(/v2/img/android-logo-white@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/android-logo-white@2x.png) 0 0 no-repeat;
   }
   #res-buttons .add-btn.ios span {
-    background: url(/v2/img/mac-logo-white@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/mac-logo-white@2x.png) 0 0 no-repeat;
   }
   #res-buttons .add-btn.windows span {
-    background: url(/v2/img/win-logo-white@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/win-logo-white@2x.png) 0 0 no-repeat;
   }
   #res-buttons .add-btn.mac span {
-    background: url(/v2/img/mac-logo-white@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/mac-logo-white@2x.png) 0 0 no-repeat;
   }
   #res-buttons .add-btn.linux span {
-    background: url(/v2/img/linux-logo-white@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/linux-logo-white@2x.png) 0 0 no-repeat;
   }
   #res-buttons .add-btn.chrome span {
-    background: url(/v2/img/chrome-logo-white@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/chrome-logo-white@2x.png) 0 0 no-repeat;
   }
   #res-buttons .add-btn.firefox span {
-    background: url(/v2/img/firefox-logo-white@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/firefox-logo-white@2x.png) 0 0 no-repeat;
   }
   #res-buttons .add-btn.opera span {
-    background: url(/v2/img/opera-logo-white@2x.png) 0 0 no-repeat;
+    background: url(/assets/images/opera-logo-white@2x.png) 0 0 no-repeat;
   }
 }
 
@@ -3473,7 +3473,7 @@ i.top-tooltip {
     width: 490px;
   }
   #top-screenshot {
-    background: url(/v2/img/MobileApp.png) 0 0 no-repeat;
+    background: url(/assets/images/MobileApp.png) 0 0 no-repeat;
     background-size: 374px;
     height: 700px;
     bottom: -740px;

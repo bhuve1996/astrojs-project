@@ -8,7 +8,7 @@
   font-size: 48px;
 }
 .upgrade_heading h1 i {
-  background: url(/v2/img/star@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/star@2x.png) 0 0 no-repeat;
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -27,7 +27,7 @@
   color: #4a75c1;
 }
 .upgrade_heading ul li i {
-  background: url(/v2/img/star@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/star@2x.png) 0 0 no-repeat;
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -113,7 +113,7 @@ p: has(.premium-upgrade) {
   width: 343px;
   height: 301px;
   position: absolute;
-  background: url(/v2/img/pro_illustration@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/pro_illustration@2x.png) 0 0 no-repeat;
   background-size: 343px 301px;
   top: 35px;
   right: 65px;
@@ -162,7 +162,7 @@ p: has(.premium-upgrade) {
 .payment_methods #bitpay span {
   width: 103px;
   height: 22px;
-  background: url(/v2/img/bitcoin_logo@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/bitcoin_logo@2x.png) 0 0 no-repeat;
   background-size: 103px 22px;
   display: inline-block;
   vertical-align: middle;
@@ -172,7 +172,7 @@ p: has(.premium-upgrade) {
 .payment_methods #paypal span {
   width: 89px;
   height: 25px;
-  background: url(/v2/img/paypal_logo@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/paypal_logo@2x.png) 0 0 no-repeat;
   background-size: 89px 25px;
   display: inline-block;
   vertical-align: middle;
@@ -182,7 +182,7 @@ p: has(.premium-upgrade) {
 .payment_methods #credit span {
   width: 116px;
   height: 21px;
-  background: url(/v2/img/cc_logos@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/cc_logos@2x.png) 0 0 no-repeat;
   background-size: 116px 21px;
   display: inline-block;
   vertical-align: middle;
@@ -192,7 +192,7 @@ p: has(.premium-upgrade) {
 .payment_methods #paywall span {
   width: 116px;
   height: 21px;
-  background: url(/v2/img/paymentwall_logo.png) center center no-repeat;
+  background: url(/assets/images/paymentwall_logo.png) center center no-repeat;
   background-size: 116px 16px;
   display: inline-block;
   vertical-align: middle;
@@ -242,7 +242,7 @@ p: has(.premium-upgrade) {
   font-weight: 600;
 }
 .plan_compare i {
-  background: url(/v2/img/star@2x.png) 0 0 no-repeat;
+  background: url(/assets/images/star@2x.png) 0 0 no-repeat;
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -404,13 +404,13 @@ p: has(.premium-upgrade) {
   box-shadow: 0px 0px 4px 0px #ccc;
 }
 .locations_table i.cross {
-  background: url(/v2/img/close_button_red@2x.png) center center no-repeat;
+  background: url(/assets/images/close_button_red@2x.png) center center no-repeat;
   background-size: 26px;
   width: 30px;
   height: 30px;
 }
 .locations_table i.checkmark {
-  background: url(/v2/img/gopro/blue-checkmark.png);
+  background: url(/assets/images/gopro/blue-checkmark.png);
   width: 24px;
   height: 24px;
 }
@@ -673,7 +673,7 @@ i.cflag.GH {
   (-webkit-min-device-pixel-ratio: 1.5),
   (-o-min-device-pixel-ratio: 3/2) {
   .locations_table i.checkmark {
-    background: url(/v2/img/gopro/blue-checkmark@2x.png);
+    background: url(/assets/images/gopro/blue-checkmark@2x.png);
     background-size: 24px;
   }
 }
