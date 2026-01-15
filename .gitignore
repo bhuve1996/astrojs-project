@@ -8,10 +8,6 @@ dist/
 .astro/
 .output/
 
-# Scraped data (generated content - too large for git)
-scraped-data/
-public/assets/
-
 # Packaged output
 ../website-cloner-ready/
 ../website-cloner-ready.zip
