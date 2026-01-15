@@ -36,7 +36,7 @@ A static website built with Astro.js, recreated from the Windscribe VPN website.
 
 - ✅ **Build**: PASSING - All pages build successfully
 - ✅ **Static Generation**: 12 pages generated correctly
-- ⚠️ **Browser Testing**: Needs manual testing (see TESTING.md)
+- ⚠️ **Browser Testing**: Needs manual testing (see Testing section below)
 - ⚠️ **Interactive Features**: JavaScript loaded, needs browser verification
 
 ## 🚀 Getting Started
@@ -130,7 +130,7 @@ All site configuration is centralized in `src/config/site.config.ts`:
 - Domain settings
 - Exclusion rules
 
-See `CONFIG_GUIDE.md` for detailed configuration options.
+All configuration is documented in the `site.config.ts` file with inline comments.
 
 ## 📝 Next Steps
 
@@ -170,14 +170,20 @@ See `CONFIG_GUIDE.md` for detailed configuration options.
    - Add keyboard navigation
 
 4. **Testing & Optimization**
-   - Complete browser testing (see TESTING.md)
+   - Complete browser testing (see Testing section)
    - Optimize images and assets
    - Performance testing
    - Cross-browser testing
 
 ## 🧪 Testing
 
-See `TESTING.md` for detailed testing results and checklist.
+### Build Testing
+
+**Status:** ✅ PASSING
+
+- Build time: ~1.6s
+- Pages generated: 12 pages
+- Output: `/dist/` directory
 
 **Quick Test:**
 
@@ -185,6 +191,37 @@ See `TESTING.md` for detailed testing results and checklist.
 npm run build    # ✅ Should pass
 npm run preview  # Open in browser to test
 ```
+
+### Browser Testing Checklist
+
+**Working Features:**
+
+- ✅ Static site generation (all 10 pages)
+- ✅ Dynamic routing (`[...slug].astro`)
+- ✅ CSS files loading
+- ✅ HTML processing and image URL conversion
+- ✅ SEO metadata (titles, descriptions, Open Graph)
+- ✅ Code quality tools (Prettier, ESLint, Husky)
+
+**Needs Browser Testing:**
+
+- ⚠️ Interactive JavaScript (modals, dropdowns, forms)
+- ⚠️ Image loading verification
+- ⚠️ Page navigation and links
+- ⚠️ Responsive design (mobile/tablet/desktop)
+- ⚠️ Form validation functionality
+
+**How to Test:**
+
+1. Run `npm run build` (should pass)
+2. Run `npm run preview` or `npm run dev`
+3. Open in browser and test:
+   - Modals (`.cd-popup` elements)
+   - Dropdowns (`.dropdown` elements)
+   - Forms with `data-validate` attribute
+   - All images load correctly
+   - Navigation between pages
+   - Check browser console for errors
 
 ### Future Enhancements
 
@@ -206,8 +243,7 @@ npm run preview  # Open in browser to test
 
 ## 📚 Documentation
 
-- `TESTING.md` - Testing results and checklist
-- `README.md` - This file (main documentation)
+- `README.md` - Complete project documentation (this file)
 
 ## 🤝 Contributing
 
