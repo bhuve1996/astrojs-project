@@ -262,6 +262,8 @@ export async function getStaticPaths() {
 ## Notes
 
 - Scraping respects robots.txt (can be enhanced)
-- Limited to 10 pages by default (configurable)
+- Limited to 50 pages by default (configurable in scrape-website.js)
 - Some dynamic content may not be captured
 - JavaScript-heavy sites may need additional handling
+- Metadata and SEO tags are fully extracted and preserved
+- Favicon is automatically detected and downloaded

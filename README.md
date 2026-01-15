@@ -36,8 +36,6 @@ Visit `http://localhost:4321` to see the cloned website.
 | `npm run dev` | Start development server |
 | `npm run package` | Package project for distribution (creates ZIP and folder) |
 | `npm run clear` | Clear all scraped data (asks for confirmation) |
-| `npm run remove-deps` | Remove node_modules and package-lock.json (asks for confirmation) |
-| `npm run clean-all` | Remove everything: dependencies, scraped data, build files (asks for confirmation) |
 
 ## 📦 Package Project for Distribution
 
@@ -87,9 +85,7 @@ This will:
 
 **Note:** The packaged version is ready to build/run. To scrape a NEW website, use the original project with scraping dependencies.
 
-## 🧹 Cleanup Scripts
-
-### Clear Scraped Data
+## 🧹 Clear Scraped Data
 
 Clear all scraped data, assets, and build files:
 
@@ -105,39 +101,6 @@ This will:
 - Keep directory structure intact
 
 **⚠️ Note:** This script asks for confirmation before deleting. Type `yes` to proceed.
-
-### Remove Dependencies
-
-Remove `node_modules/` and `package-lock.json`:
-
-```bash
-npm run remove-deps
-```
-
-Useful for:
-- Reducing project size before committing
-- Cleaning up before moving the project
-- Resolving dependency issues
-
-**⚠️ Note:** You'll need to run `npm install` again after using this script.
-
-### Clean All
-
-Remove everything (dependencies, scraped data, build files):
-
-```bash
-npm run clean-all
-```
-
-This will remove:
-- `node_modules/`
-- `package-lock.json`
-- `scraped-data/`
-- `public/assets/`
-- `dist/`
-- `.astro/`
-
-**⚠️ Note:** This is a complete cleanup. You'll need to reinstall dependencies and scrape again.
 
 ## 📋 What to Do Next
 
