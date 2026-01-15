@@ -1,0 +1,80 @@
+---
+import { getWebsiteData } from '../utils/loadWebsiteData';
+import { siteConfig } from '../config/site.config';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+  cssFiles?: string[];
+  jsFiles?: string[];
+}
+
+const { 
+  title = "Windscribe",
+  description = "Windscribe VPN",
+  ogImage,
+  canonical,
+  cssFiles = [],
+  jsFiles = []
+} = Astro.props;
+
+const websiteData = getWebsiteData();
+// Use config-driven asset paths
+const defaultCssFiles = websiteData.assets.css?.map((css) => {
+  const path = css.localPath || css.filename || css.url.split('/').pop() || '';
+  if (!path) return '';
+  // Use config path, fallback to default behavior
+  return path.startsWith('assets/') ? `/${path}` : `${siteConfig.assets.cssPath}/${path}`;
+}).filter(Boolean) || [];
+const defaultJsFiles = websiteData.assets.js?.map((js) => {
+  const path = js.localPath || js.filename || js.url.split('/').pop() || '';
+  if (!path) return '';
+  // Use config path, fallback to default behavior
+  return path.startsWith('assets/') ? `/${path}` : `${siteConfig.assets.jsPath}/${path}`;
+}).filter(Boolean) || [];
+
+const allCssFiles = [...defaultCssFiles, ...cssFiles];
+const allJsFiles = [...defaultJsFiles, ...jsFiles];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Open Graph / Facebook -->
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    
+    {canonical && <link rel="canonical" href={canonical} />}
+    
+    <title>{title}</title>
+    
+    <!-- Import CSS files from assets -->
+    {allCssFiles.map((css) => (
+      <link rel="stylesheet" href={css} />
+    ))}
+  </head>
+  <body>
+    <slot />
+    
+    <!-- Import JS files from assets -->
+    {allJsFiles.map((js) => (
+      <script src={js}></script>
+    ))}
+  </body>
+</html>
