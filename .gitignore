@@ -8,12 +8,6 @@ dist/
 .astro/
 .output/
 
-# Packaged output
-../website-cloner-ready/
-../website-cloner-ready.zip
-website-cloner-ready/
-website-cloner-ready.zip
-
 # Environment variables
 .env
 .env.local
