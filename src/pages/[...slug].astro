@@ -58,19 +58,42 @@ if (!path || isExcludedPath(`/${path}`)) {
 
 // Find the page by matching the URL
 const allPages = getAllPages();
+
+// Normalize path - remove leading slash if present, ensure it matches routing format
+let normalizedPath = path.startsWith('/') ? path.slice(1) : path;
+
 let page = allPages.find(p => {
   const pagePath = p.url
     .replace(/^https?:\/\//, '')
     .replace(/\/$/, '')
     .split('?')[0]
     .split('#')[0];
+
   // Exact match
-  if (pagePath === path) return true;
+  if (pagePath === normalizedPath) return true;
+
+  // Match without domain prefix (e.g., "download" matches "windscribe.com/download")
+  const pathWithoutDomain = normalizedPath.replace(/^windscribe\.com\/?/, '');
+  const pagePathWithoutDomain = pagePath.replace(/^windscribe\.com\/?/, '');
+
+  // Direct match without domain
+  if (pathWithoutDomain && pagePathWithoutDomain === pathWithoutDomain) return true;
+
+  // Match if page path ends with the requested path
+  if (pathWithoutDomain && pagePath.endsWith(`/${pathWithoutDomain}`)) return true;
+
+  // Match if requested path ends with page path
+  if (pagePathWithoutDomain && normalizedPath.endsWith(`/${pagePathWithoutDomain}`)) return true;
+
+  // Match if both are just the segment (e.g., "download" matches "windscribe.com/download")
+  if (pathWithoutDomain && pagePath === `windscribe.com/${pathWithoutDomain}`) return true;
+
   // Path includes page path (e.g., "windscribe.com/download" matches "windscribe.com/download?cpid=features")
-  if (pagePath.includes(path) || path.includes(pagePath)) return true;
+  if (pagePath.includes(normalizedPath) || normalizedPath.includes(pagePath)) return true;
+
   // Handle root domain
   if (
-    path === 'windscribe.com' &&
+    (normalizedPath === 'windscribe.com' || normalizedPath === '') &&
     (pagePath === 'windscribe.com' || pagePath === siteConfig.baseDomain)
   )
     return true;

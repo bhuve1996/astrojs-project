@@ -302,23 +302,60 @@ export function processPageHtml(page: PageData): string {
   // Fix any /images/ references to /assets/images/
   html = html.replace(/src=["'](\/images\/[^"']+)["']/g, 'src="/assets$1"');
 
-  // Fix internal links to use relative paths (remove external domains)
-  // Match: href="https://windscribe.com/path" -> href="/path"
-  html = html.replace(/href=["']https?:\/\/(?:www\.)?windscribe\.com(\/[^"']*)["']/g, 'href="$1"');
+  // Fix internal links to match routing format
+  // Routing expects: windscribe.com/path (no leading slash in slug)
+  // So: href="https://windscribe.com/path" -> href="/windscribe.com/path"
+  // And: href="/path" -> href="/windscribe.com/path" (if it's a main site path)
 
-  // Fix other windscribe subdomain links
+  // First, convert absolute windscribe.com URLs to relative with domain prefix
   html = html.replace(
-    /href=["']https?:\/\/(?:[^.]+\.)?windscribe\.com(\/[^"']*)["']/g,
-    'href="$1"'
+    /href=["']https?:\/\/(?:www\.)?windscribe\.com(\/[^"']*)["']/g,
+    (match, path) => {
+      // Remove leading slash and query/hash for routing
+      const cleanPath = path.replace(/^\/+/, '').split('?')[0].split('#')[0];
+      // Handle root path
+      if (!cleanPath || cleanPath === '') {
+        return 'href="/windscribe.com"';
+      }
+      // Convert to routing format: /windscribe.com/path
+      return `href="/windscribe.com/${cleanPath}"`;
+    }
   );
 
-  // Fix any absolute URLs to same domain (keep relative)
-  html = html.replace(/href=["']https?:\/\/[^/]+(\/[^"']*)["']/g, (match, path) => {
-    // Only convert if it's a windscribe domain
-    if (match.includes('windscribe.com')) {
-      return `href="${path}"`;
+  // Fix other windscribe subdomain links (keep as relative to main domain)
+  html = html.replace(
+    /href=["']https?:\/\/(?:[^.]+\.)?windscribe\.com(\/[^"']*)["']/g,
+    (match, path) => {
+      const cleanPath = path.replace(/^\/+/, '').split('?')[0].split('#')[0];
+      if (!cleanPath || cleanPath === '') {
+        return 'href="/windscribe.com"';
+      }
+      return `href="/windscribe.com/${cleanPath}"`;
     }
-    return match; // Keep external links as-is
+  );
+
+  // Fix relative links that start with / (but not /assets, /_next, etc.)
+  // Convert /download -> /windscribe.com/download
+  html = html.replace(/href=["']\/([^"']*)["']/g, (match, path) => {
+    // Handle root link
+    if (!path || path === '') {
+      return 'href="/windscribe.com"';
+    }
+
+    // Don't modify if it's an asset path or special path
+    if (
+      path.startsWith('assets/') ||
+      path.startsWith('_next/') ||
+      path.startsWith('_/') ||
+      path.startsWith('.well-known/') ||
+      path.startsWith('favicon') ||
+      path.startsWith('windscribe.com/') || // Already in correct format
+      path.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|css|js|woff|woff2|ttf|eot|json|xml)$/i)
+    ) {
+      return match; // Keep as-is
+    }
+    // Convert to routing format
+    return `href="/windscribe.com/${path}"`;
   });
 
   // Keep onclick handlers - interactive.js will convert them to event listeners
