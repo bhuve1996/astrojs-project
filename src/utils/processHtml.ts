@@ -226,8 +226,66 @@ export function processPageHtml(page: PageData): string {
 
   let html = page.renderedHTML;
 
+  // Remove preload links for missing fonts (Next.js font preloads)
+  html = html.replace(/<link[^>]*rel=["']preload["'][^>]*href=["'][^"']*\.woff2["'][^>]*>/gi, '');
+
+  // Remove preload links for missing images (Next.js image preloads)
+  html = html.replace(/<link[^>]*rel=["']preload["'][^>]*as=["']image["'][^>]*>/gi, '');
+
+  // Remove Matomo/Piwik tracking code (not needed for static site)
+  html = html.replace(/var\s+_paq\s*=\s*_paq\s*\|\|\s*\[\];/g, '');
+  html = html.replace(/_paq\.push\([^)]+\);/g, '');
+  html = html.replace(/<script[^>]*matomo[^>]*>[\s\S]*?<\/script>/gi, '');
+  html = html.replace(/<script[^>]*piwik[^>]*>[\s\S]*?<\/script>/gi, '');
+
+  // Remove references to missing Next.js JS bundles
+  html = html.replace(
+    /<script[^>]*src=["'][^"']*\/(?:assets|_next)\/js\/[^"']*\.js["'][^>]*><\/script>/gi,
+    ''
+  );
+
+  // Remove references to missing legacy JS files
+  const missingJsFiles = [
+    'jquery-1.11.3.min.js',
+    'modernizr-2.8.3.min.js',
+    'clipboard.js',
+    'plugins.js',
+    'simplebar.js',
+    'checkout.js',
+    'stripe-form.js',
+    'garry-version-selector.js',
+  ];
+  missingJsFiles.forEach(file => {
+    html = html.replace(
+      new RegExp(
+        `<script[^>]*src=["'][^"']*${file.replace(/\./g, '\\.')}["'][^>]*></script>`,
+        'gi'
+      ),
+      ''
+    );
+  });
+
+  // Remove references to missing CSS files (hashed Next.js CSS)
+  html = html.replace(
+    /<link[^>]*rel=["']stylesheet["'][^>]*href=["'][^"']*\/(?:assets|_next)\/[^"']*\.css["'][^>]*>/gi,
+    match => {
+      // Only remove if it's a hashed filename (contains hex hash)
+      if (match.match(/[a-f0-9]{8,}\.css/i)) {
+        return '';
+      }
+      return match; // Keep other CSS references
+    }
+  );
+
   // Fix image URLs (Next.js image optimization URLs)
   html = processHtmlImages(html);
+
+  // Remove invalid image optimization endpoints
+  html = html.replace(/\/assets\/image\?[^"'\s]+/g, '');
+  html = html.replace(/\/_next\/image\?[^"'\s]+/g, '');
+
+  // Fix any remaining /_next/static/media/ font references (remove them - fonts don't exist)
+  html = html.replace(/url\(["']?\/_next\/static\/media\/[^"')]+\.woff2["']?\)/gi, '');
 
   // Fix any remaining /_next/ references (Next.js artifacts)
   html = html.replace(/\/_next\//g, '/assets/');

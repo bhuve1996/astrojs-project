@@ -12,6 +12,7 @@
     "format:check": "prettier --check \"**/*.{js,ts,jsx,tsx,json,css,scss,md,astro}\"",
     "fix:css": "node scripts/fix-css-syntax.js",
     "fix:css-paths": "node scripts/fix-css-asset-paths.js",
+    "fix:css-fonts": "node scripts/fix-css-font-paths.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.astro",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix",
     "prepare": "husky install",
