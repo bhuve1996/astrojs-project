@@ -68,12 +68,8 @@ export const siteConfig: SiteConfig = {
   baseDomain: 'windscribe.com',
   
   // URL replacements for HTML content
+  // Note: Don't replace /_next/image here - it's handled by processHtmlImages()
   urlReplacements: [
-    {
-      pattern: '/_next/image',
-      replacement: '', // Will be replaced with actual image paths via mapping
-      useRegex: false,
-    },
     {
       pattern: /\/_next\/static\/(chunks|css|media)\//g,
       replacement: '/assets/',

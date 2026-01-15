@@ -48,20 +48,8 @@ export function processHtmlImages(html: string): string {
   
   const imageMap = createImageMap();
   
-  // Apply config-driven URL replacements first
-  for (const replacement of siteConfig.urlReplacements) {
-    if (replacement.useRegex && replacement.pattern instanceof RegExp) {
-      if (typeof replacement.replacement === 'string') {
-        html = html.replace(replacement.pattern, replacement.replacement);
-      } else if (typeof replacement.replacement === 'function') {
-        html = html.replace(replacement.pattern, replacement.replacement);
-      }
-    } else if (typeof replacement.pattern === 'string') {
-      if (typeof replacement.replacement === 'string') {
-        html = html.split(replacement.pattern).join(replacement.replacement);
-      }
-    }
-  }
+  // Process images FIRST before other URL replacements
+  // This ensures /_next/image?url=... patterns are handled correctly
   
   // Helper function to find and replace image URL
   const replaceImageUrl = (encodedPath: string): string | null => {
@@ -113,17 +101,33 @@ export function processHtmlImages(html: string): string {
     return null;
   };
   
-  // Replace Next.js image URLs in src attributes (handle both single and double quotes, and HTML entities like &amp;)
+  // Replace Next.js image URLs in src attributes
+  // Handle both single and double quotes, and HTML entities like &amp;
+  // Pattern: src=".../_next/image?url=ENCODED_PATH&params..." or src='...'
   html = html.replace(
-    /src=(["'])\/_next\/image\?url=([^"'\s&]+)(?:[^"']*)?\1/g,
+    /src=(["'])\/_next\/image\?url=([^"'\s&]+(?:&amp;[^"'\s&]+)*?)(?:&amp;[^"']*)?\1/g,
     (match, quote, encodedPath) => {
       // Decode HTML entities in the encoded path
-      const decodedPath = encodedPath.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+      let decodedPath = encodedPath.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
       const localPath = replaceImageUrl(decodedPath);
       if (localPath) {
         return `src=${quote}${localPath}${quote}`;
       }
       return match; // Return original if no match found
+    }
+  );
+  
+  // Also handle cases with trailing quote (different pattern)
+  html = html.replace(
+    /src=(["'])\/_next\/image\?url=([^"'\s&]+(?:&amp;[^"'\s&]+)*?)(["'])/g,
+    (match, quote1, encodedPath, quote2) => {
+      // Decode HTML entities
+      let decodedPath = encodedPath.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+      const localPath = replaceImageUrl(decodedPath);
+      if (localPath) {
+        return `src=${quote1}${localPath}${quote2}`;
+      }
+      return match;
     }
   );
   
@@ -164,6 +168,24 @@ export function processHtmlImages(html: string): string {
   // Remove Next.js-specific image attributes
   html = html.replace(/\s+data-nimg="[^"]*"/g, '');
   html = html.replace(/\s+style="color:transparent"/g, '');
+  
+  // Apply config-driven URL replacements AFTER image processing
+  // This handles other Next.js paths that don't need special image processing
+  for (const replacement of siteConfig.urlReplacements) {
+    if (replacement.useRegex && replacement.pattern instanceof RegExp) {
+      if (typeof replacement.replacement === 'string') {
+        html = html.replace(replacement.pattern, replacement.replacement);
+      } else if (typeof replacement.replacement === 'function') {
+        html = html.replace(replacement.pattern, replacement.replacement);
+      }
+    } else if (typeof replacement.pattern === 'string') {
+      if (typeof replacement.replacement === 'string') {
+        // Replace all occurrences of the pattern
+        const regex = new RegExp(replacement.pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+        html = html.replace(regex, replacement.replacement);
+      }
+    }
+  }
   
   return html;
 }
