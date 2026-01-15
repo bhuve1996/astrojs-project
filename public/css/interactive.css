@@ -235,23 +235,18 @@ html {
   position: relative;
 }
 
-.header-menu .sub-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  min-width: 150px;
-  z-index: 1000;
-  padding: 0.5rem 0;
-  margin-top: 0.25rem;
+/* Ensure header-menu sub-menus work with both CSS hover and JS */
+.header-menu .sub-menu.is-open,
+.header-menu .sub-menu.is-visible,
+.header-menu ul li:hover .sub-menu {
+  display: block;
 }
 
-/* Also support generic li:has(.sub-menu) for other menus */
-li:has(.sub-menu) {
-  position: relative;
+/* Also support generic li:has(.sub-menu) for other menus (if browser supports :has) */
+@supports selector(:has(*)) {
+  li:has(.sub-menu) {
+    position: relative;
+  }
 }
 
 .nav-menu-btn + .sub-menu,

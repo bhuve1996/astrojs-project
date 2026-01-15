@@ -712,7 +712,11 @@
     const navMenuBtns = safeQuerySelectorAll(selectors.navMenuBtn || '.nav-menu-btn');
 
     // Also find menu items with sub-menus (li elements containing sub-menu)
-    const menuItemsWithSubMenus = safeQuerySelectorAll('li:has(.sub-menu), li:has(ul.sub-menu)');
+    // Use querySelectorAll and filter since :has() might not be supported everywhere
+    const allLis = safeQuerySelectorAll('li');
+    const menuItemsWithSubMenus = Array.from(allLis).filter(li => {
+      return li.querySelector('.sub-menu') !== null;
+    });
 
     // Combine nav-menu-btn and menu items with sub-menus
     const allDropdownTriggers = [...navMenuBtns, ...menuItemsWithSubMenus];
